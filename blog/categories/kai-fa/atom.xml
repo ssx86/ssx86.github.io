@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 开发 | ssx86's Blog]]></title>
+  <link href="http://blog.ssx86.me/blog/categories/kai-fa/atom.xml" rel="self"/>
+  <link href="http://blog.ssx86.me/"/>
+  <updated>2015-07-21T03:02:07+00:00</updated>
+  <id>http://blog.ssx86.me/</id>
+  <author>
+    <name><![CDATA[ssx86]]></name>
+    <email><![CDATA[zss2366@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[2013 GDG北京编程语言沙龙活动后记]]></title>
+    <link href="http://blog.ssx86.me/blog/2013/05/07/gbg-beijing/"/>
+    <updated>2013-05-07T03:45:21+00:00</updated>
+    <id>http://blog.ssx86.me/blog/2013/05/07/gbg-beijing</id>
+    <content type="html"><![CDATA[<p>北京编程语言沙龙</p>
+
+<p>再不写就忘记了。</p>
+
+<p>上次github的drinkup活动上巧遇@连城404,经他介绍知道有这么个活动。说实话确实第一次听说。连城在活动上会有讲课，所以特意过来。还带了本他翻译的书来要签名。啊哈哈，好屌丝。</p>
+
+<p>沙龙分三部分，主题分别是Go, Erlang, Dart语言.会后也有不少朋友写了课堂笔记放在博客上，笔记我就不总结了反正大家发的都一样都是从ppt上抄的。挑一些自己比较感兴趣的地方谈一下吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Start Cocos2d-x]]></title>
+    <link href="http://blog.ssx86.me/blog/2013/04/30/start-cocos2d-x/"/>
+    <updated>2013-04-30T03:45:21+00:00</updated>
+    <id>http://blog.ssx86.me/blog/2013/04/30/start-cocos2d-x</id>
+    <content type="html"><![CDATA[<p>启动Cocos2d-x游戏开发计划</p>
+
+<p>（本来也不是写技术博客~所以不小心看到此篇文章的Cocos2d-x初学者可以直接绕行了）</p>
+
+<p>2012年创业.</p>
+
+<p>2012年刚辞职。</p>
+
+<p>身为C++（准确说是MFC）程序员的我，因为习惯了用C++代码一次又一次的写socket，一度认为网站的服务器端是用C++代码创建socket监听80端口并且分析发送过来的字符串，按照http协议解析。。等等。。这样产生的。因此，我对写网站服务器端的人都有无比的崇敬，在内心中发自肺腑的认为他们太特么蛋疼了。</p>
+
+<p>创业开始的第一个星期，owen列了一个单子，让我一个星期内学习到能上手写代码的程度。记得这个单子的内容包括javascript、backbone、jquery、mongodb、ruby、sinatra。名字我都没几个听说过的。。但是连续奋战了一个星期之后，果然就真的用起来了。而且我也第一次知道原来写网站其实不用管socket。。。</p>
+
+<p>创业过程中还是很有意思的。一年时间里，从ruby sinatra 到 php，又到 ruby on rails， 再到最后的Object-C，内容之充实，学习效率之高，应该是我从小到大的巅峰了吧。而且亏了这种激进的团队风格，让我从国企的最炫mfc风中逃离出来，逐渐触及了一些装逼的前沿技术。</p>
+
+<p>今年，机会又来了。owen说想做游戏。我正好前段时间发现了cocos2d-x这个东西，跟他一说，那真是满意至极，实用主义者的理由：直接跨IOS、android、wp，牛逼，就是它了~</p>
+
+<p>讨论完了具体的策划，后台又提起了erlang，短暂研究之后决定，虽然没有一个人会这么个玩意儿，但是鉴于它也很牛逼并且属于装逼类型的，就用它做后台了。</p>
+
+<p>这么一来，跟着几个月内就会慢慢恢复创业阶段的忙碌。很期待。。。</p>
+
+<p>技术，你不去尝试，就永远不可能学会。趁着还年轻，还尝试得起，再激进一次吧~</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Erlang]]></title>
+    <link href="http://blog.ssx86.me/blog/2013/04/26/why-erlang/"/>
+    <updated>2013-04-26T03:45:21+00:00</updated>
+    <id>http://blog.ssx86.me/blog/2013/04/26/why-erlang</id>
+    <content type="html"><![CDATA[<p>GitHub Drinkup后记</p>
+
+<p>好几次开博客了。都没坚持下去。</p>
+
+<p>前天在github的drinkup活动上，恰巧遇到了老乡@贾乐乐J_Olivia，</p>
+
+<p>更巧聊到Erlang，Erlang/OTP并发编程的译者@连城404突然出现在面前。</p>
+
+<p>所以我把这个解释为，Erlang应该是注定会出现在我的世界里的。</p>
+
+<p>既然如此，现在就开始吧。</p>
+]]></content>
+  </entry>
+  
+</feed>
