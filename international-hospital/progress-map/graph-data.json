@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T19:22:29.365Z",
+  "generatedAt": "2026-06-27T19:35:29.184Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
@@ -491,7 +491,7 @@
       "route": "pages/prescription/western/index",
       "designPath": "pages/prescription/western/index",
       "registered": true,
-      "status": "documented",
+      "status": "verified",
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
@@ -501,7 +501,7 @@
           "state": "中成药处方-第二步",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第二步.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -509,7 +509,7 @@
           "state": "中成药处方-第一步1 ",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第一步1 .png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -517,7 +517,7 @@
           "state": "中成药处方-第一步2",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第一步2.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         }
       ]

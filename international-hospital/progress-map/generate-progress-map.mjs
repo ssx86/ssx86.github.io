@@ -63,6 +63,7 @@ const statusByRoute = {
     'doctor:pages/patient/list/index',
     'doctor:pages/consult/doctor-chat/index',
     'doctor:pages/consult/records/index',
+    'doctor:pages/prescription/western/index',
     'doctor:pages/medical-record/edit/index',
     'doctor:pages/consult/exam-apply/index',
     'doctor:pages/consult/exam-select/index'
