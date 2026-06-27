@@ -217,6 +217,34 @@
         </article>
       </div>
     </section>
+    <section class="flow">
+      <h2>Consultation Follow-up: Accepted Consultation</h2>
+      <div class="branch">
+        <article class="node verified">
+          <h3>Patient My Consult -> P019 Chat</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .consult-card:nth-child(1) + page_data + console</div>
+          <table>
+            <tr><th>page</th><td>pages/profile/index/index -> pages/profile/my-consult/index -> pages/consult/chat/index</td></tr>
+            <tr><th>data</th><td>Consultation 428197448779345920 is status=2 / in progress for patient Zhang Laosan and doctor Li Hanxing. The My Consult card shows image-text consultation, respiratory medicine, and in-progress state.</td></tr>
+            <tr><th>state</th><td>P019 loads doctorId=307741580607582208, doctorInfo.deptId=305635524042006528, imReady=true, and consultation-scoped messages including one doctor message and one patient message.</td></tr>
+            <tr><th>console</th><td>My Consult and P019 chat samples: 0 errors / 0 warnings / 0 exceptions. Screenshot attempt timed out but did not disturb page_data or console.</td></tr>
+            <tr><th>gap</th><td>No waiting consultation was available in this account during this pass, so the before-doctor-acceptance patient state remains data-condition blocked for this consult branch.</td></tr>
+          </table>
+        </article>
+        <article class="node verified">
+          <h3>Doctor Patient Management -> D040 Chat</h3>
+          <div class="shot">screenshot-missing<br>Evidence: .menu-section .menu-item:nth-child(2) -> .tab:nth-child(2) -> .patient-card:nth-child(1) + page_data + console</div>
+          <table>
+            <tr><th>page</th><td>pages/profile/index/index -> pages/patient/list/index -> pages/consult/doctor-chat/index</td></tr>
+            <tr><th>path</th><td>Doctor Profile second main menu opens patient management. Waiting tab is empty; communicating tab contains the same two status=2 consultations seen by the patient.</td></tr>
+            <tr><th>fix</th><td>Patient-management cards now pass data-status. Status=2 cards route to pages/consult/doctor-chat/index?consultId=&lt;id&gt; instead of always opening patient detail.</td></tr>
+            <tr><th>state</th><td>D040 loads consultId=428197448779345920, patientInfo.id=308386498155347968, patientInfo.imUserId=316783322757505024, status=2, imReady=true, canSendMessage=true, and empty HTTP history for this doctor page.</td></tr>
+            <tr><th>console</th><td>Patient-management waiting, communicating, fixed card tap, and D040 samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>Doctor accept-dialog and reject flow still need a real waiting consultation. Direct route jumps are not counted for that state.</td></tr>
+          </table>
+        </article>
+      </div>
+    </section>
     <p class="note">下一轮继续沿真实问诊单后续扩展：优先做医生 D040 的诊疗记录 tab、病历/检查/处方只读或阻塞态，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
   </main>
 </body>
