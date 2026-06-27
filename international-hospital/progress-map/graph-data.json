@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-27T19:35:29.184Z",
+  "generatedAt": "2026-06-27T19:40:47.789Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
     "devOnlyCount": 27,
     "stateNodeCount": 166,
-    "pageNodeCount": 91,
+    "pageNodeCount": 90,
     "patientRegisteredPages": 59,
     "doctorRegisteredPages": 39
   },
@@ -37,6 +37,7 @@
           "state": "弹窗-2",
           "docPath": "通用/弹窗/成功提示弹窗/弹窗-2.png.txt",
           "devPath": "DOCS/pages/通用/弹窗/成功提示弹窗/DEV.md",
+          "sourceSide": "common",
           "status": "documented",
           "registered": false
         }
@@ -61,6 +62,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/通用/弹窗/DEV.md",
+          "sourceSide": "common",
           "status": "dev-only",
           "registered": false
         }
@@ -85,6 +87,7 @@
           "state": "弹窗",
           "docPath": "通用/弹窗/确认弹窗/弹窗.png.txt",
           "devPath": "DOCS/pages/通用/弹窗/确认弹窗/DEV.md",
+          "sourceSide": "common",
           "status": "documented",
           "registered": false
         }
@@ -109,6 +112,7 @@
           "state": "弹窗-1",
           "docPath": "通用/弹窗/异常提示弹窗/弹窗-1.png.txt",
           "devPath": "DOCS/pages/通用/弹窗/异常提示弹窗/DEV.md",
+          "sourceSide": "common",
           "status": "documented",
           "registered": false
         }
@@ -133,6 +137,7 @@
           "state": "空页面样式",
           "docPath": "通用/通用组件/空状态/空页面样式.png.txt",
           "devPath": "DOCS/pages/通用/通用组件/空状态/DEV.md",
+          "sourceSide": "common",
           "status": "documented",
           "registered": false
         }
@@ -157,6 +162,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/通用/通用组件/DEV.md",
+          "sourceSide": "common",
           "status": "dev-only",
           "registered": false
         }
@@ -181,134 +187,7 @@
           "state": "选择样式",
           "docPath": "通用/通用组件/选择器/选择样式.png.txt",
           "devPath": "DOCS/pages/通用/通用组件/选择器/DEV.md",
-          "status": "documented",
-          "registered": false
-        }
-      ]
-    },
-    {
-      "id": "nipm0mp",
-      "side": "common",
-      "module": "验证码输入",
-      "page": "pages/login/verify-code/index",
-      "title": "pages/login/verify-code/index",
-      "route": "pages/login/verify-code/index",
-      "designPath": "pages/common/verify-code/index",
-      "registered": false,
-      "status": "documented",
-      "stateCount": 4,
-      "pngCount": 4,
-      "devOnlyCount": 0,
-      "states": [
-        {
-          "title": "Frame 5.png.txt / Frame 5",
-          "state": "Frame 5",
-          "docPath": "通用/验证码输入/Frame 5.png.txt",
-          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
-          "status": "documented",
-          "registered": false
-        },
-        {
-          "title": "Frame 6-1.png.txt / Frame 6-1",
-          "state": "Frame 6-1",
-          "docPath": "通用/验证码输入/Frame 6-1.png.txt",
-          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
-          "status": "documented",
-          "registered": false
-        },
-        {
-          "title": "Frame 6-2.png.txt / Frame 6-2",
-          "state": "Frame 6-2",
-          "docPath": "通用/验证码输入/Frame 6-2.png.txt",
-          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
-          "status": "documented",
-          "registered": false
-        },
-        {
-          "title": "Frame 6.png.txt / Frame 6",
-          "state": "Frame 6",
-          "docPath": "通用/验证码输入/Frame 6.png.txt",
-          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
-          "status": "documented",
-          "registered": false
-        }
-      ]
-    },
-    {
-      "id": "nprfk6f",
-      "side": "common",
-      "module": "用户协议",
-      "page": "用户协议",
-      "title": "用户协议",
-      "route": "pages/consent/consent/index",
-      "designPath": "pages/common/user-agreement/index",
-      "registered": false,
-      "status": "dev-only",
-      "stateCount": 1,
-      "pngCount": 0,
-      "devOnlyCount": 1,
-      "states": [
-        {
-          "title": "用户协议",
-          "state": "DEV-only",
-          "docPath": "",
-          "devPath": "DOCS/pages/通用/用户协议/DEV.md",
-          "status": "dev-only",
-          "registered": false
-        }
-      ]
-    },
-    {
-      "id": "nc22u2a",
-      "side": "common",
-      "module": "资讯",
-      "page": "健康资讯",
-      "title": "健康资讯",
-      "route": "pages/news/list/index",
-      "designPath": "pages/common/health-news/index",
-      "registered": false,
-      "status": "documented",
-      "stateCount": 1,
-      "pngCount": 1,
-      "devOnlyCount": 0,
-      "states": [
-        {
-          "title": "健康资讯",
-          "state": "健康资讯",
-          "docPath": "通用/资讯/健康资讯/健康资讯.png.txt",
-          "devPath": "DOCS/pages/通用/资讯/健康资讯/DEV.md",
-          "status": "documented",
-          "registered": false
-        }
-      ]
-    },
-    {
-      "id": "nyubnj",
-      "side": "common",
-      "module": "资讯",
-      "page": "健康资讯详情",
-      "title": "健康资讯详情",
-      "route": "pages/news/detail/index",
-      "designPath": "pages/common/health-news-detail/index",
-      "registered": false,
-      "status": "documented",
-      "stateCount": 2,
-      "pngCount": 2,
-      "devOnlyCount": 0,
-      "states": [
-        {
-          "title": "健康资讯详情 / 图文详情",
-          "state": "图文详情",
-          "docPath": "通用/资讯/健康资讯详情/图文详情.png.txt",
-          "devPath": "DOCS/pages/通用/资讯/健康资讯详情/DEV.md",
-          "status": "documented",
-          "registered": false
-        },
-        {
-          "title": "健康资讯详情 / 图文详情-老年版",
-          "state": "图文详情-老年版",
-          "docPath": "通用/资讯/健康资讯详情/图文详情-老年版.png.txt",
-          "devPath": "DOCS/pages/通用/资讯/健康资讯详情/DEV.md",
+          "sourceSide": "common",
           "status": "documented",
           "registered": false
         }
@@ -333,6 +212,7 @@
           "state": "病历归档",
           "docPath": "医生端/病历/病历归档/病历归档.png.txt",
           "devPath": "DOCS/pages/医生端/病历/病历归档/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -357,6 +237,7 @@
           "state": "强制归档病历",
           "docPath": "医生端/病历/强制归档/强制归档病历.png.txt",
           "devPath": "DOCS/pages/医生端/病历/强制归档/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -381,6 +262,7 @@
           "state": "修改病历",
           "docPath": "医生端/病历/修改病历/修改病历.png.txt",
           "devPath": "DOCS/pages/医生端/病历/修改病历/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -405,6 +287,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/处方/驳回详情/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -429,6 +312,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/处方/处方编辑/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -453,6 +337,7 @@
           "state": "处方驳回提示",
           "docPath": "医生端/处方/处方驳回提示/处方驳回提示.png.txt",
           "devPath": "DOCS/pages/医生端/处方/处方驳回提示/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -477,6 +362,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/处方/处方提交/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -501,6 +387,7 @@
           "state": "中成药处方-第二步",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第二步.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -509,6 +396,7 @@
           "state": "中成药处方-第一步1 ",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第一步1 .png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -517,6 +405,7 @@
           "state": "中成药处方-第一步2",
           "docPath": "医生端/处方/开具西药处方/中成药处方-第一步2.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具西药处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -541,6 +430,7 @@
           "state": "开具中药处方-第二步",
           "docPath": "医生端/处方/开具中药处方/开具中药处方-第二步.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具中药处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         },
@@ -549,6 +439,7 @@
           "state": "开具中药处方-第一步",
           "docPath": "医生端/处方/开具中药处方/开具中药处方-第一步.png.txt",
           "devPath": "DOCS/pages/医生端/处方/开具中药处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -573,6 +464,7 @@
           "state": "签署处方",
           "docPath": "医生端/处方/签署处方/签署处方.png.txt",
           "devPath": "DOCS/pages/医生端/处方/签署处方/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -597,6 +489,7 @@
           "state": "添加药材",
           "docPath": "医生端/处方/添加药材/添加药材.png.txt",
           "devPath": "DOCS/pages/医生端/处方/添加药材/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -621,6 +514,7 @@
           "state": "添加药品",
           "docPath": "医生端/处方/添加药品/添加药品.png.txt",
           "devPath": "DOCS/pages/医生端/处方/添加药品/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         },
@@ -629,6 +523,7 @@
           "state": "添加药品2",
           "docPath": "医生端/处方/添加药品/添加药品2.png.txt",
           "devPath": "DOCS/pages/医生端/处方/添加药品/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -653,6 +548,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/处方/用量设置/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -677,6 +573,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/关于我们/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -701,6 +598,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/实名验证/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -725,6 +623,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/我的/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -749,6 +648,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/意见反馈/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -773,6 +673,7 @@
           "state": "患者-待接诊",
           "docPath": "医生端/患者管理/患者列表/患者-待接诊.png.txt",
           "devPath": "DOCS/pages/医生端/患者管理/患者列表/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -781,6 +682,7 @@
           "state": "患者-沟通中",
           "docPath": "医生端/患者管理/患者列表/患者-沟通中.png.txt",
           "devPath": "DOCS/pages/医生端/患者管理/患者列表/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -789,6 +691,7 @@
           "state": "患者-接诊记录",
           "docPath": "医生端/患者管理/患者列表/患者-接诊记录.png.txt",
           "devPath": "DOCS/pages/医生端/患者管理/患者列表/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -813,6 +716,7 @@
           "state": "患者病情资料",
           "docPath": "医生端/患者管理/患者详情/患者病情资料.png.txt",
           "devPath": "DOCS/pages/医生端/患者管理/患者详情/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -837,6 +741,7 @@
           "state": "患者沟通-处方单审药师驳回",
           "docPath": "医生端/患者管理/问诊详情/患者沟通-处方单审药师驳回.png.txt",
           "devPath": "DOCS/pages/医生端/患者管理/问诊详情/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -861,6 +766,7 @@
           "state": "实名信息维护",
           "docPath": "医生端/实名认证/实名信息维护/实名信息维护.png.txt",
           "devPath": "DOCS/pages/医生端/实名认证/实名信息维护/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -869,6 +775,7 @@
           "state": "尚未注册",
           "docPath": "医生端/实名认证/实名信息维护/尚未注册.png.txt",
           "devPath": "DOCS/pages/医生端/实名认证/实名信息维护/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -877,6 +784,7 @@
           "state": "实名信息有误",
           "docPath": "医生端/实名认证/实名信息维护/实名信息有误.png.txt",
           "devPath": "DOCS/pages/医生端/实名认证/实名信息维护/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -901,6 +809,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/实名认证/医生注册/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -925,6 +834,7 @@
           "state": "no png.txt",
           "docPath": "",
           "devPath": "",
+          "sourceSide": "doctor",
           "status": "missing-doc",
           "registered": false
         }
@@ -949,6 +859,7 @@
           "state": "no png.txt",
           "docPath": "",
           "devPath": "",
+          "sourceSide": "doctor",
           "status": "missing-doc",
           "registered": false
         }
@@ -973,6 +884,7 @@
           "state": "关闭问诊弹窗",
           "docPath": "医生端/问诊/关闭问诊弹窗/关闭问诊弹窗.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/关闭问诊弹窗/DEV.md",
+          "sourceSide": "doctor",
           "status": "documented",
           "registered": true
         }
@@ -997,6 +909,7 @@
           "state": "检查检验申请-第二步",
           "docPath": "医生端/问诊/检查检验申请/检查检验申请-第二步.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/检查检验申请/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -1005,6 +918,7 @@
           "state": "检查检验申请-第一步",
           "docPath": "医生端/问诊/检查检验申请/检查检验申请-第一步.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/检查检验申请/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -1013,6 +927,7 @@
           "state": "添加项目",
           "docPath": "医生端/问诊/检查检验申请/添加项目.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/检查检验申请/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -1037,6 +952,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/诊疗记录/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         },
@@ -1045,6 +961,7 @@
           "state": "问诊详情-诊疗记录",
           "docPath": "医生端/问诊/诊疗记录/问诊详情-诊疗记录.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/诊疗记录/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -1053,6 +970,7 @@
           "state": "问诊详情-诊疗记录-检验检查",
           "docPath": "医生端/问诊/诊疗记录/问诊详情-诊疗记录-检验检查.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/诊疗记录/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -1077,6 +995,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/问诊管理/接诊确认弹窗/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -1101,6 +1020,7 @@
           "state": "拒绝接诊-弹窗",
           "docPath": "医生端/问诊管理/拒绝接诊/拒绝接诊-弹窗.png.txt",
           "devPath": "DOCS/pages/医生端/问诊管理/拒绝接诊/DEV.md",
+          "sourceSide": "doctor",
           "status": "blocked",
           "registered": true
         }
@@ -1125,6 +1045,7 @@
           "state": "问诊",
           "docPath": "医生端/问诊管理/问诊管理首页/问诊.png.txt",
           "devPath": "DOCS/pages/医生端/问诊管理/问诊管理首页/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         },
@@ -1133,6 +1054,7 @@
           "state": "问诊-1",
           "docPath": "医生端/问诊管理/问诊管理首页/问诊-1.png.txt",
           "devPath": "DOCS/pages/医生端/问诊管理/问诊管理首页/DEV.md",
+          "sourceSide": "doctor",
           "status": "verified",
           "registered": true
         }
@@ -1157,6 +1079,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/医生端/问诊管理/问诊聊天/DEV.md",
+          "sourceSide": "doctor",
           "status": "dev-only",
           "registered": true
         }
@@ -1181,6 +1104,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/报告/检验详情/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1205,6 +1129,7 @@
           "state": "处方详情-失效",
           "docPath": "患者端/处方/处方详情/处方详情-失效.png.txt",
           "devPath": "DOCS/pages/患者端/处方/处方详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1213,6 +1138,7 @@
           "state": "处方详情-已用",
           "docPath": "患者端/处方/处方详情/处方详情-已用.png.txt",
           "devPath": "DOCS/pages/患者端/处方/处方详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1221,6 +1147,7 @@
           "state": "处方详情-有效",
           "docPath": "患者端/处方/处方详情/处方详情-有效.png.txt",
           "devPath": "DOCS/pages/患者端/处方/处方详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1245,6 +1172,7 @@
           "state": "我的处方",
           "docPath": "患者端/处方/我的处方/我的处方.png.txt",
           "devPath": "DOCS/pages/患者端/处方/我的处方/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1269,6 +1197,7 @@
           "state": "登录",
           "docPath": "患者端/登录/登录/登录.png.txt",
           "devPath": "DOCS/pages/患者端/登录/登录/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1277,6 +1206,7 @@
           "state": "登录-1",
           "docPath": "患者端/登录/登录/登录-1.png.txt",
           "devPath": "DOCS/pages/患者端/登录/登录/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1285,6 +1215,7 @@
           "state": "登录-未勾选协议",
           "docPath": "患者端/登录/登录/登录-未勾选协议.png.txt",
           "devPath": "DOCS/pages/患者端/登录/登录/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1293,6 +1224,7 @@
           "state": "登录-未勾选协议-1",
           "docPath": "患者端/登录/登录/登录-未勾选协议-1.png.txt",
           "devPath": "DOCS/pages/患者端/登录/登录/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1301,15 +1233,15 @@
     {
       "id": "ncbxqgj",
       "side": "patient",
-      "module": "登录",
-      "page": "输入验证码",
-      "title": "输入验证码",
+      "module": "登录 / 验证码输入",
+      "page": "pages/login/verify-code/index",
+      "title": "pages/login/verify-code/index",
       "route": "pages/login/verify-code/index",
       "designPath": "pages/login/verify-code/index",
       "registered": true,
       "status": "documented",
-      "stateCount": 4,
-      "pngCount": 4,
+      "stateCount": 8,
+      "pngCount": 8,
       "devOnlyCount": 0,
       "states": [
         {
@@ -1317,6 +1249,7 @@
           "state": "输入验证码",
           "docPath": "患者端/登录/输入验证码/输入验证码.png.txt",
           "devPath": "DOCS/pages/患者端/登录/输入验证码/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1325,6 +1258,7 @@
           "state": "输入验证码-1",
           "docPath": "患者端/登录/输入验证码/输入验证码-1.png.txt",
           "devPath": "DOCS/pages/患者端/登录/输入验证码/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1333,6 +1267,7 @@
           "state": "输入验证码-2",
           "docPath": "患者端/登录/输入验证码/输入验证码-2.png.txt",
           "devPath": "DOCS/pages/患者端/登录/输入验证码/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1341,8 +1276,45 @@
           "state": "输入验证码-3",
           "docPath": "患者端/登录/输入验证码/输入验证码-3.png.txt",
           "devPath": "DOCS/pages/患者端/登录/输入验证码/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
+        },
+        {
+          "title": "Frame 5.png.txt / Frame 5",
+          "state": "Frame 5",
+          "docPath": "通用/验证码输入/Frame 5.png.txt",
+          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": false
+        },
+        {
+          "title": "Frame 6-1.png.txt / Frame 6-1",
+          "state": "Frame 6-1",
+          "docPath": "通用/验证码输入/Frame 6-1.png.txt",
+          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": false
+        },
+        {
+          "title": "Frame 6-2.png.txt / Frame 6-2",
+          "state": "Frame 6-2",
+          "docPath": "通用/验证码输入/Frame 6-2.png.txt",
+          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": false
+        },
+        {
+          "title": "Frame 6.png.txt / Frame 6",
+          "state": "Frame 6",
+          "docPath": "通用/验证码输入/Frame 6.png.txt",
+          "devPath": "DOCS/pages/通用/验证码输入/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": false
         }
       ]
     },
@@ -1365,6 +1337,7 @@
           "state": "个人信息",
           "docPath": "患者端/个人中心/个人信息/个人信息.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1373,6 +1346,7 @@
           "state": "个人信息-修改手机号",
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1381,6 +1355,7 @@
           "state": "个人信息-修改手机号-1",
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号-1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1389,6 +1364,7 @@
           "state": "个人信息-修改手机号1",
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1397,6 +1373,7 @@
           "state": "个人信息-修改头像",
           "docPath": "患者端/个人中心/个人信息/个人信息-修改头像.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1421,6 +1398,7 @@
           "state": "就诊人管理",
           "docPath": "患者端/个人中心/就诊人管理/就诊人管理.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/就诊人管理/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1429,6 +1407,7 @@
           "state": "就诊人管理-1",
           "docPath": "患者端/个人中心/就诊人管理/就诊人管理-1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/就诊人管理/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1453,6 +1432,7 @@
           "state": "就诊人信息",
           "docPath": "患者端/个人中心/就诊人信息/就诊人信息.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/就诊人信息/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1477,6 +1457,7 @@
           "state": "添加就诊人",
           "docPath": "患者端/个人中心/添加就诊人/添加就诊人.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/添加就诊人/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1501,6 +1482,7 @@
           "state": "我的",
           "docPath": "患者端/个人中心/我的/我的.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1509,6 +1491,7 @@
           "state": "我的-1",
           "docPath": "患者端/个人中心/我的/我的-1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1517,6 +1500,7 @@
           "state": "我的-2",
           "docPath": "患者端/个人中心/我的/我的-2.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1525,6 +1509,7 @@
           "state": "我的-3",
           "docPath": "患者端/个人中心/我的/我的-3.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1533,6 +1518,7 @@
           "state": "我的-未登录",
           "docPath": "患者端/个人中心/我的/我的-未登录.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -1557,6 +1543,7 @@
           "state": "我的问诊",
           "docPath": "患者端/个人中心/我的问诊/我的问诊.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的问诊/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1565,6 +1552,7 @@
           "state": "我的问诊2",
           "docPath": "患者端/个人中心/我的问诊/我的问诊2.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/我的问诊/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -1589,6 +1577,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/个人中心/修改手机号/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1613,6 +1602,7 @@
           "state": "地址管理",
           "docPath": "患者端/购药/地址管理/地址管理.png.txt",
           "devPath": "DOCS/pages/患者端/购药/地址管理/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1621,6 +1611,7 @@
           "state": "地址管理-1",
           "docPath": "患者端/购药/地址管理/地址管理-1.png.txt",
           "devPath": "DOCS/pages/患者端/购药/地址管理/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1645,6 +1636,7 @@
           "state": "购药订单",
           "docPath": "患者端/购药/购药订单列表/购药订单.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单列表/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1653,6 +1645,7 @@
           "state": "购药订单-1",
           "docPath": "患者端/购药/购药订单列表/购药订单-1.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单列表/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1661,6 +1654,7 @@
           "state": "购药订单-2",
           "docPath": "患者端/购药/购药订单列表/购药订单-2.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单列表/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -1669,6 +1663,7 @@
           "state": "购药订单2",
           "docPath": "患者端/购药/购药订单列表/购药订单2.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单列表/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -1693,6 +1688,7 @@
           "state": "购药订单详情-待接诊",
           "docPath": "患者端/购药/购药订单详情/购药订单详情-待接诊.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1701,6 +1697,7 @@
           "state": "购药订单详情-待支付",
           "docPath": "患者端/购药/购药订单详情/购药订单详情-待支付.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1709,6 +1706,7 @@
           "state": "购药订单详情-待自取",
           "docPath": "患者端/购药/购药订单详情/购药订单详情-待自取.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1717,6 +1715,7 @@
           "state": "中药订单详情",
           "docPath": "患者端/购药/购药订单详情/中药订单详情.png.txt",
           "devPath": "DOCS/pages/患者端/购药/购药订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1741,6 +1740,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/购药/购药下单/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1765,6 +1765,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/购药/购药支付/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1789,6 +1790,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/购药/添加地址/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1813,6 +1815,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/购药/物流查询/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1837,6 +1840,7 @@
           "state": "院内制剂",
           "docPath": "患者端/购药/院内制剂列表/院内制剂.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂列表/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1845,6 +1849,7 @@
           "state": "院内制剂-1",
           "docPath": "患者端/购药/院内制剂列表/院内制剂-1.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂列表/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1869,6 +1874,7 @@
           "state": "院内制剂处方需求",
           "docPath": "患者端/购药/院内制剂问卷/院内制剂处方需求.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1877,6 +1883,7 @@
           "state": "院内制剂处方需求-图文问诊",
           "docPath": "患者端/购药/院内制剂问卷/院内制剂处方需求-图文问诊.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1901,6 +1908,7 @@
           "state": "缴费订单-待缴费",
           "docPath": "患者端/缴费/缴费订单详情/缴费订单-待缴费.png.txt",
           "devPath": "DOCS/pages/患者端/缴费/缴费订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1909,6 +1917,7 @@
           "state": "缴费订单-已退款",
           "docPath": "患者端/缴费/缴费订单详情/缴费订单-已退款.png.txt",
           "devPath": "DOCS/pages/患者端/缴费/缴费订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -1917,6 +1926,7 @@
           "state": "缴费订单-已支付",
           "docPath": "患者端/缴费/缴费订单详情/缴费订单-已支付.png.txt",
           "devPath": "DOCS/pages/患者端/缴费/缴费订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1941,6 +1951,7 @@
           "state": "缴费记录",
           "docPath": "患者端/缴费/缴费记录/缴费记录.png.txt",
           "devPath": "DOCS/pages/患者端/缴费/缴费记录/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -1965,6 +1976,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/缴费/缴费支付/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -1989,6 +2001,7 @@
           "state": "便民门诊",
           "docPath": "患者端/慢病/便民门诊/便民门诊.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/便民门诊/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2013,6 +2026,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/慢病/材料上传/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -2037,6 +2051,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/慢病/慢病权益/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -2061,6 +2076,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/慢病/慢病认证检查/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -2085,6 +2101,7 @@
           "state": "慢特病线上门诊",
           "docPath": "患者端/慢病/慢病入口/慢特病线上门诊.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病入口/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2109,6 +2126,7 @@
           "state": "慢病预诊问卷",
           "docPath": "患者端/慢病/慢病预诊问卷/慢病预诊问卷.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病预诊问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2133,6 +2151,7 @@
           "state": "慢病在线申报",
           "docPath": "患者端/慢病/慢病在线申报/慢病在线申报.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病在线申报/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2141,6 +2160,7 @@
           "state": "在线申报",
           "docPath": "患者端/慢病/慢病在线申报/在线申报.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病在线申报/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2165,6 +2185,7 @@
           "state": "慢病续方配药知情同意书",
           "docPath": "患者端/慢病/慢病知情同意书/慢病续方配药知情同意书.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2173,6 +2194,7 @@
           "state": "续方配药知情同意书",
           "docPath": "患者端/慢病/慢病知情同意书/续方配药知情同意书.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2181,6 +2203,7 @@
           "state": "续方配药知情同意书1",
           "docPath": "患者端/慢病/慢病知情同意书/续方配药知情同意书1.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2189,6 +2212,7 @@
           "state": "续方配药知情同意书1-1",
           "docPath": "患者端/慢病/慢病知情同意书/续方配药知情同意书1-1.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/慢病知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2213,6 +2237,7 @@
           "state": "在线申报进度查询",
           "docPath": "患者端/慢病/申报进度查询/在线申报进度查询.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/申报进度查询/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2237,6 +2262,7 @@
           "state": "慢病在线申报详情",
           "docPath": "患者端/慢病/申报详情/慢病在线申报详情.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/申报详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2261,6 +2287,7 @@
           "state": "续方配药",
           "docPath": "患者端/慢病/续方配药/续方配药.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/续方配药/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2285,6 +2312,7 @@
           "state": "科室详情",
           "docPath": "患者端/首页/科室详情/科室详情.png.txt",
           "devPath": "DOCS/pages/患者端/首页/科室详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2293,6 +2321,7 @@
           "state": "科室详情-1",
           "docPath": "患者端/首页/科室详情/科室详情-1.png.txt",
           "devPath": "DOCS/pages/患者端/首页/科室详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2317,6 +2346,7 @@
           "state": "首页",
           "docPath": "患者端/首页/首页/首页.png.txt",
           "devPath": "DOCS/pages/患者端/首页/首页/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2325,6 +2355,7 @@
           "state": "首页-1",
           "docPath": "患者端/首页/首页/首页-1.png.txt",
           "devPath": "DOCS/pages/患者端/首页/首页/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2333,6 +2364,7 @@
           "state": "首页-老年版",
           "docPath": "患者端/首页/首页/首页-老年版.png.txt",
           "devPath": "DOCS/pages/患者端/首页/首页/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2341,6 +2373,7 @@
           "state": "首页-未登录",
           "docPath": "患者端/首页/首页/首页-未登录.png.txt",
           "devPath": "DOCS/pages/患者端/首页/首页/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -2365,6 +2398,7 @@
           "state": "搜索结果",
           "docPath": "患者端/首页/搜索结果/搜索结果.png.txt",
           "devPath": "DOCS/pages/患者端/首页/搜索结果/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2373,6 +2407,7 @@
           "state": "搜索结果-1",
           "docPath": "患者端/首页/搜索结果/搜索结果-1.png.txt",
           "devPath": "DOCS/pages/患者端/首页/搜索结果/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2397,6 +2432,7 @@
           "state": "选择科室",
           "docPath": "患者端/首页/选择科室/选择科室.png.txt",
           "devPath": "DOCS/pages/患者端/首页/选择科室/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2405,6 +2441,7 @@
           "state": "选择科室-1",
           "docPath": "患者端/首页/选择科室/选择科室-1.png.txt",
           "devPath": "DOCS/pages/患者端/首页/选择科室/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2429,6 +2466,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/首页/医生列表/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -2453,6 +2491,7 @@
           "state": "医生介绍",
           "docPath": "患者端/首页/医生详情/医生介绍.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2461,6 +2500,7 @@
           "state": "医生介绍-当前休息",
           "docPath": "患者端/首页/医生详情/医生介绍-当前休息.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2469,6 +2509,7 @@
           "state": "医生介绍-无号",
           "docPath": "患者端/首页/医生详情/医生介绍-无号.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -2493,6 +2534,7 @@
           "state": "no png.txt",
           "docPath": "",
           "devPath": "",
+          "sourceSide": "patient",
           "status": "missing-doc",
           "registered": true
         }
@@ -2517,6 +2559,7 @@
           "state": "图文问诊",
           "docPath": "患者端/问诊/图文问诊聊天/图文问诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/图文问诊聊天/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2525,6 +2568,7 @@
           "state": "图文问诊1",
           "docPath": "患者端/问诊/图文问诊聊天/图文问诊1.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/图文问诊聊天/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2533,6 +2577,7 @@
           "state": "图文问诊2",
           "docPath": "患者端/问诊/图文问诊聊天/图文问诊2.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/图文问诊聊天/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2541,6 +2586,7 @@
           "state": "图文问诊3",
           "docPath": "患者端/问诊/图文问诊聊天/图文问诊3.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/图文问诊聊天/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2549,6 +2595,7 @@
           "state": "图文问诊4",
           "docPath": "患者端/问诊/图文问诊聊天/图文问诊4.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/图文问诊聊天/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -2573,6 +2620,7 @@
           "state": "问诊订单详情-待接诊",
           "docPath": "患者端/问诊/问诊订单详情/问诊订单详情-待接诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2581,6 +2629,7 @@
           "state": "问诊订单详情-待接诊-1",
           "docPath": "患者端/问诊/问诊订单详情/问诊订单详情-待接诊-1.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2589,6 +2638,7 @@
           "state": "问诊订单详情-问诊关闭",
           "docPath": "患者端/问诊/问诊订单详情/问诊订单详情-问诊关闭.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2597,6 +2647,7 @@
           "state": "问诊详情-拒绝接诊",
           "docPath": "患者端/问诊/问诊订单详情/问诊详情-拒绝接诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊订单详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2621,6 +2672,7 @@
           "state": "问诊",
           "docPath": "患者端/问诊/问诊列表/问诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊列表/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         }
@@ -2645,6 +2697,7 @@
           "state": "问诊详情",
           "docPath": "患者端/问诊/问诊详情/问诊详情.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2653,6 +2706,7 @@
           "state": "问诊结束",
           "docPath": "患者端/问诊/问诊详情/问诊结束.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2661,6 +2715,7 @@
           "state": "问诊完成-处方单审药师驳回",
           "docPath": "患者端/问诊/问诊详情/问诊完成-处方单审药师驳回.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2669,6 +2724,7 @@
           "state": "问诊详情-接诊",
           "docPath": "患者端/问诊/问诊详情/问诊详情-接诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2677,6 +2733,7 @@
           "state": "问诊详情2",
           "docPath": "患者端/问诊/问诊详情/问诊详情2.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         },
@@ -2685,6 +2742,7 @@
           "state": "问诊中-处方单审核通过",
           "docPath": "患者端/问诊/问诊详情/问诊中-处方单审核通过.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊详情/DEV.md",
+          "sourceSide": "patient",
           "status": "documented",
           "registered": true
         }
@@ -2709,6 +2767,7 @@
           "state": "DEV-only",
           "docPath": "",
           "devPath": "DOCS/pages/患者端/问诊/问诊支付/DEV.md",
+          "sourceSide": "patient",
           "status": "dev-only",
           "registered": true
         }
@@ -2733,6 +2792,7 @@
           "state": "在线问诊",
           "docPath": "患者端/问诊/在线问诊知情同意书/在线问诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/在线问诊知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2741,6 +2801,7 @@
           "state": "在线问诊1",
           "docPath": "患者端/问诊/在线问诊知情同意书/在线问诊1.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/在线问诊知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2749,7 +2810,33 @@
           "state": "在线问诊2",
           "docPath": "患者端/问诊/在线问诊知情同意书/在线问诊2.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/在线问诊知情同意书/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nutb4zh",
+      "side": "patient",
+      "module": "用户协议",
+      "page": "用户协议",
+      "title": "用户协议",
+      "route": "pages/consent/consent/index",
+      "designPath": "pages/common/user-agreement/index",
+      "registered": true,
+      "status": "dev-only",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 1,
+      "states": [
+        {
+          "title": "用户协议",
+          "state": "DEV-only",
+          "docPath": "",
+          "devPath": "DOCS/pages/通用/用户协议/DEV.md",
+          "sourceSide": "common",
+          "status": "dev-only",
           "registered": true
         }
       ]
@@ -2773,6 +2860,7 @@
           "state": "预诊问卷",
           "docPath": "患者端/预诊/预诊问卷/预诊问卷.png.txt",
           "devPath": "DOCS/pages/患者端/预诊/预诊问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2781,6 +2869,7 @@
           "state": "预诊问卷-1",
           "docPath": "患者端/预诊/预诊问卷/预诊问卷-1.png.txt",
           "devPath": "DOCS/pages/患者端/预诊/预诊问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2789,6 +2878,7 @@
           "state": "预诊问卷1",
           "docPath": "患者端/预诊/预诊问卷/预诊问卷1.png.txt",
           "devPath": "DOCS/pages/患者端/预诊/预诊问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
           "registered": true
         },
@@ -2797,7 +2887,67 @@
           "state": "预诊问卷2",
           "docPath": "患者端/预诊/预诊问卷/预诊问卷2.png.txt",
           "devPath": "DOCS/pages/患者端/预诊/预诊问卷/DEV.md",
+          "sourceSide": "patient",
           "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "no3e28e",
+      "side": "patient",
+      "module": "资讯",
+      "page": "健康资讯",
+      "title": "健康资讯",
+      "route": "pages/news/list/index",
+      "designPath": "pages/common/health-news/index",
+      "registered": true,
+      "status": "documented",
+      "stateCount": 1,
+      "pngCount": 1,
+      "devOnlyCount": 0,
+      "states": [
+        {
+          "title": "健康资讯",
+          "state": "健康资讯",
+          "docPath": "通用/资讯/健康资讯/健康资讯.png.txt",
+          "devPath": "DOCS/pages/通用/资讯/健康资讯/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "na1tj6t",
+      "side": "patient",
+      "module": "资讯",
+      "page": "健康资讯详情",
+      "title": "健康资讯详情",
+      "route": "pages/news/detail/index",
+      "designPath": "pages/common/health-news-detail/index",
+      "registered": true,
+      "status": "documented",
+      "stateCount": 2,
+      "pngCount": 2,
+      "devOnlyCount": 0,
+      "states": [
+        {
+          "title": "健康资讯详情 / 图文详情",
+          "state": "图文详情",
+          "docPath": "通用/资讯/健康资讯详情/图文详情.png.txt",
+          "devPath": "DOCS/pages/通用/资讯/健康资讯详情/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
+          "registered": true
+        },
+        {
+          "title": "健康资讯详情 / 图文详情-老年版",
+          "state": "图文详情-老年版",
+          "docPath": "通用/资讯/健康资讯详情/图文详情-老年版.png.txt",
+          "devPath": "DOCS/pages/通用/资讯/健康资讯详情/DEV.md",
+          "sourceSide": "common",
+          "status": "documented",
           "registered": true
         }
       ]
@@ -3477,6 +3627,18 @@
       "rawCount": 4
     },
     {
+      "id": "nkphhb1",
+      "from": "na1tj6t",
+      "to": "no3e28e",
+      "trigger": "点击返回",
+      "kind": "JUMPTO",
+      "note": "返回资讯列表",
+      "targetDesignPath": "pages/common/health-news/index",
+      "targetRoute": "pages/news/list/index",
+      "status": "documented",
+      "rawCount": 2
+    },
+    {
       "id": "nio2c7t",
       "from": "na6uy3k",
       "to": "nrv6h6u",
@@ -3621,30 +3783,6 @@
       "rawCount": 2
     },
     {
-      "id": "nyveypu",
-      "from": "nc22u2a",
-      "to": "n9nkyja",
-      "trigger": "点击返回",
-      "kind": "JUMPTO",
-      "note": "返回首页",
-      "targetDesignPath": "pages/index/index",
-      "targetRoute": "pages/index/index",
-      "status": "documented",
-      "rawCount": 1
-    },
-    {
-      "id": "n8rznqr",
-      "from": "nc22u2a",
-      "to": "nyubnj",
-      "trigger": "点击资讯卡片",
-      "kind": "JUMPTO",
-      "note": "进入文章详情页",
-      "targetDesignPath": "pages/common/health-news-detail/index",
-      "targetRoute": "pages/news/detail/index",
-      "status": "documented",
-      "rawCount": 2
-    },
-    {
       "id": "nf5dm5e",
       "from": "ncbxqgj",
       "to": "n9nkyja",
@@ -3657,12 +3795,48 @@
       "rawCount": 4
     },
     {
+      "id": "n38ff9z",
+      "from": "ncbxqgj",
+      "to": "n9nkyja",
+      "trigger": "验证成功(登录)",
+      "kind": "JUMPTO",
+      "note": "进入首页",
+      "targetDesignPath": "pages/index/index",
+      "targetRoute": "pages/index/index",
+      "status": "documented",
+      "rawCount": 4
+    },
+    {
+      "id": "niefwji",
+      "from": "ncbxqgj",
+      "to": "nanbldn",
+      "trigger": "从修改手机号进入",
+      "kind": "JUMPTO",
+      "note": "前置页面",
+      "targetDesignPath": "pages/profile/change-phone/index",
+      "targetRoute": "pages/profile/change-phone/index",
+      "status": "documented",
+      "rawCount": 4
+    },
+    {
       "id": "ny0qcwy",
       "from": "ncbxqgj",
       "to": "ncxkybo",
       "trigger": "点击返回",
       "kind": "JUMPTO",
       "note": "返回登录页",
+      "targetDesignPath": "pages/login/index",
+      "targetRoute": "pages/login/index/index",
+      "status": "documented",
+      "rawCount": 4
+    },
+    {
+      "id": "nex5mi5",
+      "from": "ncbxqgj",
+      "to": "ncxkybo",
+      "trigger": "从登录页进入",
+      "kind": "JUMPTO",
+      "note": "前置页面",
       "targetDesignPath": "pages/login/index",
       "targetRoute": "pages/login/index/index",
       "status": "documented",
@@ -3801,9 +3975,9 @@
       "rawCount": 4
     },
     {
-      "id": "nk070xs",
+      "id": "nw9udco",
       "from": "ncxkybo",
-      "to": "nprfk6f",
+      "to": "nutb4zh",
       "trigger": "点击《用户协议》链接",
       "kind": "JUMPTO",
       "note": "查看协议详情",
@@ -4217,42 +4391,6 @@
       "note": "待接诊状态进入问诊",
       "targetDesignPath": "pages/consult/detail/index",
       "targetRoute": "pages/consult/detail/index",
-      "status": "documented",
-      "rawCount": 4
-    },
-    {
-      "id": "n3ojxhl",
-      "from": "nipm0mp",
-      "to": "n9nkyja",
-      "trigger": "验证成功(登录)",
-      "kind": "JUMPTO",
-      "note": "进入首页",
-      "targetDesignPath": "pages/index/index",
-      "targetRoute": "pages/index/index",
-      "status": "documented",
-      "rawCount": 4
-    },
-    {
-      "id": "niuker4",
-      "from": "nipm0mp",
-      "to": "nanbldn",
-      "trigger": "从修改手机号进入",
-      "kind": "JUMPTO",
-      "note": "前置页面",
-      "targetDesignPath": "pages/profile/change-phone/index",
-      "targetRoute": "pages/profile/change-phone/index",
-      "status": "documented",
-      "rawCount": 4
-    },
-    {
-      "id": "nbqqp",
-      "from": "nipm0mp",
-      "to": "ncxkybo",
-      "trigger": "从登录页进入",
-      "kind": "JUMPTO",
-      "note": "前置页面",
-      "targetDesignPath": "pages/login/index",
-      "targetRoute": "pages/login/index/index",
       "status": "documented",
       "rawCount": 4
     },
@@ -4689,6 +4827,30 @@
       "rawCount": 3
     },
     {
+      "id": "nsstfet",
+      "from": "no3e28e",
+      "to": "n9nkyja",
+      "trigger": "点击返回",
+      "kind": "JUMPTO",
+      "note": "返回首页",
+      "targetDesignPath": "pages/index/index",
+      "targetRoute": "pages/index/index",
+      "status": "documented",
+      "rawCount": 1
+    },
+    {
+      "id": "n5ms7vc",
+      "from": "no3e28e",
+      "to": "na1tj6t",
+      "trigger": "点击资讯卡片",
+      "kind": "JUMPTO",
+      "note": "进入文章详情页",
+      "targetDesignPath": "pages/common/health-news-detail/index",
+      "targetRoute": "pages/news/detail/index",
+      "status": "documented",
+      "rawCount": 2
+    },
+    {
       "id": "nhe8li3",
       "from": "nolzx48",
       "to": "nmj2ll0",
@@ -4783,30 +4945,6 @@
       "targetRoute": "pages/doctor/detail/index",
       "status": "documented",
       "rawCount": 3
-    },
-    {
-      "id": "n7l8awq",
-      "from": "nprfk6f",
-      "to": "n8p9zlc",
-      "trigger": "从个人中心进入",
-      "kind": "JUMPTO",
-      "note": "查看协议后返回个人中心",
-      "targetDesignPath": "pages/profile/personal-info/index",
-      "targetRoute": "pages/profile/personal-info/index/index",
-      "status": "documented",
-      "rawCount": 1
-    },
-    {
-      "id": "nqk3jqh",
-      "from": "nprfk6f",
-      "to": "ncxkybo",
-      "trigger": "从登录页进入",
-      "kind": "JUMPTO",
-      "note": "查看协议后返回登录页",
-      "targetDesignPath": "pages/login/index",
-      "targetRoute": "pages/login/index/index",
-      "status": "documented",
-      "rawCount": 1
     },
     {
       "id": "ni684nk",
@@ -5121,6 +5259,30 @@
       "rawCount": 5
     },
     {
+      "id": "n7tyiji",
+      "from": "nutb4zh",
+      "to": "n8p9zlc",
+      "trigger": "从个人中心进入",
+      "kind": "JUMPTO",
+      "note": "查看协议后返回个人中心",
+      "targetDesignPath": "pages/profile/personal-info/index",
+      "targetRoute": "pages/profile/personal-info/index/index",
+      "status": "documented",
+      "rawCount": 1
+    },
+    {
+      "id": "n7bayun",
+      "from": "nutb4zh",
+      "to": "ncxkybo",
+      "trigger": "从登录页进入",
+      "kind": "JUMPTO",
+      "note": "查看协议后返回登录页",
+      "targetDesignPath": "pages/login/index",
+      "targetRoute": "pages/login/index/index",
+      "status": "documented",
+      "rawCount": 1
+    },
+    {
       "id": "ndqewlj",
       "from": "nvnmjzn",
       "to": "n9nkyja",
@@ -5263,18 +5425,6 @@
       "targetRoute": "pages/consult/detail/index",
       "status": "documented",
       "rawCount": 3
-    },
-    {
-      "id": "nw35wfe",
-      "from": "nyubnj",
-      "to": "nc22u2a",
-      "trigger": "点击返回",
-      "kind": "JUMPTO",
-      "note": "返回资讯列表",
-      "targetDesignPath": "pages/common/health-news/index",
-      "targetRoute": "pages/news/list/index",
-      "status": "documented",
-      "rawCount": 2
     },
     {
       "id": "n7akkf7",

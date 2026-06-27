@@ -132,6 +132,15 @@ function routeForSide(side, route) {
   return aliased;
 }
 
+function graphSideForRoute(sourceSide, route) {
+  if (sourceSide !== 'common' || !route) return sourceSide;
+  const patientHasRoute = appRoutes.patient.has(route);
+  const doctorHasRoute = appRoutes.doctor.has(route);
+  if (patientHasRoute && !doctorHasRoute) return 'patient';
+  if (doctorHasRoute && !patientHasRoute) return 'doctor';
+  return sourceSide;
+}
+
 function slug(input) {
   let hash = 0;
   for (let i = 0; i < input.length; i += 1) hash = ((hash << 5) - hash + input.charCodeAt(i)) | 0;
@@ -190,6 +199,7 @@ for (const file of pngFiles) {
   const devFile = devFiles.get(path.dirname(file));
   const dev = devFile ? parseDev(devFile) : { designPath: '', edges: [] };
   const route = routeForSide(side, dev.designPath);
+  const graphSide = graphSideForRoute(side, route);
   const routeKey = route ? `${side}:${route}` : '';
   let status = 'documented';
   if (statusByRoute.verified.has(routeKey)) status = 'verified';
@@ -198,7 +208,8 @@ for (const file of pngFiles) {
 
   const node = {
     id: slug(rel),
-    side,
+    sourceSide: side,
+    side: graphSide,
     module: moduleName,
     page: pageName,
     state: stateName,
@@ -207,7 +218,7 @@ for (const file of pngFiles) {
     devPath: devFile ? path.relative(ROOT, devFile).replace(/\\/g, '/') : '',
     designPath: dev.designPath,
     route,
-    registered: route ? Boolean(appRoutes[side]?.has(route)) : false,
+    registered: route ? Boolean(appRoutes[graphSide]?.has(route) || appRoutes[side]?.has(route)) : false,
     status
   };
   nodes.push(node);
@@ -229,9 +240,11 @@ for (const [dir, devFile] of devFiles.entries()) {
   const pageName = parts[2] || path.basename(dir);
   const dev = parseDev(devFile);
   const route = routeForSide(side, dev.designPath);
+  const graphSide = graphSideForRoute(side, route);
   const node = {
     id: slug(`dev-only:${relDir}`),
-    side,
+    sourceSide: side,
+    side: graphSide,
     module: moduleName,
     page: pageName,
     state: 'DEV-only',
@@ -240,7 +253,7 @@ for (const [dir, devFile] of devFiles.entries()) {
     devPath: path.relative(ROOT, devFile).replace(/\\/g, '/'),
     designPath: dev.designPath,
     route,
-    registered: route ? Boolean(appRoutes[side]?.has(route)) : false,
+    registered: route ? Boolean(appRoutes[graphSide]?.has(route) || appRoutes[side]?.has(route)) : false,
     status: 'dev-only'
   };
   nodes.push(node);
@@ -317,13 +330,24 @@ nodes.push(...virtualNodes);
 function aggregateGraph(rawNodes, rawEdges) {
   const groups = new Map();
   const oldToPage = new Map();
+  const routeOwners = new Map();
 
   for (const node of rawNodes) {
+    if (!node.route || node.side === 'common') continue;
+    if (!routeOwners.has(node.route)) routeOwners.set(node.route, new Set());
+    routeOwners.get(node.route).add(node.side);
+  }
+
+  for (const node of rawNodes) {
+    const owners = node.route ? routeOwners.get(node.route) : null;
+    const effectiveSide = node.side === 'common' && owners?.size === 1
+      ? [...owners][0]
+      : node.side;
     const key = node.status === 'missing-doc'
-      ? `missing:${node.side}:${node.route || node.designPath || node.title}`
+      ? `missing:${effectiveSide}:${node.route || node.designPath || node.title}`
       : node.route
-        ? `${node.side}:${node.route}`
-        : `noroute:${node.side}:${node.module}:${node.page}`;
+        ? `${effectiveSide}:${node.route}`
+        : `noroute:${effectiveSide}:${node.module}:${node.page}`;
 
     if (!groups.has(key)) {
       groups.set(key, {
@@ -346,6 +370,7 @@ function aggregateGraph(rawNodes, rawEdges) {
   const pageNodes = [];
   for (const group of groups.values()) {
     const first = group.raw[0];
+    const displaySide = group.raw.find((node) => node.side !== 'common')?.side || first.side;
     const statuses = group.raw.map((node) => node.status);
     const route = first.route;
     const title = group.pages.size === 1
@@ -353,7 +378,7 @@ function aggregateGraph(rawNodes, rawEdges) {
       : route || [...group.pages].slice(0, 2).join(' / ');
     const pageNode = {
       id: slug(`page:${group.key}`),
-      side: first.side,
+      side: displaySide,
       module: [...group.modules].join(' / '),
       page: title,
       title,
@@ -370,6 +395,7 @@ function aggregateGraph(rawNodes, rawEdges) {
           state: node.state,
           docPath: node.docPath,
           devPath: node.devPath,
+          sourceSide: node.sourceSide || node.side,
           status: node.status,
           registered: node.registered
         }))
