@@ -59,7 +59,7 @@
       <div class="stat">患者端：<strong>94</strong></div>
       <div class="stat">医生端：<strong>30</strong></div>
       <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27 17:55</strong></div>
+      <div class="stat">更新：<strong>2026-06-27 18:15</strong></div>
     </section>
     <section class="legend">
       <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
@@ -278,9 +278,22 @@
             <tr><th>gap</th><td>Save/归档 was not clicked because it mutates the consultation. The full archive completion path remains for a controlled mutation pass.</td></tr>
           </table>
         </article>
+        <article class="node verified">
+          <h3>D040 Chat -> D042/D044 Check Exam Apply</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .action-bar .action-item:nth-child(2) -> D042 fields -> native button.submit-btn -> D044 unsupported state + patient records page_data + console</div>
+          <table>
+            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/consult/exam-apply/index -> pages/consult/exam-select/index</td></tr>
+            <tr><th>design</th><td>D042 high-fidelity docs describe a two-step check/exam application and add-project state. The current runtime exposes D042 form entry and D044 add-project route, but project catalog/submission remains unsupported.</td></tr>
+            <tr><th>state</th><td>D042 loads patient 张老三 / 男 / 36岁. With empty backend complaint/diagnosis/treatment fields, "下一步" is blocked by front-end validation. Filling temporary page state (咳嗽十余次，无胸闷 / 普通感冒 / 建议完善血常规后评估) allows D044 to open.</td></tr>
+            <tr><th>fix</th><td>D044 selected/project-list state is precomputed in JS, removing WXML length/type expressions. D042/D044 critical bottom actions are native button elements; CSS resets button chrome and restores the 690rpx full-width design after the first button conversion shrank to 184px.</td></tr>
+            <tr><th>logic</th><td>D044 renders `检查检验项目暂不支持`, selectedList=[], hasSelectedProjects=false, projectList=[], showProjectNotice=true. Tapping "确认所选项目" stays on D044 and does not submit a backend application.</td></tr>
+            <tr><th>console</th><td>D040 -> D042, empty validation, filled-state next step, D044 unsupported submit, screenshot attempt, and patient records cross-check: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>No real check/exam catalog or application API is verified. Patient-side exam records remain empty for this consultation. Screenshot capture still times out without producing a PNG.</td></tr>
+          </table>
+        </article>
       </div>
     </section>
-    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的检查、处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
+    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
   </main>
 </body>
 </html>
