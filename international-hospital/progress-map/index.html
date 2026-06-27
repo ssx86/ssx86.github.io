@@ -183,36 +183,36 @@
 
 
     <section class="flow">
-      <h2>??????????</h2>
+      <h2>Patient: Online Consultation Entry</h2>
       <div class="branch">
         <article class="node verified">
-          <h3>?? -> ?????? -> ?????</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon 90 ???<br>???.func-item:nth-child(1) -> .agree-btn + page_data + console</div>
+          <h3>Home -> Consent -> Pre-diagnosis Questionnaire</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .func-item:nth-child(1) -> .agree-btn + page_data + console</div>
           <table>
-            <tr><th>??</th><td>pages/index/index -> pages/consult/consent/index -> pages/pre-diagnosis/questionnaire/index</td></tr>
-            <tr><th>??</th><td>????????????????????????? mode=consult ?????????/??????????????????</td></tr>
-            <tr><th>??</th><td>?? API ?? content=null ????shared protocol ??????? content ????????? fallback?????????? readyAt ???timer ?????????????????</td></tr>
-            <tr><th>??</th><td>????????????????? fallback???? page_data ????????currentPatient ????mode=consult?</td></tr>
-            <tr><th>console</th><td>?????????????? 8 ????? 0 errors / 0 warnings / 0 exceptions?</td></tr>
-            <tr><th>??</th><td>????????????????? P010 / ???? P016 / ???? P013 ???????????</td></tr>
+            <tr><th>page</th><td>pages/index/index -> pages/consult/consent/index -> pages/pre-diagnosis/questionnaire/index</td></tr>
+            <tr><th>path</th><td>The natural Home online-consultation entry opens the consent page first. After agreeing it opens the pre-diagnosis questionnaire with mode=consult. Department/doctor pages remain downstream of this flow.</td></tr>
+            <tr><th>fix</th><td>When the protocol API returns content=null, shared protocol now returns string content and allows local fallback text. Consent confirm also checks readyAt wall time so a stalled DevTools timer cannot block a real click after the required wait.</td></tr>
+            <tr><th>state</th><td>Consent page renders fallback agreement text. After agree, page_data reaches pre-diagnosis questionnaire with currentPatient loaded and mode=consult.</td></tr>
+            <tr><th>console</th><td>Home, consent, and post-agree pre-diagnosis samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>P010 department list, P016 department detail, and P013 doctor detail were not reached in this round; they remain downstream of the questionnaire path.</td></tr>
           </table>
         </article>
       </div>
     </section>
 
     <section class="flow">
-      <h2>??????????</h2>
+      <h2>Doctor: Real-name Maintenance</h2>
       <div class="branch">
         <article class="node verified">
-          <h3>???? -> ?? -> D001 ??????</h3>
-          <div class="shot">screenshot-missing<br>???9421 MCP + .bottom-nav .nav-item:nth-child(3) -> .menu-section .menu-item:nth-child(3) + page_data + element_info + console</div>
+          <h3>Home -> Profile -> D001 Real-name Form</h3>
+          <div class="shot">screenshot-missing<br>Evidence: port 9421 MCP + .bottom-nav .nav-item:nth-child(3) -> .menu-section .menu-item:nth-child(3) + page_data + element_info + console</div>
           <table>
-            <tr><th>??</th><td>pages/index/index -> pages/profile/index/index -> pages/profile/real-name/index</td></tr>
-            <tr><th>??</th><td>D001 ???? pages/auth/realname/ ????????? pages/profile/real-name/index???????????????</td></tr>
-            <tr><th>??</th><td>???/???/picker ??/class/????/?????????????? WXML ?? form&&???|| fallback??? class ??? bindtap??? form.name ???????? value ??????</td></tr>
-            <tr><th>??</th><td>page_data ?? form.name=??? ? nameValue=????element_info ? input value ????????????????????????? ??/?????</td></tr>
-            <tr><th>console</th><td>????????D001 ??? 8 ????? 0 errors / 0 warnings / 0 exceptions?</td></tr>
-            <tr><th>??</th><td>???????????????????????????????????????????/?????????????????</td></tr>
+            <tr><th>page</th><td>pages/index/index -> pages/profile/index/index -> pages/profile/real-name/index</td></tr>
+            <tr><th>design</th><td>D001 design path pages/auth/realname/ maps to current registered route pages/profile/real-name/index. Current account state is unverified editable form.</td></tr>
+            <tr><th>fix</th><td>Name/id/license inputs, picker text/classes, upload state, and submit text are precomputed in JS. WXML no longer uses form&& fields, || fallback, ternary classes, or dynamic bindtap. This fixes the blank name input while form.name exists.</td></tr>
+            <tr><th>state</th><td>page_data has form.name and nameValue for doctor Li Hanxing. element_info shows the name input value is populated. ID/license/hospital are empty; department options include internal medicine and respiratory medicine.</td></tr>
+            <tr><th>console</th><td>Login, profile, and fixed D001 samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>No real certification submission was clicked. Failure/not-registered dialogs still need safe data-condition verification.</td></tr>
           </table>
         </article>
       </div>
