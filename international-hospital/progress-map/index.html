@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>互联网医院小程序实现热力图</title>
+  <style>
+    :root {
+      --bg: #101820;
+      --panel: #17232e;
+      --ink: #f6fbff;
+      --muted: #9fb0bd;
+      --line: rgba(255,255,255,.14);
+      --doc: #2f7df6;
+      --ui: #15b8a6;
+      --logic: #f5a524;
+      --verified: #23c55e;
+      --blocked: #ef4444;
+      --unknown: #51606d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(47,125,246,.24), transparent 28rem),
+        radial-gradient(circle at 90% 0%, rgba(245,165,36,.18), transparent 24rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    }
+    header {
+      padding: 32px clamp(20px, 5vw, 64px) 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 5vw, 54px);
+      letter-spacing: 0;
+      line-height: 1.05;
+    }
+    .subtitle {
+      margin: 0;
+      max-width: 980px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    main { padding: 24px clamp(20px, 5vw, 64px) 56px; }
+    .legend, .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 22px;
+    }
+    .chip, .stat {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: var(--muted);
+    }
+    .dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      margin-right: 7px;
+      border-radius: 3px;
+      vertical-align: -1px;
+    }
+    .tree {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .flow-map {
+      margin: 18px 0 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.045);
+      padding: 16px;
+    }
+    .flow-map h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+    .flow-branch {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .flow-node {
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--unknown);
+      border-radius: 8px;
+      background: rgba(0,0,0,.18);
+      padding: 12px;
+    }
+    .flow-node.verified { border-left-color: var(--verified); background: rgba(35,197,94,.11); color: var(--ink); }
+    .flow-node.logic { border-left-color: var(--logic); background: rgba(245,165,36,.10); color: var(--ink); }
+    .flow-node.blocked { border-left-color: var(--blocked); background: rgba(239,68,68,.10); }
+    .flow-node h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .shot {
+      display: grid;
+      place-items: center;
+      min-height: 92px;
+      margin: 8px 0 10px;
+      border: 1px dashed rgba(255,255,255,.24);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+    }
+    .evidence {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .evidence th,
+    .evidence td {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 6px 0;
+      vertical-align: top;
+      text-align: left;
+    }
+    .evidence th {
+      width: 68px;
+      color: var(--muted);
+      font-weight: 500;
+      padding-right: 8px;
+    }
+    .area {
+      min-height: 260px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+    }
+    .area h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .module {
+      min-height: 92px;
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: var(--unknown);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .module::after {
+      content: "";
+      position: absolute;
+      inset: auto -20px -26px auto;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+    }
+    .module strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.25;
+      position: relative;
+      z-index: 1;
+    }
+    .module span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,.82);
+      font-size: 12px;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+    .doc { background: var(--doc); }
+    .ui { background: var(--ui); }
+    .logic { background: var(--logic); color: #241a00; }
+    .verified { background: var(--verified); color: #04210d; }
+    .blocked { background: var(--blocked); }
+    .wide { grid-column: 1 / -1; }
+    .note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--logic);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .round {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .result {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.055);
+      padding: 13px 14px;
+      min-height: 124px;
+    }
+    .result b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+    }
+    .result p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>产品页面实现热力图</h1>
+    <p class="subtitle">按 DOCS/pages/**/*.png.txt 的高保真描述组织模块。颜色表示当前证据等级：从“有设计文档”到“UI、逻辑、元素、样式和控制台均已核对”。本页会随 MCP 自然流程验证逐步更新。</p>
+  </header>
+  <main>
+    <section class="stats">
+      <div class="stat">高保真描述：<strong>136</strong></div>
+      <div class="stat">患者端：<strong>94</strong></div>
+      <div class="stat">医生端：<strong>30</strong></div>
+      <div class="stat">通用：<strong>12</strong></div>
+    </section>
+    <section class="legend" aria-label="状态说明">
+      <div class="chip"><i class="dot" style="background:var(--doc)"></i>已建立文档索引</div>
+      <div class="chip"><i class="dot" style="background:var(--ui)"></i>UI 已实现待核对</div>
+      <div class="chip"><i class="dot" style="background:var(--logic)"></i>逻辑初步打通</div>
+      <div class="chip"><i class="dot" style="background:var(--verified)"></i>元素/样式/console 已核对</div>
+      <div class="chip"><i class="dot" style="background:var(--blocked)"></i>阻断或不一致</div>
+    </section>
+    <section class="flow-map" aria-label="功能链路分支">
+      <h2>功能链路分支</h2>
+      <div class="flow-branch" aria-label="患者购药与地址链路">
+        <article class="flow-node verified">
+          <h3>患者个人中心 -> 购药订单</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/profile/index/index -> pages/medicine/order-list/index</td></tr>
+            <tr><th>状态</th><td>全部、待接诊 tab 已通过自然点击核对；当前账号为空数据态。</td></tr>
+            <tr><th>逻辑</th><td>入口指向购药订单列表，不再误入缴费记录。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>有空态证据；真实订单卡片样式需等待有购药订单数据。</td></tr>
+          </table>
+        </article>
+        <article class="flow-node verified">
+          <h3>患者个人中心 -> 地址管理</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/medicine/address/index</td></tr>
+            <tr><th>状态</th><td>列表态可见，真实地址行显示默认标记、收货人、手机号、地区与详情。</td></tr>
+            <tr><th>逻辑</th><td>后端 JSON 地址与 string defaultFlag 已归一化；设默认/删除保持未触发。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>多条 defaultFlag=1 属于后端数据现状；页面按字段展示。</td></tr>
+          </table>
+        </article>
+        <article class="flow-node verified">
+          <h3>地址管理 -> 新增地址</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/medicine/address-edit/index</td></tr>
+            <tr><th>状态</th><td>新增表单初始态可见，姓名、手机号、地区、详情、默认开关为空/关闭。</td></tr>
+            <tr><th>逻辑</th><td>未输入、未保存，避免制造测试地址。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>编辑态、保存态、校验失败态待后续以非破坏方式核对。</td></tr>
+          </table>
+        </article>
+      </div>
+      <div class="flow-branch" aria-label="医生患者管理链路">
+        <article class="flow-node verified">
+          <h3>医生首页 -> 我的 -> 患者管理</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/profile/index/index -> pages/patient/list/index</td></tr>
+            <tr><th>状态</th><td>自然路径进入患者管理；待接诊 tab 当前为空态。</td></tr>
+            <tr><th>逻辑</th><td>医生登录态通过真实短信登录恢复，患者管理入口为主菜单第二项。</td></tr>
+            <tr><th>console</th><td>登录、个人中心、患者管理首屏采样均为 0。</td></tr>
+            <tr><th>差异</th><td>待接诊详情需在存在 waiting 数据时继续核对。</td></tr>
+          </table>
+        </article>
+        <article class="flow-node verified">
+          <h3>患者管理 -> 问诊中</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/patient/list/index</td></tr>
+            <tr><th>状态</th><td>问诊中 tab 显示两条真实张老三记录，年龄和问诊中标签可读。</td></tr>
+            <tr><th>逻辑</th><td>使用 status=2；ageText/statusClass 在 JS 中预计算。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>沟通按钮/聊天跳转未在此节点点击，留到问诊沟通链路。</td></tr>
+          </table>
+        </article>
+        <article class="flow-node verified">
+          <h3>患者管理 -> 已完成</h3>
+          <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/patient/list/index</td></tr>
+            <tr><th>状态</th><td>已完成 tab 显示两条真实已完成记录。</td></tr>
+            <tr><th>逻辑</th><td>使用 status=3；statusClass=completed。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>接诊记录卡片到问诊详情的后续路径未在此节点触发。</td></tr>
+          </table>
+        </article>
+      </div>
+    </section>
+    <section class="tree">
+      <article class="area">
+        <h2>患者端</h2>
+        <div class="modules">
+          <div class="module logic"><strong>问诊链路</strong><span>支付后待接诊、医生接诊、聊天收发已接入真实流程；聊天页历史清洁验证进行中。</span></div>
+          <div class="module verified"><strong>个人中心</strong><span>就诊人管理/添加/详情已按自然路径核对，P051/P055/P056 console 均为 0；处方、地址等继续逐页验证。</span></div>
+          <div class="module doc"><strong>慢病</strong><span>入口、知情同意、问卷、申报、材料、进度、权益等待自然点击核对。</span></div>
+          <div class="module logic"><strong>购药/缴费</strong><span>购药订单列表空态、地址列表、新增地址初始态已通过自然路径和 console 核对；订单详情、支付、物流、处方详情继续逐页核对。</span></div>
+        </div>
+      </article>
+      <article class="area">
+        <h2>医生端</h2>
+        <div class="modules">
+          <div class="module logic"><strong>接诊与沟通</strong><span>医生接诊到 doctor-chat 已跑通；患者端状态变化需继续按文档截图核对样式。</span></div>
+          <div class="module blocked"><strong>处方</strong><span>D014/D015/D022/D020 已能走到签署和业务错误展示；最终创建仍被后台药品处方类型/契约阻断。</span></div>
+          <div class="module verified"><strong>患者管理</strong><span>医生首页 -> 我的 -> 患者管理已自然进入；待接诊空态、问诊中真实记录、已完成真实记录已核对，console 为 0。</span></div>
+          <div class="module verified"><strong>实名认证</strong><span>我的 -> 实名认证/认证资料已核对。D038 未认证状态使用真实登录用户数据，去认证进入真实实名表单，console 为 0。</span></div>
+        </div>
+      </article>
+      <article class="area">
+        <h2>通用与工具</h2>
+        <div class="modules">
+          <div class="module doc"><strong>通用页面</strong><span>12 个通用 png.txt 已纳入页面资产索引。</span></div>
+          <div class="module ui"><strong>控制台核验</strong><span>以 WeChat MCP inspector 和 ih_debugConsoleLogs 双路径核对。</span></div>
+          <div class="module ui"><strong>GitHub Pages</strong><span>静态页入口已准备，后续接入 Actions 发布。</span></div>
+          <div class="module blocked"><strong>项目瘦身</strong><span>.worktrees 中存在带 node_modules 的历史工作树，需确认后清理。</span></div>
+        </div>
+      </article>
+    </section>
+    <section class="round" aria-label="本轮核对结果">
+      <article class="result">
+        <b>患者端 / 我的问诊 -> 图文聊天</b>
+        <p>自然点击进入同一张问诊单，页面数据、IM 历史去重、CDP console 和 ih_debugConsoleLogs 均已核对。UI 与图文问诊 png.txt 仍有头部和输入栏结构差异，继续按设计拆项。</p>
+      </article>
+      <article class="result">
+        <b>医生端 / 图文聊天</b>
+        <p>consultId 428207219515371520 已能加载患者、症状和三条真实消息；数字实体直显问题已修正。医生端 D040 目录目前缺少对应 png.txt，只能按 DEV.md 和截图核对。</p>
+      </article>
+      <article class="result">
+        <b>运行时控制台</b>
+        <p>医生端需同时看 CDP console 与 ih_debugConsoleLogs。IM 历史拉取必须等待 TencentCloudChat.EVENT.SDK_READY，不能只以登录状态作为 ready 依据。</p>
+      </article>
+      <article class="result">
+        <b>MCP 操作口径</b>
+        <p>患者端显式使用 auto_port 9420，医生端显式使用 auto_port 9421；截图输出必须写绝对路径，否则可能落到 MCP 包目录。</p>
+      </article>
+      <article class="result">
+        <b>医生端 / 图文聊天 -> 诊疗记录</b>
+        <p>从医生首页自然切到问诊中并进入聊天，再点击诊疗记录 tab 到达 pages/consult/records/index。当前问诊单无处方/检查记录，属于空数据态；对应设计稿在医生端/问诊/诊疗记录目录。</p>
+      </article>
+      <article class="result">
+        <b>患者端 / 个人中心 -> 我的问诊</b>
+        <p>通过原生 tabBar switchTab 到个人中心，再点击“我的问诊”进入列表；同一张问诊单在患者端显示为问诊中，另有一张待接诊单。CDP console 为 0，ih_debugConsoleLogs 为空。</p>
+      </article>
+      <article class="result">
+        <b>工具通道 / 截图</b>
+        <p>本轮两端 wechat_screenshot 均出现 daemon 90 秒超时，但 page_data、element_info 和 inspector 仍健康。当前视觉核对先降级为结构和数据证据，截图通道需单独恢复。</p>
+      </article>
+      <article class="result">
+        <b>医生端 / 问诊列表样式</b>
+        <p>问诊中列表卡片的 statusClass 原先为空，已补充 1/2/3/4 状态映射。后续回到医生端自然路径时需复核问诊中标签颜色和列表样式。</p>
+      </article>
+      <article class="result">
+        <b>Patient / My Consult Filter</b>
+        <p>pages/profile/my-consult/index keeps the active current-list endpoint and applies tab filtering by normalized consultationStatus. Natural path Profile -> My Consult -> in-progress shows only consultId 428207219515371520; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Chat IM History</b>
+        <p>Entering pages/consult/chat/index from the in-progress card now loads IM history on first entry after both doctorId and IM readiness are available. Page data shows 3 real messages and imHistoryLoaded=true; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / In-progress List</b>
+        <p>After natural doctor login, switching to in-progress shows consultId 428207219515371520 with statusClass=communicating and console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Prescription List</b>
+        <p>Natural path Profile -> My Prescription reaches pages/profile/prescription/index. Current patient account returns an empty state, filter tabs work through runtime style-isolated selectors such as index--tab-item, and console capture is 0. Card/detail styling still needs a patient with prescription data.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / About</b>
+        <p>Natural path Doctor Home -> My -> About reaches pages/profile/about/index. The page now matches the static info shape from DEV/png.txt: app info, version, company intro, contact items, and copyright. Unregistered placeholder /pages/about/* menu links were removed; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Personal Info</b>
+        <p>Natural path Profile -> Personal Info reaches pages/profile/personal-info/index/index. Current user phone is recovered as 15901447669 and rendered as 159****7669 instead of a blank bound-phone row; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Change Phone</b>
+        <p>Natural path Personal Info -> Bound Phone reaches pages/profile/change-phone/index. The old phone now comes from the current login state, not the previous 18888888888 placeholder. Entering a 4-digit code stays on the current step with the unavailable endpoint path; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Feedback</b>
+        <p>Natural path Doctor My -> Feedback reaches pages/profile/feedback/index. Empty submit shows validation errors, and a valid submit branch displays the missing feedback API state instead of simulated success; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Visit Person Management</b>
+        <p>Natural path Patient Profile -> Visit Person Management reaches pages/patient/manage/index. Runtime data currently shows visit person 张老三 with gender/id-type labels normalized; console capture is 0. The card now exposes a separate 查看详情 action to pages/patient/edit/index so P056 is reachable without switching the default patient.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Visit Person Add and Detail</b>
+        <p>Patient Visit Person Management -> Add reaches pages/patient/add/index with dict-backed id type/gender labels, placeholder fields, and submit state precomputed outside WXML. Empty submit stays on the form with submitting=false and console capture 0. Visit Person Detail reaches pages/patient/edit/index for patient 308386498155347968; the backend-unavailable edit action shows a toast and console remains 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Certification Pages</b>
+        <p>Doctor login via Feishu captcha returned to Home, then My -> 实名认证 reached pages/profile/real-name/index with current doctor 李晗星 and empty certification fields. My -> 认证资料 reached D038 pages/profile/verify/index as unverified, with no hardcoded ID card/hospital/license mock data. D038 去认证 now routes through pages/auth/register/index into the real-name form; every doctor console capture in this pass was 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Patient Management Detail</b>
+        <p>Natural path Doctor Home -> My -> Patient Management -> first waiting card reaches pages/patient/detail/index for consultId 428197448779345920. Waiting status now exposes the bottom Reject/Accept action bar; page data has status=1 and canAccept=true; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Consult Follow-up / Accept Transition</b>
+        <p>Patient Profile -> My Consult showed consultId 428197448779345920 as waiting and opened pages/consult/order-detail/index with the Cancel Consultation action before acceptance. Doctor Patient Detail -> Accept Dialog -> Confirm Accept moved the same consult into doctor in-progress and patient in-progress lists. Both chat pages now open with empty consultation messages for the newly accepted consult instead of replaying old C2C history; both console captures are 0.</p>
+      </article>
+      <article class="result">
+        <b>Consult Follow-up / Two-way Chat</b>
+        <p>For consultId 428197448779345920, doctor chat sent a text prompt, patient chat received it, patient chat replied, and doctor chat received the reply through realtime IM. Re-entering patient chat from Profile -> My Consult still opens pages/consult/chat/index with consultId/doctorId resolved and console capture 0; the replayed two-message history in this pass was verified as local `ih_chat_messages_428197448779345920` cache, while `/im/getChatRecord` still returns the expected in-progress business rule to use IM.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / In-progress Card Cleanup</b>
+        <p>Doctor Home -> In-progress now shows consultId 428197448779345920 with status=2 and statusClass=communicating. The backend row is sparse, so the card uses the consultation type label as a fallback summary and conditionally hides empty time/message/divider fields; element_info confirms the previous lone `|` is gone, and console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Consult Follow-up / Records and Patient Chat Re-entry</b>
+        <p>Doctor Chat -> Diagnosis Records reaches pages/consult/records/index for consultId 428197448779345920. Prescription and exam/check tabs both render the current empty-data state from consultation detail; element_info confirms the visible Chinese empty state, and doctor console capture is 0. Patient My Consult shows the same consult as status=2 and re-enters pages/consult/chat/index with the scoped doctor prompt and patient reply; patient console capture is 0. The patient chat native back stack returns to My Consult when the chat was entered from the in-progress card.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Chat Header to Doctor Detail</b>
+        <p>Patient Chat -> doctor header now carries deptId from consultation detail into pages/doctor/detail/index. Runtime page data loads doctor 李晗星, 呼吸内科, schedule 8:00-12:00, 10 available slots, and enabled "立即问诊"; element_info confirms the visible doctor-detail content and patient console capture is 0. Before the fix, the same natural tap passed only doctorId and the backend returned 科室id不能为空, leaving doctor=null.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Records Back to Chat</b>
+        <p>Doctor Diagnosis Records -> 患者沟通 tab naturally returns to pages/consult/doctor-chat/index for consultId 428197448779345920 with imReady=true and empty consultation messages. Element inspection confirms D040 currently exposes the chat/records tabs and bottom business actions, but no patient-detail entry from the chat header; doctor console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Chat Toolbar Expanded</b>
+        <p>Patient Chat -> `+` opens the toolbar-expanded state for consultId 428197448779345920. Page data shows showMorePanel=true, element_info confirms the visible actions 相册 / 拍照 / 快捷回复, and patient console capture is 0. This covers the P019 toolbar_expanded state without invoking device media pickers.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Close Consultation Dialog</b>
+        <p>Doctor Chat -> 关闭问诊退款 reaches D026 pages/consult/end-dialog/index for consultId 428197448779345920. Element_info confirms both 完成问诊 and 关闭问诊 cards plus the automatic-refund warning; console capture is 0. Final 关闭问诊 confirm was intentionally not clicked, and the second 继续沟通 action returned to doctor chat.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Chat Quick Reply</b>
+        <p>Patient Chat -> `+` -> Quick Reply opens the quick-reply panel for consultId 428197448779345920. Selecting the first quick-reply tag fills `inputValue` with the selected text, closes the panel, keeps the existing message list unchanged, and patient console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Complete Consultation Dialog Cancel</b>
+        <p>Doctor Chat -> Complete Consultation reaches D026 pages/consult/end-dialog/index for consultId 428197448779345920. Element_info confirms the two-card D026 content; the first card's Continue Communication action returns to pages/consult/doctor-chat/index without starting archive or closure, and doctor console captures are 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Chat Quick Reply</b>
+        <p>Doctor Chat -> `+` now opens a non-mutating more panel with gallery, camera, and quick-reply entries. Quick Reply opens horizontal tags; selecting the first tag fills `inputValue`, leaves the message list unchanged, closes the panel, and doctor console capture is 0. This covers the D040 quick-reply state described in DEV.md.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Diagnosis Records</b>
+        <p>Patient Profile -> My Consult -> in-progress Chat now exposes the P019 header record button and reaches pages/consult/records/index for consultId 428197448779345920. P020 setup verification also confirms the detail-page "诊疗记录" row reaches the same page. The records page loads patient 张老三, renders empty prescription and exam/check states from real consultation detail, switches the 检验检查 tab, and patient console capture is 0 after each meaningful interaction.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Chat Image Placeholder</b>
+        <p>Doctor Chat -> `+` -> 相册 now closes the non-mutating more panel without invoking a device media picker or sending a message. Page data keeps the existing input text and messages unchanged, and doctor console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / About and Feedback</b>
+        <p>Natural path Doctor Home -> My reaches pages/profile/about/index and pages/profile/feedback/index. About renders static app/contact data and the phone action now reads contact value. Feedback type selection works through the generated picker selectors, valid submit stays on the page with the verified missing-API state, and doctor console capture is 0 throughout.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Payment Records</b>
+        <p>Natural path Patient Profile -> 缴费记录 reaches pages/payment/list/index/index. P036 now keeps the design tabs 全部/待缴费/已支付/已退款 but no longer displays consultation orders as check/exam fee records while the backend fee-order list endpoint is unavailable. The page shows a clear unsupported empty state, tab switching updates empty copy, and patient console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Chat to Western Prescription</b>
+        <p>Natural path Doctor Chat -> Western Prescription -> Add Medicine -> Dosage -> Sign reaches D014/D015/D022/D020 for consultId 428197448779345920. Drug selection, dosage transfer, patient/diagnosis query backup, signature state, and OpenAPI-shaped create payload are implemented. D020 and dialog actions use native button controls so MCP tap changes page state. Synchronized console capture around submit is 0; final `/dr/prescription` submit is still blocked as a user-facing page error: `药品类型和处方类型不匹配`, likely tied to backend medicine archive `prescriptionCategory` / contract data.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Chat to Exam and Medical Record</b>
+        <p>Natural path Doctor Chat -> Check/Exam reaches pages/consult/exam-apply/index for consultId 428197448779345920. The page loads patient info, blocks Next when complaint/diagnosis/treatment are absent, and console capture is 0. Natural path Doctor Chat -> Write Medical Record reaches pages/medical-record/edit/index; chief complaint input updates page data, disease search returns acute bronchitis from the real disease API, selecting it writes diseaseIds=[4], and console capture is 0. No real medical-record submit was performed.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Medical Record to Exam Selection</b>
+        <p>For consultId 428197448779345920, the medical-record submit now preserves the int64 consultation id as a string, successfully returns from pages/medical-record/edit/index to doctor chat, and keeps console capture at 0. Re-entering Check/Exam, filling complaint/diagnosis/treatment, and tapping Next reaches pages/consult/exam-select/index. Project selection is currently a verified blocked state: patient info loads, projectList is empty, projectNotice says Check/Exam projects are unsupported, submit stays on the page, and console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Consult Follow-up / End Dialog and Patient Accepted Detail</b>
+        <p>Doctor Chat -> Complete Consultation now reaches pages/consult/end-dialog/index for consultId 428197448779345920 instead of a native wx modal, with console capture 0. Patient P020 detail for the same accepted consult now normalizes consultationStatus=2, displays "医生已接诊" with the green accepted state, and the Continue Chat button naturally opens pages/consult/chat/index with the two real scoped IM messages; patient console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / End Dialog to Medical Record Archive</b>
+        <p>D026 -> Go Write Medical Record now naturally reaches pages/medical-record/archive/index for consultId 428197448779345920 with console capture 0. D025 loads patient info and medicalRecordCode, supports editable complaint/diagnosis/treatment fields, searches the real disease API for "急性", selects "急性支气管炎" as diseaseIds=[4], and builds a safe archive payload with medicalConsultationId kept as a string. Final archive submit was intentionally not performed to avoid ending the active consultation.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Medicine Orders and Address</b>
+        <p>Natural path Patient Profile -> Purchase Orders reaches pages/medicine/order-list/index, and the list/tabs render empty states with console capture 0. Patient Profile -> Address Management reaches pages/medicine/address/index with real backend addresses; JSON address detail and string defaultFlag values are normalized before display. Address Management -> Add reaches pages/medicine/address-edit/index initial form without saving data; console capture is 0.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Patient Management Tabs</b>
+        <p>Natural path Doctor Home -> My -> Patient Management reaches pages/patient/list/index. Waiting tab is empty, communicating tab shows two status=2 records, and completed tab shows two status=3 records. Element_info confirms the communicating card text 张老三 / 男 / 36岁 / 问诊中; all meaningful interactions have console capture 0.</p>
+      </article>
+    </section>
+    <p class="note">下一步：新增验证节点需要优先写入功能链路分支，并为每个页面状态补截图证据、表格式说明、自然入口、MCP 数据证据和 console 状态。</p>
+  </main>
+</body>
+</html>
