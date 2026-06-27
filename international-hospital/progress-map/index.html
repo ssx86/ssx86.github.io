@@ -59,7 +59,7 @@
       <div class="stat">患者端：<strong>94</strong></div>
       <div class="stat">医生端：<strong>30</strong></div>
       <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27 16:05</strong></div>
+      <div class="stat">更新：<strong>2026-06-27 16:25</strong></div>
     </section>
     <section class="legend">
       <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
@@ -67,6 +67,24 @@
       <div class="chip"><i class="dot" style="background:var(--logic)"></i>逻辑/API 初步跑通</div>
       <div class="chip"><i class="dot" style="background:var(--verified)"></i>MCP 自然路径 + console 已验证</div>
       <div class="chip"><i class="dot" style="background:var(--blocked)"></i>数据条件或工具通道阻塞</div>
+    </section>
+
+    <section class="flow">
+      <h2>患者端：购药订单</h2>
+      <div class="branch">
+        <article class="node verified">
+          <h3>个人中心 -> 购药订单 -> P079 空态/筛选</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon 90 秒超时<br>证据：`.order-item:nth-child(3)` + page_data + element_info + console</div>
+          <table>
+            <tr><th>页面</th><td>pages/profile/index/index -> pages/medicine/order-list/index</td></tr>
+            <tr><th>设计</th><td>DOCS/pages/患者端/购药/购药订单列表；设计路径 `pages/medicine/order-list/` 映射到注册路由 `pages/medicine/order-list/index`。</td></tr>
+            <tr><th>自然入口</th><td>患者首页已登录 -> native tabBar 到“我的” -> 点击第三个订单入口 `.order-item:nth-child(3)`，元素文本为“+ / 购药订单”。</td></tr>
+            <tr><th>状态</th><td>当前账号无购药订单；默认 `activeTab=all`、`showEmpty=true`、`emptyText=暂无购药订单`。点击 `.filter-tabs .tab:nth-child(3)` 后 `activeTab=consulting`、`emptyText=暂无已接诊订单`。</td></tr>
+            <tr><th>console</th><td>个人中心、P079 默认空态、已接诊 tab 后 8 秒采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>真实订单卡片状态仍受数据条件阻塞；取消订单和订单详情入口未在无数据账号下触发。</td></tr>
+          </table>
+        </article>
+      </div>
     </section>
 
     <section class="flow">
@@ -140,6 +158,24 @@
             <tr><th>页面</th><td>pages/consult/reject/index</td></tr>
             <tr><th>入口</th><td>必须从真实待接诊问诊的拒绝入口自然进入；当前医生待接诊列表为空。</td></tr>
             <tr><th>状态</th><td>页面文件已注册，暂不 direct jump 计入产品路径验证。</td></tr>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="flow">
+      <h2>医生端：个人中心与认证</h2>
+      <div class="branch">
+        <article class="node verified">
+          <h3>问诊首页 -> 我的 -> D038 认证资料未认证态</h3>
+          <div class="shot">screenshot-missing<br>证据：9421 端口 MCP + `.menu-section .menu-item:nth-child(4)` + page_data + element_info + console</div>
+          <table>
+            <tr><th>页面</th><td>pages/index/index -> pages/profile/index/index -> pages/profile/verify/index</td></tr>
+            <tr><th>自然入口</th><td>医生登录后在问诊首页点击底部 `.bottom-nav .nav-item:nth-child(3)`“我的”，再点第四个主菜单“认证资料”。医生 MCP 调用显式携带 `auto_port=9421`。</td></tr>
+            <tr><th>状态</th><td>当前医生李晗星为 `unverified`：显示未认证、实名信息、手机号 `186****2542`、去认证按钮；证件照片、审核记录、医生资质均隐藏。</td></tr>
+            <tr><th>修复</th><td>共享 `status-tag` 组件将 `#999` 规范化为 `#999999` 后再拼 alpha，运行时从错误背景 `#99920` 修正为 `#99999920`，并移除模板里的 `{{label || text}}`。</td></tr>
+            <tr><th>console</th><td>登录、个人中心、D038 修复后 8 秒采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>D001 实名信息维护及验证失败/未注册弹窗未触发，后续需从“去认证”入口继续验证但避免提交真实注册变更。</td></tr>
           </table>
         </article>
       </div>
