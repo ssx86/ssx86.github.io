@@ -253,6 +253,17 @@
       <h2>功能链路分支</h2>
       <div class="flow-branch" aria-label="患者购药与地址链路">
         <article class="flow-node verified">
+          <h3>患者首页 -> 院内制剂</h3>
+          <div class="shot">截图缺失：wechat_screenshot daemon 90 秒超时<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/index/index -> pages/medicine/hospital-preparation/index</td></tr>
+            <tr><th>状态</th><td>P078 可从首页第三个功能入口进入；当前账号/接口为空数据态，显示搜索、中文分类和空态。</td></tr>
+            <tr><th>逻辑</th><td>不渲染模拟制剂卡片；分类 class、空态、列表、加载更多状态均由 JS 预计算。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>设计稿中的 banner 和制剂卡片需等待真实制剂数据或后端接口后核对。</td></tr>
+          </table>
+        </article>
+        <article class="flow-node verified">
           <h3>患者个人中心 -> 购药订单</h3>
           <div class="shot">截图证据位：下一轮开始随页面状态写入<br>当前证据：page_data + element_info + console</div>
           <table class="evidence">
@@ -320,6 +331,17 @@
             <tr><th>差异</th><td>接诊记录卡片到问诊详情的后续路径未在此节点触发。</td></tr>
           </table>
         </article>
+        <article class="flow-node verified">
+          <h3>已完成患者卡 -> 患者病情资料</h3>
+          <div class="shot">截图缺失：wechat_screenshot daemon 90 秒超时<br>当前证据：page_data + element_info + console</div>
+          <table class="evidence">
+            <tr><th>页面</th><td>pages/patient/list/index -> pages/patient/detail/index?id=307744509397712896</td></tr>
+            <tr><th>状态</th><td>D009 view 状态展示张松石、男、39岁、脱敏证件号、病情描述、病历编号、科室和 2 张医学图像。</td></tr>
+            <tr><th>逻辑</th><td>已完成 status=3 不显示接诊/拒绝操作；年龄文本在 JS 中预计算。</td></tr>
+            <tr><th>console</th><td>进入页面、读取主体、点击第一张医学图像预览后，8 秒采样均为 0。</td></tr>
+            <tr><th>差异</th><td>图片预览为 native `wx.previewImage` 层，page_data 仍停留在 D009；视觉截图待截图通道恢复。</td></tr>
+          </table>
+        </article>
       </div>
     </section>
     <section class="tree">
@@ -346,7 +368,7 @@
         <div class="modules">
           <div class="module doc"><strong>通用页面</strong><span>12 个通用 png.txt 已纳入页面资产索引。</span></div>
           <div class="module ui"><strong>控制台核验</strong><span>以 WeChat MCP inspector 和 ih_debugConsoleLogs 双路径核对。</span></div>
-          <div class="module ui"><strong>GitHub Pages</strong><span>静态页入口已准备，后续接入 Actions 发布。</span></div>
+          <div class="module verified"><strong>GitHub Pages</strong><span>进度图已发布到 https://ssx86.github.io/international-hospital/progress-map/；private 项目仓库不支持直接开 Pages。</span></div>
           <div class="module blocked"><strong>项目瘦身</strong><span>.worktrees 中存在带 node_modules 的历史工作树，需确认后清理。</span></div>
         </div>
       </article>
@@ -519,6 +541,14 @@
       <article class="result">
         <b>Doctor / Patient Management Tabs</b>
         <p>Natural path Doctor Home -> My -> Patient Management reaches pages/patient/list/index. Waiting tab is empty, communicating tab shows two status=2 records, and completed tab shows two status=3 records. Element_info confirms the communicating card text 张老三 / 男 / 36岁 / 问诊中; all meaningful interactions have console capture 0.</p>
+      </article>
+      <article class="result">
+        <b>Patient / Hospital Preparation Empty State</b>
+        <p>Natural path Patient Home -> 院内制剂 reaches pages/medicine/hospital-preparation/index. The current page shows Chinese category labels and a real empty state instead of mock preparation cards; page data has showEmpty=true and showList=false, and patient console capture is 0. The design card-rich browsing state still needs real preparation data.</p>
+      </article>
+      <article class="result">
+        <b>Doctor / Patient Detail and Image Preview Entry</b>
+        <p>Natural path Doctor Home -> My -> Patient Management -> Completed -> first patient card reaches D009 pages/patient/detail/index for consultId 307744509397712896. The page renders patient header, description, medical-record metadata, and 2 image thumbnails; status=3 hides accept/reject actions. Tapping the first image invokes the native preview entry and leaves console capture 0. Screenshot capture for both P078 and D009 still times out at the MCP daemon layer.</p>
       </article>
     </section>
     <p class="note">下一步：新增验证节点需要优先写入功能链路分支，并为每个页面状态补截图证据、表格式说明、自然入口、MCP 数据证据和 console 状态。</p>
