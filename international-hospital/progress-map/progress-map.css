@@ -333,6 +333,28 @@ main {
   overflow-wrap: anywhere;
 }
 
+.evidence-shot {
+  margin: 0 0 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,.05);
+}
+
+.evidence-shot img {
+  display: block;
+  width: min(220px, 100%);
+  max-height: 420px;
+  object-fit: contain;
+  background: #111a22;
+}
+
+.evidence-shot figcaption {
+  padding: 7px 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 @keyframes dash-flow { to { stroke-dashoffset: -30; } }
 
 @keyframes node-pulse {

@@ -74,8 +74,26 @@ const statusByRoute = {
   partial: new Set([]),
   blocked: new Set([
     'doctor:pages/consult/reject/index',
-    'doctor:pages/consult/accept-dialog/index'
+    'doctor:pages/consult/accept-dialog/index',
+    'doctor:pages/consult/end-dialog/index'
   ])
+};
+
+const evidenceByRoute = {
+  'doctor:pages/consult/end-dialog/index': [
+    {
+      type: 'screenshot',
+      title: 'D026 双选项确认页 MCP 截图',
+      path: 'evidence/doctor-end-dialog-fixed.png'
+    }
+  ],
+  'doctor:pages/consult/records/index': [
+    {
+      type: 'screenshot',
+      title: '医生端诊疗记录 MCP 截图',
+      path: 'evidence/doctor-current-mcp-screenshot.png'
+    }
+  ]
 };
 
 function walk(dir, predicate, out = []) {
@@ -397,6 +415,7 @@ function aggregateGraph(rawNodes, rawEdges) {
       stateCount: group.raw.length,
       pngCount: group.raw.filter((node) => node.docPath).length,
       devOnlyCount: group.raw.filter((node) => node.status === 'dev-only').length,
+      evidence: evidenceByRoute[`${displaySide}:${route}`] || evidenceByRoute[group.key] || [],
       states: group.raw
         .map((node) => ({
           title: node.title,

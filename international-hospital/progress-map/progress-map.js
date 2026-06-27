@@ -220,6 +220,7 @@ function renderDetail(nodeId) {
       <strong>设计路径</strong><span>${escapeHtml(node.designPath || '无 DEV Path')}</span>
       <strong>注册状态</strong><span>${node.registered ? '已在 app.json 注册' : '未确认注册或为旧设计路径'}</span>
       <strong>状态数量</strong><span>${escapeHtml(`${node.stateCount || 1} 个状态，其中 ${node.pngCount || 0} 个 png.txt，${node.devOnlyCount || 0} 个 DEV-only`)}</span>
+      <strong>截图证据</strong><span>${evidenceList(node.evidence || [])}</span>
       <strong>状态清单</strong><span>${stateList(node.states || [])}</span>
     </div>
     <div class="edge-list">
@@ -227,6 +228,16 @@ function renderDetail(nodeId) {
       ${edgeList('入线', incoming)}
     </div>
   `;
+}
+
+function evidenceList(evidence) {
+  if (!evidence.length) return '暂无 MCP 截图';
+  return evidence.map((item) => `
+    <figure class="evidence-shot">
+      <img src="${escapeAttribute(item.path)}" alt="${escapeAttribute(item.title || 'MCP 截图证据')}" loading="lazy">
+      <figcaption>${escapeHtml(item.title || item.path)}</figcaption>
+    </figure>
+  `).join('');
 }
 
 function stateList(states) {
@@ -326,4 +337,8 @@ function escapeHtml(value) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function escapeAttribute(value) {
+  return escapeHtml(value).replace(/`/g, '&#96;');
 }

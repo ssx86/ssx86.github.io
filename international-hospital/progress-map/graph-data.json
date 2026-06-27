@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T19:53:51.908Z",
+  "generatedAt": "2026-06-27T20:11:19.995Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
@@ -31,6 +31,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "成功提示弹窗 / 弹窗-2",
@@ -56,6 +57,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "弹窗",
@@ -81,6 +83,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "确认弹窗 / 弹窗",
@@ -106,6 +109,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "异常提示弹窗 / 弹窗-1",
@@ -131,6 +135,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "空状态 / 空页面样式",
@@ -156,6 +161,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "通用组件",
@@ -181,6 +187,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "选择器 / 选择样式",
@@ -206,6 +213,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "病历归档",
@@ -231,6 +239,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "强制归档 / 强制归档病历",
@@ -256,6 +265,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "修改病历",
@@ -281,6 +291,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "驳回详情",
@@ -306,6 +317,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "处方编辑",
@@ -331,6 +343,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "处方驳回提示",
@@ -356,6 +369,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "处方提交",
@@ -381,6 +395,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "开具西药处方 / 中成药处方-第二步",
@@ -424,6 +439,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "开具中药处方 / 开具中药处方-第二步",
@@ -458,6 +474,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "签署处方",
@@ -483,6 +500,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "添加药材",
@@ -508,6 +526,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "添加药品",
@@ -542,6 +561,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "用量设置",
@@ -567,6 +587,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "关于我们",
@@ -592,6 +613,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "实名验证",
@@ -617,6 +639,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "我的",
@@ -642,6 +665,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "意见反馈",
@@ -667,6 +691,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "患者列表 / 患者-待接诊",
@@ -710,6 +735,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "患者详情 / 患者病情资料",
@@ -735,6 +761,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊详情 / 患者沟通-处方单审药师驳回",
@@ -760,6 +787,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "实名信息维护",
@@ -803,6 +831,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "医生注册",
@@ -828,6 +857,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "components/image-preview",
@@ -853,6 +883,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "pages/report/detail/index",
@@ -874,10 +905,17 @@
       "route": "pages/consult/end-dialog/index",
       "designPath": "pages/consult/end-dialog/index",
       "registered": true,
-      "status": "documented",
+      "status": "blocked",
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "D026 双选项确认页 MCP 截图",
+          "path": "evidence/doctor-end-dialog-fixed.png"
+        }
+      ],
       "states": [
         {
           "title": "关闭问诊弹窗",
@@ -885,7 +923,7 @@
           "docPath": "医生端/问诊/关闭问诊弹窗/关闭问诊弹窗.png.txt",
           "devPath": "DOCS/pages/医生端/问诊/关闭问诊弹窗/DEV.md",
           "sourceSide": "doctor",
-          "status": "documented",
+          "status": "blocked",
           "registered": true
         }
       ]
@@ -903,6 +941,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "检查检验申请 / 检查检验申请-第二步",
@@ -946,6 +985,13 @@
       "stateCount": 3,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "医生端诊疗记录 MCP 截图",
+          "path": "evidence/doctor-current-mcp-screenshot.png"
+        }
+      ],
       "states": [
         {
           "title": "诊疗记录",
@@ -989,6 +1035,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "接诊确认弹窗",
@@ -1014,6 +1061,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "拒绝接诊 / 拒绝接诊-弹窗",
@@ -1039,6 +1087,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊管理首页 / 问诊",
@@ -1073,6 +1122,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊聊天",
@@ -1098,6 +1148,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "检验详情",
@@ -1123,6 +1174,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "处方详情 / 处方详情-失效",
@@ -1166,6 +1218,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "我的处方",
@@ -1191,6 +1244,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "登录",
@@ -1243,6 +1297,7 @@
       "stateCount": 8,
       "pngCount": 8,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "输入验证码",
@@ -1331,6 +1386,7 @@
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "个人信息",
@@ -1392,6 +1448,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "就诊人管理",
@@ -1426,6 +1483,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "就诊人信息",
@@ -1451,6 +1509,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "添加就诊人",
@@ -1476,6 +1535,7 @@
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "我的",
@@ -1537,6 +1597,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "我的问诊",
@@ -1571,6 +1632,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "修改手机号",
@@ -1596,6 +1658,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "地址管理",
@@ -1630,6 +1693,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "购药订单列表 / 购药订单",
@@ -1682,6 +1746,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "购药订单详情 / 购药订单详情-待接诊",
@@ -1734,6 +1799,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "购药下单",
@@ -1759,6 +1825,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "购药支付",
@@ -1784,6 +1851,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "添加地址",
@@ -1809,6 +1877,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "物流查询",
@@ -1834,6 +1903,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "院内制剂列表 / 院内制剂",
@@ -1868,6 +1938,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "院内制剂问卷 / 院内制剂处方需求",
@@ -1902,6 +1973,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "缴费订单详情 / 缴费订单-待缴费",
@@ -1945,6 +2017,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "缴费记录",
@@ -1970,6 +2043,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "缴费支付",
@@ -1995,6 +2069,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "便民门诊",
@@ -2020,6 +2095,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "材料上传",
@@ -2045,6 +2121,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "慢病权益",
@@ -2070,6 +2147,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "慢病认证检查",
@@ -2095,6 +2173,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "慢病入口 / 慢特病线上门诊",
@@ -2120,6 +2199,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "慢病预诊问卷",
@@ -2145,6 +2225,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "慢病在线申报",
@@ -2179,6 +2260,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "慢病知情同意书 / 慢病续方配药知情同意书",
@@ -2231,6 +2313,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "申报进度查询 / 在线申报进度查询",
@@ -2256,6 +2339,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "申报详情 / 慢病在线申报详情",
@@ -2281,6 +2365,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "续方配药",
@@ -2306,6 +2391,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "科室详情",
@@ -2340,6 +2426,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "首页",
@@ -2392,6 +2479,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "搜索结果",
@@ -2426,6 +2514,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "选择科室",
@@ -2460,6 +2549,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "医生列表",
@@ -2485,6 +2575,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "医生详情 / 医生介绍",
@@ -2528,6 +2619,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "pages/consult/records/index",
@@ -2553,6 +2645,7 @@
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "图文问诊聊天 / 图文问诊",
@@ -2614,6 +2707,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊订单详情 / 问诊订单详情-待接诊",
@@ -2666,6 +2760,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊列表 / 问诊",
@@ -2691,6 +2786,7 @@
       "stateCount": 6,
       "pngCount": 6,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "问诊详情",
@@ -2761,6 +2857,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "问诊支付",
@@ -2786,6 +2883,7 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "在线问诊知情同意书 / 在线问诊",
@@ -2829,6 +2927,7 @@
       "stateCount": 1,
       "pngCount": 0,
       "devOnlyCount": 1,
+      "evidence": [],
       "states": [
         {
           "title": "用户协议",
@@ -2854,6 +2953,7 @@
       "stateCount": 4,
       "pngCount": 4,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "预诊问卷",
@@ -2906,6 +3006,7 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "健康资讯",
@@ -2931,6 +3032,7 @@
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
+      "evidence": [],
       "states": [
         {
           "title": "健康资讯详情 / 图文详情",
