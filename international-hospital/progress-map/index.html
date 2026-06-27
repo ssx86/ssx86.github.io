@@ -59,7 +59,7 @@
       <div class="stat">患者端：<strong>94</strong></div>
       <div class="stat">医生端：<strong>30</strong></div>
       <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27 16:25</strong></div>
+      <div class="stat">更新：<strong>2026-06-27 17:38</strong></div>
     </section>
     <section class="legend">
       <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
@@ -232,6 +232,17 @@
           </table>
         </article>
         <article class="node verified">
+          <h3>P019 Chat -> Patient Diagnosis Records</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .record-btn text ◎ -> .sub-tabs .sub-tab:nth-child(2) + page_data + element_info + console</div>
+          <table>
+            <tr><th>page</th><td>pages/consult/chat/index -> pages/consult/records/index</td></tr>
+            <tr><th>path</th><td>The patient chat header record icon renders as ◎ and opens the diagnosis records page. The selector must be confirmed with element_info before tapping because visible text does not name the product action.</td></tr>
+            <tr><th>state</th><td>The same consultation 428197448779345920 loads patient 张老三, gender 男, age 36, and id card 510102199003077619. Prescription and exam arrays are empty, so the patient page renders explicit empty states.</td></tr>
+            <tr><th>console</th><td>P019 before tap, records page entry, exam sub-tab switch, and post-screenshot samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>No patient-side non-empty prescription or exam record was available on this consultation. Screenshot capture timed out without producing a file.</td></tr>
+          </table>
+        </article>
+        <article class="node verified">
           <h3>Doctor Patient Management -> D040 Chat</h3>
           <div class="shot">screenshot-missing<br>Evidence: .menu-section .menu-item:nth-child(2) -> .tab:nth-child(2) -> .patient-card:nth-child(1) + page_data + console</div>
           <table>
@@ -243,9 +254,21 @@
             <tr><th>gap</th><td>Doctor accept-dialog and reject flow still need a real waiting consultation. Direct route jumps are not counted for that state.</td></tr>
           </table>
         </article>
+        <article class="node verified">
+          <h3>D040 Chat -> D034 Diagnosis Records</h3>
+          <div class="shot">screenshot-missing<br>Evidence: .tabs .tab:nth-child(2) -> .sub-tabs .sub-tab:nth-child(2) / nth-child(1) + page_data + element_info + console</div>
+          <table>
+            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/consult/records/index</td></tr>
+            <tr><th>design</th><td>D034 design path pages/consult/records/ maps to current registered route pages/consult/records/index. It is reached naturally from the D040 "诊疗记录" tab.</td></tr>
+            <tr><th>state</th><td>The current consultation loads patient 张老三, gender 男, age 36, id card 510102199003077619. Prescription and exam/check arrays are empty, so both sub-tabs render explicit empty states: 暂无处方记录 and 暂无检验检查记录.</td></tr>
+            <tr><th>fix</th><td>D034 tab display state is now precomputed in JS through prescriptionTabClass, examTabClass, showPrescriptionTab, and showExamTab. WXML no longer uses activeSubTab comparison or ternary class expressions.</td></tr>
+            <tr><th>console</th><td>Entering D034, switching to exam, switching back to prescription, and post-compile samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>The current real consultation has no historical prescription or exam records, so non-empty card rendering and quote-prescription flow remain data-condition blocked.</td></tr>
+          </table>
+        </article>
       </div>
     </section>
-    <p class="note">下一轮继续沿真实问诊单后续扩展：优先做医生 D040 的诊疗记录 tab、病历/检查/处方只读或阻塞态，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
+    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的病历、检查、处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
   </main>
 </body>
 </html>
