@@ -355,6 +355,22 @@ main {
   font-size: 12px;
 }
 
+.runtime-evidence {
+  background: rgba(255,200,87,.12);
+  border: 1px solid rgba(255,200,87,.32);
+  border-radius: 8px;
+  color: var(--text);
+  display: block;
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.runtime-evidence p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+
 @keyframes dash-flow { to { stroke-dashoffset: -30; } }
 
 @keyframes node-pulse {

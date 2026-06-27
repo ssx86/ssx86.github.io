@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-27T20:28:03.332Z",
+  "generatedAt": "2026-06-27T20:49:51.428Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
-    "devOnlyCount": 21,
+    "devOnlyCount": 20,
     "stateNodeCount": 166,
     "pageNodeCount": 90,
     "patientRegisteredPages": 59,
@@ -583,11 +583,17 @@
       "route": "pages/profile/about/index",
       "designPath": "pages/profile/about/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "partial",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
-      "evidence": [],
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D039 关于我们运行时证据",
+          "summary": "医生首页底部导航进入我的，再点服务菜单第一项关于我们；page_data 显示 appInfo、companyIntro、contactItems；8 秒 console 采样 0 warning/error/exception；wechat_screenshot UNKNOWN_ERROR daemon 超时，截图缺失。"
+        }
+      ],
       "states": [
         {
           "title": "关于我们",
@@ -595,7 +601,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/关于我们/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "partial",
           "registered": true
         }
       ]
@@ -2081,11 +2087,17 @@
       "route": "pages/chronic-disease/convenient-clinic/index",
       "designPath": "pages/chronic-disease/convenient-clinic/index",
       "registered": true,
-      "status": "documented",
+      "status": "partial",
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P081 便民门诊空态运行时证据",
+          "summary": "患者首页第四个功能入口自然进入；page_data 显示 showEmpty=true、emptyText=暂无医生；8 秒 console 采样 0 warning/error/exception；wechat_screenshot 多次 UNKNOWN_ERROR daemon 超时，截图缺失。"
+        }
+      ],
       "states": [
         {
           "title": "便民门诊",
@@ -2093,7 +2105,7 @@
           "docPath": "患者端/慢病/便民门诊/便民门诊.png.txt",
           "devPath": "DOCS/pages/患者端/慢病/便民门诊/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         }
       ]

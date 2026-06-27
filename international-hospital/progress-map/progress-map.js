@@ -233,12 +233,22 @@ function renderDetail(nodeId) {
 
 function evidenceList(evidence) {
   if (!evidence.length) return '暂无 MCP 截图';
-  return evidence.map((item) => `
-    <figure class="evidence-shot">
-      <img src="${escapeAttribute(item.path)}" alt="${escapeAttribute(item.title || 'MCP 截图证据')}" loading="lazy">
-      <figcaption>${escapeHtml(item.title || item.path)}</figcaption>
-    </figure>
-  `).join('');
+  return evidence.map((item) => {
+    if (item.type === 'runtime') {
+      return `
+        <div class="runtime-evidence">
+          <strong>${escapeHtml(item.title || '运行时证据')}</strong>
+          <p>${escapeHtml(item.summary || '已记录 page_data / console 证据，截图缺失。')}</p>
+        </div>
+      `;
+    }
+    return `
+      <figure class="evidence-shot">
+        <img src="${escapeAttribute(item.path)}" alt="${escapeAttribute(item.title || 'MCP 截图证据')}" loading="lazy">
+        <figcaption>${escapeHtml(item.title || item.path)}</figcaption>
+      </figure>
+    `;
+  }).join('');
 }
 
 function stateList(states) {

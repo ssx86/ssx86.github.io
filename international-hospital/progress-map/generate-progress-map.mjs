@@ -72,7 +72,9 @@ const statusByRoute = {
     'doctor:pages/consult/exam-select/index'
   ]),
   partial: new Set([
-    'patient:pages/medicine/hospital-preparation/index'
+    'patient:pages/medicine/hospital-preparation/index',
+    'patient:pages/chronic-disease/convenient-clinic/index',
+    'doctor:pages/profile/about/index'
   ]),
   blocked: new Set([
     'doctor:pages/consult/reject/index',
@@ -111,6 +113,20 @@ const evidenceByRoute = {
       type: 'screenshot',
       title: 'P078 院内制剂搜索空态',
       path: 'evidence/patient-hospital-preparation-search-empty.png'
+    }
+  ],
+  'patient:pages/chronic-disease/convenient-clinic/index': [
+    {
+      type: 'runtime',
+      title: 'P081 便民门诊空态运行时证据',
+      summary: '患者首页第四个功能入口自然进入；page_data 显示 showEmpty=true、emptyText=暂无医生；8 秒 console 采样 0 warning/error/exception；wechat_screenshot 多次 UNKNOWN_ERROR daemon 超时，截图缺失。'
+    }
+  ],
+  'doctor:pages/profile/about/index': [
+    {
+      type: 'runtime',
+      title: 'D039 关于我们运行时证据',
+      summary: '医生首页底部导航进入我的，再点服务菜单第一项关于我们；page_data 显示 appInfo、companyIntro、contactItems；8 秒 console 采样 0 warning/error/exception；wechat_screenshot UNKNOWN_ERROR daemon 超时，截图缺失。'
     }
   ]
 };
