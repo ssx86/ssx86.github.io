@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-27T20:49:51.428Z",
+  "generatedAt": "2026-06-27T21:02:34.520Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
-    "devOnlyCount": 20,
+    "devOnlyCount": 19,
     "stateNodeCount": 166,
     "pageNodeCount": 90,
     "patientRegisteredPages": 59,
@@ -667,11 +667,17 @@
       "route": "pages/profile/feedback/index",
       "designPath": "pages/profile/feedback/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "partial",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
-      "evidence": [],
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D041 意见反馈空表单校验证据",
+          "summary": "医生首页底部导航进入我的，再点服务菜单第二项意见反馈；初始 page_data 显示 feedbackTypes 和空表单；点击 .submit-section button 后仅触发前端校验 errors.type=请选择反馈类型、errors.content=请至少输入10个字符；8 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
       "states": [
         {
           "title": "意见反馈",
@@ -679,7 +685,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/意见反馈/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "partial",
           "registered": true
         }
       ]
@@ -1388,11 +1394,17 @@
       "route": "pages/profile/personal-info/index/index",
       "designPath": "pages/profile/personal-info/index",
       "registered": true,
-      "status": "documented",
+      "status": "partial",
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P057 个人信息运行时证据",
+          "summary": "患者个人中心 more-list 第一项自然进入；page_data 显示 nickname=用户:15901447669、phone=15901447669、maskedPhone=159****7669、showAvatarModal=false；8 秒 console 采样 0 warning/error/exception；截图通道仍超时。"
+        }
+      ],
       "states": [
         {
           "title": "个人信息",
@@ -1400,7 +1412,7 @@
           "docPath": "患者端/个人中心/个人信息/个人信息.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         },
         {
@@ -1409,7 +1421,7 @@
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         },
         {
@@ -1418,7 +1430,7 @@
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号-1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         },
         {
@@ -1427,7 +1439,7 @@
           "docPath": "患者端/个人中心/个人信息/个人信息-修改手机号1.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         },
         {
@@ -1436,7 +1448,7 @@
           "docPath": "患者端/个人中心/个人信息/个人信息-修改头像.png.txt",
           "devPath": "DOCS/pages/患者端/个人中心/个人信息/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         }
       ]
@@ -1541,7 +1553,13 @@
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P052 个人中心手机号展示修复证据",
+          "summary": "通过原生 tabBar switchTab 进入个人中心；修复后 page_data 显示 userInfo.phone=159****7669，与 P057 personal-info 的手机号来源一致；患者端编译成功，8 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
       "states": [
         {
           "title": "我的",

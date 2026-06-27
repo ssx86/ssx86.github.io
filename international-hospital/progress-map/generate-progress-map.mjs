@@ -74,7 +74,9 @@ const statusByRoute = {
   partial: new Set([
     'patient:pages/medicine/hospital-preparation/index',
     'patient:pages/chronic-disease/convenient-clinic/index',
-    'doctor:pages/profile/about/index'
+    'patient:pages/profile/personal-info/index/index',
+    'doctor:pages/profile/about/index',
+    'doctor:pages/profile/feedback/index'
   ]),
   blocked: new Set([
     'doctor:pages/consult/reject/index',
@@ -127,6 +129,27 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'D039 关于我们运行时证据',
       summary: '医生首页底部导航进入我的，再点服务菜单第一项关于我们；page_data 显示 appInfo、companyIntro、contactItems；8 秒 console 采样 0 warning/error/exception；wechat_screenshot UNKNOWN_ERROR daemon 超时，截图缺失。'
+    }
+  ],
+  'patient:pages/profile/index/index': [
+    {
+      type: 'runtime',
+      title: 'P052 个人中心手机号展示修复证据',
+      summary: '通过原生 tabBar switchTab 进入个人中心；修复后 page_data 显示 userInfo.phone=159****7669，与 P057 personal-info 的手机号来源一致；患者端编译成功，8 秒 console 采样 0 warning/error/exception。'
+    }
+  ],
+  'patient:pages/profile/personal-info/index/index': [
+    {
+      type: 'runtime',
+      title: 'P057 个人信息运行时证据',
+      summary: '患者个人中心 more-list 第一项自然进入；page_data 显示 nickname=用户:15901447669、phone=15901447669、maskedPhone=159****7669、showAvatarModal=false；8 秒 console 采样 0 warning/error/exception；截图通道仍超时。'
+    }
+  ],
+  'doctor:pages/profile/feedback/index': [
+    {
+      type: 'runtime',
+      title: 'D041 意见反馈空表单校验证据',
+      summary: '医生首页底部导航进入我的，再点服务菜单第二项意见反馈；初始 page_data 显示 feedbackTypes 和空表单；点击 .submit-section button 后仅触发前端校验 errors.type=请选择反馈类型、errors.content=请至少输入10个字符；8 秒 console 采样 0 warning/error/exception。'
     }
   ]
 };
