@@ -157,13 +157,15 @@
           </table>
         </article>
         <article class="node logic">
-          <h3>问诊后续 -> 患者聊天 / 诊疗记录 / 医生详情</h3>
-          <div class="shot">screenshot-missing<br>截图通道待恢复</div>
+          <h3>问诊后续 -> 我的问诊 / 患者聊天 / 诊疗记录</h3>
+          <div class="shot">screenshot-missing<br>patient-consult-records 截图：wechat_screenshot daemon 90 秒超时<br>证据：element_info + page_data + console</div>
           <table>
-            <tr><th>页面</th><td>pages/consult/chat/index、pages/consult/records/index、pages/doctor/detail/index</td></tr>
-            <tr><th>状态</th><td>已围绕同一问诊单验证患者端问诊中、聊天进入、记录空态、聊天头部医生详情。</td></tr>
-            <tr><th>console</th><td>相关采样为 0；IM 历史作用域仍按已有规则继续核对。</td></tr>
-            <tr><th>差异</th><td>需要补截图和更多状态分支。</td></tr>
+            <tr><th>页面</th><td>pages/profile/my-consult/index -> pages/consult/chat/index -> pages/consult/records/index</td></tr>
+            <tr><th>自然入口</th><td>Profile native tabBar -> `.order-item:nth-child(1)` 我的问诊 -> `.consult-card:nth-child(1)` 问诊中卡片 -> chat header `.record-btn`。</td></tr>
+            <tr><th>状态</th><td>同一问诊单 `428197448779345920`：聊天页显示医生/患者两条文本消息；诊疗记录页显示患者张老三，处方和检验检查均为真实空态。</td></tr>
+            <tr><th>逻辑</th><td>诊疗记录默认 activeSubTab=prescription；点击 `.sub-tab:nth-child(2)` 后 activeSubTab=exam，tab class 由 JS 预计算。</td></tr>
+            <tr><th>console</th><td>个人中心、我的问诊、聊天、诊疗记录、诊疗记录 tab 切换采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>当前患者账号没有已完成问诊，P020 已完成详情自然入口为数据条件阻塞；截图通道仍需恢复。</td></tr>
           </table>
         </article>
       </div>
@@ -204,7 +206,19 @@
             <tr><th>状态</th><td>加载两条真实状态 3 问诊：307744509397712896、310017955464531968。</td></tr>
             <tr><th>逻辑</th><td>activeTab=records，statusLabel=已完成，statusClass=completed，showEmpty=false。</td></tr>
             <tr><th>console</th><td>5 秒采样：0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>已完成卡片到详情/记录的后续点击留到下一轮。</td></tr>
+            <tr><th>差异</th><td>已完成卡片到详情已在下一节点覆盖；处方/检验记录仍受真实数据条件限制。</td></tr>
+          </table>
+        </article>
+        <article class="node verified">
+          <h3>问诊管理 -> 已完成 -> 医生问诊详情</h3>
+          <div class="shot">screenshot-missing<br>截图通道仍超时；当前以重进页面后的 page_data + console 为证据</div>
+          <table>
+            <tr><th>页面</th><td>pages/index/index -> pages/consult/detail/index</td></tr>
+            <tr><th>自然入口</th><td>医生登录后在问诊管理点击 `.status-tab:nth-child(3)` 已完成，再点击第一张 `.consult-card`。</td></tr>
+            <tr><th>状态</th><td>详情 consultId=`307744509397712896`，状态 `3 / 已完成`，患者张松石，性别男，年龄 39，主诉从后端 `patientComplaint` 显示。</td></tr>
+            <tr><th>逻辑</th><td>D029 当前运行 route 是 `pages/consult/detail/index`；修复后使用 `patientGender`、`patientAge`、`patientComplaint` 兜底，处方/检验列表为空态。</td></tr>
+            <tr><th>console</th><td>登录、首页、已完成 tab、详情修复后重进页面采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>设计文档仍有旧路径 `pages/patient/consult-detail/`；截图证据缺失，需待 screenshot daemon 通道恢复。</td></tr>
           </table>
         </article>
         <article class="node blocked">
