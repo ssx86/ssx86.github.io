@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T20:11:19.995Z",
+  "generatedAt": "2026-06-27T20:28:03.332Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
@@ -1899,11 +1899,27 @@
       "route": "pages/medicine/hospital-preparation/index",
       "designPath": "pages/medicine/hospital-preparation/index",
       "registered": true,
-      "status": "documented",
+      "status": "partial",
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂空态",
+          "path": "evidence/patient-hospital-preparation-empty.png"
+        },
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂分类空态",
+          "path": "evidence/patient-hospital-preparation-internal-empty.png"
+        },
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂搜索空态",
+          "path": "evidence/patient-hospital-preparation-search-empty.png"
+        }
+      ],
       "states": [
         {
           "title": "院内制剂列表 / 院内制剂",
@@ -1911,7 +1927,7 @@
           "docPath": "患者端/购药/院内制剂列表/院内制剂.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂列表/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         },
         {
@@ -1920,7 +1936,7 @@
           "docPath": "患者端/购药/院内制剂列表/院内制剂-1.png.txt",
           "devPath": "DOCS/pages/患者端/购药/院内制剂列表/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "partial",
           "registered": true
         }
       ]

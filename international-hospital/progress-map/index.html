@@ -19,7 +19,7 @@
       <select id="statusFilter" aria-label="状态筛选">
         <option value="all">全部状态</option>
         <option value="verified">已验证</option>
-        <option value="partial">待复验</option>
+        <option value="partial">部分验证</option>
         <option value="blocked">阻塞</option>
         <option value="documented">未验证</option>
         <option value="dev-only">缺少 png.txt</option>
@@ -33,7 +33,7 @@
 
     <section class="legend" aria-label="状态说明">
       <span><i class="dot verified"></i>已通过 MCP 自然路径并读取 console</span>
-      <span><i class="dot partial"></i>已定位/修复，等待运行时复验</span>
+      <span><i class="dot partial"></i>部分状态已验证，仍缺数据条件或后续通路</span>
       <span><i class="dot blocked"></i>数据条件、变更风险或工具通道阻塞</span>
       <span><i class="dot documented"></i>产品文档已收录，尚未验证</span>
       <span><i class="dot dev-only"></i>只有 DEV.md，缺少 png.txt 状态图</span>
@@ -56,7 +56,7 @@
 
     <aside class="detail-panel" id="detailPanel">
       <h2>节点详情</h2>
-      <p>点击任一节点查看文档路径、注册路由、入线和出线。</p>
+      <p>点击任一节点查看文档路径、注册路由、截图证据、入线和出线。</p>
     </aside>
   </main>
 

@@ -71,7 +71,9 @@ const statusByRoute = {
     'doctor:pages/consult/exam-apply/index',
     'doctor:pages/consult/exam-select/index'
   ]),
-  partial: new Set([]),
+  partial: new Set([
+    'patient:pages/medicine/hospital-preparation/index'
+  ]),
   blocked: new Set([
     'doctor:pages/consult/reject/index',
     'doctor:pages/consult/accept-dialog/index',
@@ -92,6 +94,23 @@ const evidenceByRoute = {
       type: 'screenshot',
       title: '医生端诊疗记录 MCP 截图',
       path: 'evidence/doctor-current-mcp-screenshot.png'
+    }
+  ],
+  'patient:pages/medicine/hospital-preparation/index': [
+    {
+      type: 'screenshot',
+      title: 'P078 院内制剂空态',
+      path: 'evidence/patient-hospital-preparation-empty.png'
+    },
+    {
+      type: 'screenshot',
+      title: 'P078 院内制剂分类空态',
+      path: 'evidence/patient-hospital-preparation-internal-empty.png'
+    },
+    {
+      type: 'screenshot',
+      title: 'P078 院内制剂搜索空态',
+      path: 'evidence/patient-hospital-preparation-search-empty.png'
     }
   ]
 };

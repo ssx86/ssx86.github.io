@@ -1,6 +1,6 @@
 const statusLabel = {
   verified: '已验证',
-  partial: '待复验',
+  partial: '部分验证',
   blocked: '阻塞',
   documented: '未验证',
   'dev-only': '缺少 png.txt',
@@ -53,7 +53,10 @@ const els = {
   reset: document.querySelector('#resetView')
 };
 
-init();
+init().catch((error) => {
+  console.error(error);
+  els.detail.innerHTML = `<h2>图谱加载失败</h2><p>${escapeHtml(error.message)}</p>`;
+});
 
 async function init() {
   const response = await fetch('./graph-data.json', { cache: 'no-store' });
@@ -77,6 +80,7 @@ function renderSummary() {
     stat('医生注册页', source.doctorRegisteredPages),
     stat('缺文档目标', unmatchedTargetCount),
     stat('已验证节点', byStatus.verified || 0),
+    stat('部分验证节点', byStatus.partial || 0),
     stat('生成时间', new Date(generatedAt).toLocaleString('zh-CN'))
   ].join('');
 }
@@ -88,13 +92,13 @@ function stat(label, value) {
 function layoutGraph() {
   const nodes = [...state.data.nodes].sort(compareNodes);
   const lanes = buildLanes(nodes);
-  const laneWidth = 250;
-  const top = 72;
-  const row = 104;
+  const left = 36;
+  const top = 76;
+  const column = 254;
+  const row = 112;
   const nodeHeight = 82;
-  const leftPad = 28;
+  const width = Math.max(lanes.length * column + left * 2, 960);
   const maxRows = Math.max(...lanes.map((lane) => lane.nodes.length), 1);
-  const width = leftPad * 2 + lanes.length * laneWidth;
   const height = top + maxRows * row + nodeHeight + 36;
 
   els.stage.style.width = `${width}px`;
@@ -102,18 +106,20 @@ function layoutGraph() {
   els.edgeLayer.setAttribute('width', width);
   els.edgeLayer.setAttribute('height', height);
   els.edgeLayer.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  els.edgeLayer.innerHTML = '';
   els.laneLayer.innerHTML = '';
   els.nodeLayer.innerHTML = '';
   state.positions.clear();
 
   lanes.forEach((lane, laneIndex) => {
-    const x = leftPad + laneIndex * laneWidth;
-    const label = document.createElement('div');
-    label.className = 'lane-label';
-    label.style.left = `${x}px`;
-    label.style.top = '28px';
-    label.textContent = `${sideLabel[lane.side] || lane.side} / ${lane.module}`;
-    els.laneLayer.appendChild(label);
+    const x = left + laneIndex * column;
+    const laneEl = document.createElement('div');
+    laneEl.className = `lane ${lane.side}`;
+    laneEl.style.left = `${x}px`;
+    laneEl.style.top = '18px';
+    laneEl.style.width = '210px';
+    laneEl.textContent = `${sideLabel[lane.side] || lane.side} / ${lane.module}`;
+    els.laneLayer.appendChild(laneEl);
 
     lane.nodes.forEach((node, rowIndex) => {
       const y = top + rowIndex * row;
@@ -122,7 +128,7 @@ function layoutGraph() {
     });
   });
 
-  drawEdges();
+  renderEdges();
   applyFilters();
   els.graphMeta.textContent = `${lanes.length} 组模块，${nodes.length} 个节点，${state.data.edges.length} 条关系线`;
 }
@@ -134,11 +140,10 @@ function buildLanes(nodes) {
     if (!laneMap.has(key)) laneMap.set(key, { side: node.side, module: node.module, nodes: [] });
     laneMap.get(key).nodes.push(node);
   }
-  return [...laneMap.values()].sort((a, b) => {
-    const sideRank = sideIndex(a.side) - sideIndex(b.side);
-    if (sideRank) return sideRank;
-    return moduleIndex(a.module) - moduleIndex(b.module) || a.module.localeCompare(b.module, 'zh-Hans-CN');
-  });
+  const lanes = [...laneMap.values()];
+  lanes.sort((a, b) => sideRank(a.side) - sideRank(b.side) || moduleRank(a.module) - moduleRank(b.module) || a.module.localeCompare(b.module, 'zh-CN'));
+  for (const lane of lanes) lane.nodes.sort(compareNodes);
+  return lanes;
 }
 
 function renderNode(node, x, y) {
@@ -151,11 +156,12 @@ function renderNode(node, x, y) {
     node.title,
     node.route,
     node.designPath,
+    statusLabel[node.status],
     (node.states || []).map((item) => `${item.title} ${item.docPath} ${item.devPath}`).join(' '),
     node.module,
     node.side,
     node.page
-  ].join(' ').toLowerCase();
+  ].filter(Boolean).join(' ').toLowerCase();
   el.style.left = `${x}px`;
   el.style.top = `${y}px`;
   el.innerHTML = `
@@ -168,33 +174,28 @@ function renderNode(node, x, y) {
   return el;
 }
 
-function drawEdges() {
-  els.edgeLayer.innerHTML = '';
-  const frag = document.createDocumentFragment();
+function renderEdges() {
   for (const edge of state.data.edges) {
     const from = state.positions.get(edge.from);
     const to = state.positions.get(edge.to);
     if (!from || !to) continue;
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('class', `edge ${edge.status || 'documented'}`);
+    path.setAttribute('data-from', edge.from);
+    path.setAttribute('data-to', edge.to);
+    path.setAttribute('data-status', edge.status || 'documented');
     path.setAttribute('d', edgePath(from, to));
-    path.setAttribute('class', `edge ${edge.status}`);
-    path.dataset.from = edge.from;
-    path.dataset.to = edge.to;
-    path.dataset.status = edge.status;
-    path.dataset.search = `${edge.trigger} ${edge.kind} ${edge.note} ${edge.targetRoute}`.toLowerCase();
-    const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-    title.textContent = `${edge.trigger} -> ${edge.targetRoute}`;
-    path.appendChild(title);
-    frag.appendChild(path);
+    els.edgeLayer.appendChild(path);
   }
-  els.edgeLayer.appendChild(frag);
 }
 
 function edgePath(from, to) {
-  const dx = Math.max(60, Math.abs(to.cx - from.cx) * .45);
   const startX = from.cx + (to.cx >= from.cx ? 104 : -104);
   const endX = to.cx + (to.cx >= from.cx ? -104 : 104);
-  return `M ${startX} ${from.cy} C ${startX + Math.sign(to.cx - from.cx || 1) * dx} ${from.cy}, ${endX - Math.sign(to.cx - from.cx || 1) * dx} ${to.cy}, ${endX} ${to.cy}`;
+  const control = Math.max(64, Math.abs(endX - startX) * 0.42);
+  const c1 = startX + (to.cx >= from.cx ? control : -control);
+  const c2 = endX - (to.cx >= from.cx ? control : -control);
+  return `M ${startX} ${from.cy} C ${c1} ${from.cy}, ${c2} ${to.cy}, ${endX} ${to.cy}`;
 }
 
 function selectNode(nodeId) {
@@ -258,6 +259,23 @@ function edgeList(title, edges) {
   return `<div><h3>${escapeHtml(title)} ${edges.length}</h3>${lines}${more}</div>`;
 }
 
+function bindEvents() {
+  els.search.addEventListener('input', (event) => {
+    state.query = event.target.value;
+    applyFilters();
+  });
+  els.status.addEventListener('change', (event) => {
+    state.status = event.target.value;
+    applyFilters();
+  });
+  els.reset.addEventListener('click', () => {
+    state.activeNodeId = null;
+    document.querySelectorAll('.node.active').forEach((node) => node.classList.remove('active'));
+    renderDetailFallback();
+    applyFilters();
+  });
+}
+
 function applyFilters() {
   const query = state.query.trim().toLowerCase();
   const filterStatus = state.status;
@@ -271,16 +289,15 @@ function applyFilters() {
   });
 
   document.querySelectorAll('.edge').forEach((edgeEl) => {
-    const matchesQuery = !query || edgeEl.dataset.search.includes(query);
-    const matchesStatus = filterStatus === 'all' || edgeEl.dataset.status === filterStatus;
-    const matchesRelated = !state.activeNodeId || edgeEl.dataset.from === state.activeNodeId || edgeEl.dataset.to === state.activeNodeId;
-    edgeEl.classList.toggle('related', Boolean(state.activeNodeId && matchesRelated));
-    edgeEl.classList.toggle('dim', !(matchesQuery && matchesStatus && matchesRelated));
+    const fromVisible = related.has(edgeEl.dataset.from) || !state.activeNodeId;
+    const toVisible = related.has(edgeEl.dataset.to) || !state.activeNodeId;
+    const statusVisible = filterStatus === 'all' || edgeEl.dataset.status === filterStatus;
+    edgeEl.classList.toggle('dim', !(fromVisible && toVisible && statusVisible));
   });
 }
 
 function relatedNodeSet(nodeId) {
-  if (!nodeId) return new Set();
+  if (!nodeId) return new Set(state.data.nodes.map((node) => node.id));
   const set = new Set([nodeId]);
   for (const edge of state.data.edges) {
     if (edge.from === nodeId) set.add(edge.to);
@@ -289,43 +306,30 @@ function relatedNodeSet(nodeId) {
   return set;
 }
 
-function bindEvents() {
-  els.search.addEventListener('input', (event) => {
-    state.query = event.target.value;
-    applyFilters();
-  });
-  els.status.addEventListener('change', (event) => {
-    state.status = event.target.value;
-    applyFilters();
-  });
-  els.reset.addEventListener('click', () => {
-    state.activeNodeId = null;
-    document.querySelectorAll('.node.active').forEach((node) => node.classList.remove('active'));
-    els.detail.innerHTML = '<h2>节点详情</h2><p>点击任一节点查看文档路径、注册路由、入线和出线。</p>';
-    applyFilters();
-  });
-  window.addEventListener('resize', () => drawEdges());
+function renderDetailFallback() {
+  els.detail.innerHTML = '<h2>节点详情</h2><p>点击任一节点查看文档路径、注册路由、截图证据、入线和出线。</p>';
 }
 
 function compareNodes(a, b) {
-  return sideIndex(a.side) - sideIndex(b.side)
-    || moduleIndex(a.module) - moduleIndex(b.module)
-    || a.page.localeCompare(b.page, 'zh-Hans-CN')
-    || a.state.localeCompare(b.state, 'zh-Hans-CN');
+  return sideRank(a.side) - sideRank(b.side)
+    || moduleRank(a.module) - moduleRank(b.module)
+    || String(a.route || a.designPath || '').localeCompare(String(b.route || b.designPath || ''), 'zh-CN')
+    || String(a.title || '').localeCompare(String(b.title || ''), 'zh-CN');
 }
 
-function sideIndex(side) {
+function sideRank(side) {
   return { patient: 0, doctor: 1, common: 2 }[side] ?? 9;
 }
 
-function moduleIndex(moduleName) {
-  const index = moduleOrder.findIndex((item) => moduleName.includes(item) || item.includes(moduleName));
+function moduleRank(module) {
+  const index = moduleOrder.indexOf(module);
   return index === -1 ? 99 : index;
 }
 
 function countBy(items, key) {
   return items.reduce((acc, item) => {
-    acc[item[key]] = (acc[item[key]] || 0) + 1;
+    const value = item[key] || 'unknown';
+    acc[value] = (acc[value] || 0) + 1;
     return acc;
   }, {});
 }
