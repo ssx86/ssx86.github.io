@@ -70,7 +70,8 @@ function renderSummary() {
   els.summary.innerHTML = [
     stat('png.txt 页面状态', source.pngTxtCount),
     stat('DEV.md', source.devMdCount),
-    stat('图上节点', nodes.length),
+    stat('页面节点', nodes.length),
+    stat('状态节点', source.stateNodeCount),
     stat('关系线', edges.length),
     stat('患者注册页', source.patientRegisteredPages),
     stat('医生注册页', source.doctorRegisteredPages),
@@ -150,17 +151,17 @@ function renderNode(node, x, y) {
     node.title,
     node.route,
     node.designPath,
-    node.docPath,
+    (node.states || []).map((item) => `${item.title} ${item.docPath} ${item.devPath}`).join(' '),
     node.module,
     node.side,
-    node.state
+    node.page
   ].join(' ').toLowerCase();
   el.style.left = `${x}px`;
   el.style.top = `${y}px`;
   el.innerHTML = `
     <span class="node-title">${escapeHtml(node.title)}</span>
     <span class="node-route">${escapeHtml(node.route || node.designPath || '未映射路由')}</span>
-    <span class="node-state">${escapeHtml(node.state)}</span>
+    <span class="node-state">${escapeHtml(`${node.stateCount || 1} 个状态 / ${node.pngCount || 0} 个 png.txt`)}</span>
     <span class="status-pill"><i class="dot ${node.status}"></i>${escapeHtml(statusLabel[node.status] || node.status)}</span>
   `;
   el.addEventListener('click', () => selectNode(node.id));
@@ -218,14 +219,22 @@ function renderDetail(nodeId) {
       <strong>注册路由</strong><span>${escapeHtml(node.route || '未映射')}</span>
       <strong>设计路径</strong><span>${escapeHtml(node.designPath || '无 DEV Path')}</span>
       <strong>注册状态</strong><span>${node.registered ? '已在 app.json 注册' : '未确认注册或为旧设计路径'}</span>
-      <strong>png.txt</strong><span>${escapeHtml(node.docPath || '无')}</span>
-      <strong>DEV.md</strong><span>${escapeHtml(node.devPath || '无')}</span>
+      <strong>状态数量</strong><span>${escapeHtml(`${node.stateCount || 1} 个状态，其中 ${node.pngCount || 0} 个 png.txt，${node.devOnlyCount || 0} 个 DEV-only`)}</span>
+      <strong>状态清单</strong><span>${stateList(node.states || [])}</span>
     </div>
     <div class="edge-list">
       ${edgeList('出线', outgoing)}
       ${edgeList('入线', incoming)}
     </div>
   `;
+}
+
+function stateList(states) {
+  if (!states.length) return '无';
+  return states.map((item) => {
+    const pathText = item.docPath || item.devPath || '无路径';
+    return `<span class="state-row">${escapeHtml(item.title)}<br><em>${escapeHtml(pathText)}</em></span>`;
+  }).join('');
 }
 
 function edgeList(title, edges) {

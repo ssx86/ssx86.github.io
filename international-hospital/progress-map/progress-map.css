@@ -321,6 +321,18 @@ main {
   font-size: 12px;
 }
 
+.state-row {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.state-row em {
+  color: var(--muted);
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
 @keyframes dash-flow { to { stroke-dashoffset: -30; } }
 
 @keyframes node-pulse {

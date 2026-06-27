@@ -313,12 +313,123 @@ for (const [dir, devFile] of devFiles.entries()) {
 const virtualNodes = [...missingTargets.values()].sort((a, b) => a.title.localeCompare(b.title, 'zh-Hans-CN'));
 nodes.push(...virtualNodes);
 
+function aggregateGraph(rawNodes, rawEdges) {
+  const groups = new Map();
+  const oldToPage = new Map();
+
+  for (const node of rawNodes) {
+    const key = node.status === 'missing-doc'
+      ? `missing:${node.side}:${node.route || node.designPath || node.title}`
+      : node.route
+        ? `${node.side}:${node.route}`
+        : `noroute:${node.side}:${node.module}:${node.page}`;
+
+    if (!groups.has(key)) {
+      groups.set(key, {
+        key,
+        raw: [],
+        modules: new Set(),
+        pages: new Set(),
+        designPaths: new Set(),
+        registered: false
+      });
+    }
+    const group = groups.get(key);
+    group.raw.push(node);
+    group.modules.add(node.module);
+    group.pages.add(node.page);
+    if (node.designPath) group.designPaths.add(node.designPath);
+    group.registered = group.registered || node.registered;
+  }
+
+  const pageNodes = [];
+  for (const group of groups.values()) {
+    const first = group.raw[0];
+    const statuses = group.raw.map((node) => node.status);
+    const route = first.route;
+    const title = group.pages.size === 1
+      ? [...group.pages][0]
+      : route || [...group.pages].slice(0, 2).join(' / ');
+    const pageNode = {
+      id: slug(`page:${group.key}`),
+      side: first.side,
+      module: [...group.modules].join(' / '),
+      page: title,
+      title,
+      route,
+      designPath: [...group.designPaths][0] || first.designPath,
+      registered: group.registered,
+      status: aggregateStatus(statuses),
+      stateCount: group.raw.length,
+      pngCount: group.raw.filter((node) => node.docPath).length,
+      devOnlyCount: group.raw.filter((node) => node.status === 'dev-only').length,
+      states: group.raw
+        .map((node) => ({
+          title: node.title,
+          state: node.state,
+          docPath: node.docPath,
+          devPath: node.devPath,
+          status: node.status,
+          registered: node.registered
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title, 'zh-Hans-CN'))
+    };
+    pageNodes.push(pageNode);
+    for (const node of group.raw) oldToPage.set(node.id, pageNode.id);
+  }
+
+  const edgeMap = new Map();
+  for (const edge of rawEdges) {
+    const from = oldToPage.get(edge.from);
+    const to = oldToPage.get(edge.to);
+    if (!from || !to || from === to) continue;
+    const key = `${from}->${to}:${edge.trigger}:${edge.kind}`;
+    if (!edgeMap.has(key)) {
+      edgeMap.set(key, {
+        id: slug(`edge:${key}`),
+        from,
+        to,
+        trigger: edge.trigger,
+        kind: edge.kind,
+        note: edge.note,
+        targetDesignPath: edge.targetDesignPath,
+        targetRoute: edge.targetRoute,
+        status: edge.status,
+        rawCount: 1
+      });
+    } else {
+      const existing = edgeMap.get(key);
+      existing.rawCount += 1;
+      existing.status = aggregateStatus([existing.status, edge.status]);
+    }
+  }
+
+  return {
+    nodes: pageNodes.sort((a, b) => a.side.localeCompare(b.side) || a.module.localeCompare(b.module, 'zh-Hans-CN') || a.title.localeCompare(b.title, 'zh-Hans-CN')),
+    edges: [...edgeMap.values()].sort((a, b) => a.from.localeCompare(b.from) || a.to.localeCompare(b.to))
+  };
+}
+
+function aggregateStatus(statuses) {
+  if (statuses.includes('verified')) return 'verified';
+  if (statuses.includes('partial')) return 'partial';
+  if (statuses.includes('blocked')) return 'blocked';
+  if (statuses.every((status) => status === 'missing-doc')) return 'missing-doc';
+  if (statuses.every((status) => status === 'dev-only')) return 'dev-only';
+  if (statuses.includes('dev-only') && statuses.length === 1) return 'dev-only';
+  return 'documented';
+}
+
+const pageGraph = aggregateGraph(nodes, edges);
+
 const data = {
   generatedAt: new Date().toISOString(),
   source: {
     pngTxtCount: pngFiles.length,
     devMdCount: devFiles.size,
     devOnlyCount: nodes.filter((node) => node.status === 'dev-only').length,
+    stateNodeCount: nodes.length,
+    pageNodeCount: pageGraph.nodes.length,
     patientRegisteredPages: appRoutes.patient.size,
     doctorRegisteredPages: appRoutes.doctor.size
   },
@@ -330,17 +441,19 @@ const data = {
     'dev-only': 'DEV.md exists but no png.txt state was found',
     'missing-doc': 'route referenced by docs but no png.txt node was found'
   },
-  nodes,
-  edges,
+  nodes: pageGraph.nodes,
+  edges: pageGraph.edges,
   unmatchedTargetCount: virtualNodes.length
 };
 
 fs.writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
 console.log(`Wrote ${OUT}`);
 console.log(JSON.stringify({
-  nodes: nodes.length,
+  nodes: pageGraph.nodes.length,
+  rawStateNodes: nodes.length,
   documentedNodes: pngFiles.length,
   virtualNodes: virtualNodes.length,
-  edges: edges.length,
+  edges: pageGraph.edges.length,
+  rawEdges: edges.length,
   unmatchedTargetCount: virtualNodes.length
 }, null, 2));
