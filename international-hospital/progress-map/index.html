@@ -3,309 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>互联网医院小程序页面验证进度图</title>
-  <style>
-    :root {
-      --bg: #101820;
-      --panel: #17222c;
-      --line: rgba(255,255,255,.16);
-      --ink: #f7fbff;
-      --muted: #a9b8c5;
-      --doc: #2f7df6;
-      --ui: #18b7a6;
-      --logic: #f4a62a;
-      --verified: #23c55e;
-      --blocked: #ef4444;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at 12% 0%, rgba(47,125,246,.22), transparent 28rem), var(--bg);
-      color: var(--ink);
-      font-family: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
-    }
-    header { padding: 34px clamp(18px, 5vw, 64px) 22px; border-bottom: 1px solid var(--line); }
-    h1 { margin: 0 0 10px; font-size: clamp(30px, 5vw, 52px); line-height: 1.1; }
-    .subtitle { max-width: 1100px; margin: 0; color: var(--muted); line-height: 1.7; }
-    main { padding: 24px clamp(18px, 5vw, 64px) 60px; }
-    .legend, .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-    .chip, .stat { border: 1px solid var(--line); background: rgba(255,255,255,.055); border-radius: 8px; padding: 9px 12px; color: var(--muted); font-size: 13px; }
-    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
-    .flow { margin-top: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.045); padding: 16px; }
-    .flow h2 { margin: 0 0 12px; font-size: 22px; }
-    .branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(286px, 1fr)); gap: 14px; }
-    .node { border: 1px solid var(--line); border-left: 7px solid var(--doc); border-radius: 8px; background: rgba(0,0,0,.18); padding: 13px; min-height: 290px; }
-    .node.ui { border-left-color: var(--ui); }
-    .node.logic { border-left-color: var(--logic); }
-    .node.verified { border-left-color: var(--verified); background: rgba(35,197,94,.11); }
-    .node.blocked { border-left-color: var(--blocked); background: rgba(239,68,68,.10); }
-    .node h3 { margin: 0 0 9px; font-size: 16px; line-height: 1.35; }
-    .shot { display: grid; place-items: center; min-height: 94px; border: 1px dashed rgba(255,255,255,.28); border-radius: 8px; margin: 8px 0 10px; color: var(--muted); font-size: 12px; text-align: center; padding: 10px; line-height: 1.45; }
-    table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.45; }
-    th, td { border-top: 1px solid rgba(255,255,255,.13); padding: 6px 0; vertical-align: top; text-align: left; }
-    th { width: 76px; color: var(--muted); font-weight: 500; padding-right: 8px; }
-    .note { margin-top: 22px; padding: 14px 16px; border-left: 4px solid var(--logic); background: rgba(255,255,255,.06); color: var(--muted); line-height: 1.65; }
-  </style>
+  <title>互联网医院小程序产品通路图</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./progress-map.css">
 </head>
 <body>
-  <header>
-    <h1>互联网医院小程序页面验证进度图</h1>
-    <p class="subtitle">按产品功能分支记录页面状态。每个节点对应一个页面或页面状态，说明自然入口、界面状态、逻辑/API、console、截图证据和剩余差异。截图通道当前仍超时，因此本轮证据以 MCP page_data、element_info、wechat_inspector console 为主。</p>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Internet Hospital Mini Program</p>
+      <h1>产品页面通路星图</h1>
+      <p class="subtitle">所有节点来自 DOCS/pages/**/*.png.txt；所有关系线来自 DEV.md 中的 JUMPTO / SWITCHTAB / wx.switchTab。已验证通路发光，未验证节点保持暗态。</p>
+    </div>
+    <div class="toolbar" aria-label="图谱筛选">
+      <input id="searchInput" type="search" placeholder="搜索页面、路由、状态">
+      <select id="statusFilter" aria-label="状态筛选">
+        <option value="all">全部状态</option>
+        <option value="verified">已验证</option>
+        <option value="partial">待复验</option>
+        <option value="blocked">阻塞</option>
+        <option value="documented">未验证</option>
+        <option value="dev-only">缺少 png.txt</option>
+        <option value="missing-doc">缺少文档目标</option>
+      </select>
+    </div>
   </header>
+
   <main>
-    <section class="stats">
-      <div class="stat">高保真描述：<strong>136</strong></div>
-      <div class="stat">患者端：<strong>94</strong></div>
-      <div class="stat">医生端：<strong>30</strong></div>
-      <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27 18:15</strong></div>
-    </section>
-    <section class="legend">
-      <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
-      <div class="chip"><i class="dot" style="background:var(--ui)"></i>UI 已实现</div>
-      <div class="chip"><i class="dot" style="background:var(--logic)"></i>逻辑/API 初步跑通</div>
-      <div class="chip"><i class="dot" style="background:var(--verified)"></i>MCP 自然路径 + console 已验证</div>
-      <div class="chip"><i class="dot" style="background:var(--blocked)"></i>数据条件或工具通道阻塞</div>
+    <section class="summary" id="summary"></section>
+
+    <section class="legend" aria-label="状态说明">
+      <span><i class="dot verified"></i>已通过 MCP 自然路径并读取 console</span>
+      <span><i class="dot partial"></i>已定位/修复，等待运行时复验</span>
+      <span><i class="dot blocked"></i>数据条件、变更风险或工具通道阻塞</span>
+      <span><i class="dot documented"></i>产品文档已收录，尚未验证</span>
+      <span><i class="dot dev-only"></i>只有 DEV.md，缺少 png.txt 状态图</span>
+      <span><i class="dot missing-doc"></i>跳转提到但缺少 png.txt</span>
     </section>
 
-    <section class="flow">
-      <h2>患者端：购药订单</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>个人中心 -> 购药订单 -> P079 空态/筛选</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon 90 秒超时<br>证据：`.order-item:nth-child(3)` + page_data + element_info + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/profile/index/index -> pages/medicine/order-list/index</td></tr>
-            <tr><th>设计</th><td>DOCS/pages/患者端/购药/购药订单列表；设计路径 `pages/medicine/order-list/` 映射到注册路由 `pages/medicine/order-list/index`。</td></tr>
-            <tr><th>自然入口</th><td>患者首页已登录 -> native tabBar 到“我的” -> 点击第三个订单入口 `.order-item:nth-child(3)`，元素文本为“+ / 购药订单”。</td></tr>
-            <tr><th>状态</th><td>当前账号无购药订单；默认 `activeTab=all`、`showEmpty=true`、`emptyText=暂无购药订单`。点击 `.filter-tabs .tab:nth-child(3)` 后 `activeTab=consulting`、`emptyText=暂无已接诊订单`。</td></tr>
-            <tr><th>console</th><td>个人中心、P079 默认空态、已接诊 tab 后 8 秒采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>真实订单卡片状态仍受数据条件阻塞；取消订单和订单详情入口未在无数据账号下触发。</td></tr>
-          </table>
-        </article>
+    <section class="graph-shell" aria-label="产品页面通路图">
+      <div class="graph-actions">
+        <button id="resetView" type="button">重置高亮</button>
+        <span id="graphMeta"></span>
+      </div>
+      <div class="graph-scroll">
+        <div id="graphStage" class="graph-stage">
+          <svg id="edgeLayer" class="edge-layer"></svg>
+          <div id="laneLayer" class="lane-layer"></div>
+          <div id="nodeLayer" class="node-layer"></div>
+        </div>
       </div>
     </section>
 
-    <section class="flow">
-      <h2>患者端：问诊后续</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>个人中心 -> 我的问诊 -> 已完成空态</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon 90 秒超时<br>证据：page_data + element_info + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/profile/index/index -> pages/profile/my-consult/index</td></tr>
-            <tr><th>自然入口</th><td>native tabBar 到“我的”，点击 `.order-item:nth-child(1)`；已完成 tab 为 `.tabs .tab:nth-child(5)`。</td></tr>
-            <tr><th>状态</th><td>当前账号只有两条 status=2 问诊中记录；点“已完成”后 `activeTab=3`、`consultList=[]`、`showEmpty=true`、`emptyTitle=暂无已完成记录`。</td></tr>
-            <tr><th>console</th><td>个人中心、我的问诊、已完成 tab 后采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>暂无已完成真实患者数据，P020 已完成详情自然入口受数据条件阻塞。</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>我的问诊 -> 问诊中聊天 -> 诊疗记录</h3>
-          <div class="shot">screenshot-missing<br>patient-consult-records 截图仍超时<br>证据：element_info + page_data + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/profile/my-consult/index -> pages/consult/chat/index -> pages/consult/records/index</td></tr>
-            <tr><th>自然入口</th><td>问诊中卡片 `428197448779345920` 进入聊天；聊天 header `.record-btn` 进入诊疗记录。</td></tr>
-            <tr><th>状态</th><td>诊疗记录默认处方 tab，可点 `.sub-tab:nth-child(2)` 切到检查检验；当前处方/检查均为真实空态。</td></tr>
-            <tr><th>console</th><td>聊天、诊疗记录、tab 切换均采样为 0。</td></tr>
-            <tr><th>差异</th><td>截图证据待 screenshot 通道恢复。</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-
-    <section class="flow">
-      <h2>医生端：已完成问诊只读链路</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>登录 -> 问诊管理 -> 已完成列表</h3>
-          <div class="shot">screenshot-missing<br>证据：输入/点击 MCP + page_data + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/login/index -> pages/login/verify-code/index -> pages/index/index</td></tr>
-            <tr><th>自然入口</th><td>医生手机号输入、协议勾选、验证码页输入均通过 MCP；验证码输出已脱敏。</td></tr>
-            <tr><th>状态</th><td>登录后待接诊为空；点击 `.status-tab:nth-child(3)` 后已完成列表有 `307744509397712896`、`310017955464531968`。</td></tr>
-            <tr><th>console</th><td>登录页、验证码页、首页、已完成 tab 均为 0。</td></tr>
-            <tr><th>差异</th><td>登录页源码仍有历史模板表达式，runtime 本轮未报错，后续可单独清理。</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>已完成卡片 -> D029 医生问诊详情</h3>
-          <div class="shot">screenshot-missing<br>证据：`.consult-header` element_info + page_data + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/index/index -> pages/consult/detail/index</td></tr>
-            <tr><th>自然入口</th><td>已完成 tab 后点击第一张 `.consult-card:nth-child(1)`。</td></tr>
-            <tr><th>状态</th><td>consultId=`307744509397712896`，状态 `3/已完成`，患者张松石，性别男，年龄 39，主诉来自 `patientComplaint`。</td></tr>
-            <tr><th>修复</th><td>重建 D029 原生 WXML 首屏，去掉关键渲染路径上的自定义组件依赖；`.consult-header` 和 `.chat-history-card` 已可被 MCP 识别。</td></tr>
-            <tr><th>console</th><td>重进页面后 0 errors / 0 warnings / 0 exceptions。</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>D029 沟通记录 -> D040 只读聊天</h3>
-          <div class="shot">screenshot-missing<br>证据：`.chat-history-card` tap + readonly page_data + element_info + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/consult/detail/index -> pages/consult/doctor-chat/index?readonly=true</td></tr>
-            <tr><th>自然入口</th><td>详情页点击 `.chat-history-card`，文本为“沟通记录 / 共0条消息”。</td></tr>
-            <tr><th>状态</th><td>只读聊天页 `readonly=true`、`isEnded=true`、`canSendMessage=false`，患者信息已回填张松石，聊天记录为空态。</td></tr>
-            <tr><th>UI</th><td>`.readonly-banner` 可见；`.input-area` 和 `.action-bar` 均不存在，避免已完成问诊继续发送或开处方。</td></tr>
-            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
-          </table>
-        </article>
-        <article class="node blocked">
-          <h3>问诊管理 -> 拒绝接诊</h3>
-          <div class="shot">无截图<br>真实 waiting 数据条件不满足</div>
-          <table>
-            <tr><th>页面</th><td>pages/consult/reject/index</td></tr>
-            <tr><th>入口</th><td>必须从真实待接诊问诊的拒绝入口自然进入；当前医生待接诊列表为空。</td></tr>
-            <tr><th>状态</th><td>页面文件已注册，暂不 direct jump 计入产品路径验证。</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-
-    <section class="flow">
-      <h2>医生端：个人中心与认证</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>问诊首页 -> 我的 -> D038 认证资料未认证态</h3>
-          <div class="shot">screenshot-missing<br>证据：9421 端口 MCP + `.menu-section .menu-item:nth-child(4)` + page_data + element_info + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/index/index -> pages/profile/index/index -> pages/profile/verify/index</td></tr>
-            <tr><th>自然入口</th><td>医生登录后在问诊首页点击底部 `.bottom-nav .nav-item:nth-child(3)`“我的”，再点第四个主菜单“认证资料”。医生 MCP 调用显式携带 `auto_port=9421`。</td></tr>
-            <tr><th>状态</th><td>当前医生李晗星为 `unverified`：显示未认证、实名信息、手机号 `186****2542`、去认证按钮；证件照片、审核记录、医生资质均隐藏。</td></tr>
-            <tr><th>修复</th><td>共享 `status-tag` 组件将 `#999` 规范化为 `#999999` 后再拼 alpha，运行时从错误背景 `#99920` 修正为 `#99999920`，并移除模板里的 `{{label || text}}`。</td></tr>
-            <tr><th>console</th><td>登录、个人中心、D038 修复后 8 秒采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>D001 实名信息维护及验证失败/未注册弹窗未触发，后续需从“去认证”入口继续验证但避免提交真实注册变更。</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-
-
-    <section class="flow">
-      <h2>Patient: Online Consultation Entry</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>Home -> Consent -> Pre-diagnosis Questionnaire</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .func-item:nth-child(1) -> .agree-btn + page_data + console</div>
-          <table>
-            <tr><th>page</th><td>pages/index/index -> pages/consult/consent/index -> pages/pre-diagnosis/questionnaire/index</td></tr>
-            <tr><th>path</th><td>The natural Home online-consultation entry opens the consent page first. After agreeing it opens the pre-diagnosis questionnaire with mode=consult. Department/doctor pages remain downstream of this flow.</td></tr>
-            <tr><th>fix</th><td>When the protocol API returns content=null, shared protocol now returns string content and allows local fallback text. Consent confirm also checks readyAt wall time so a stalled DevTools timer cannot block a real click after the required wait.</td></tr>
-            <tr><th>state</th><td>Consent page renders fallback agreement text. After agree, page_data reaches pre-diagnosis questionnaire with currentPatient loaded and mode=consult.</td></tr>
-            <tr><th>console</th><td>Home, consent, and post-agree pre-diagnosis samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>P010 department list, P016 department detail, and P013 doctor detail were not reached in this round; they remain downstream of the questionnaire path.</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-
-    <section class="flow">
-      <h2>Doctor: Real-name Maintenance</h2>
-      <div class="branch">
-        <article class="node verified">
-          <h3>Home -> Profile -> D001 Real-name Form</h3>
-          <div class="shot">screenshot-missing<br>Evidence: port 9421 MCP + .bottom-nav .nav-item:nth-child(3) -> .menu-section .menu-item:nth-child(3) + page_data + element_info + console</div>
-          <table>
-            <tr><th>page</th><td>pages/index/index -> pages/profile/index/index -> pages/profile/real-name/index</td></tr>
-            <tr><th>design</th><td>D001 design path pages/auth/realname/ maps to current registered route pages/profile/real-name/index. Current account state is unverified editable form.</td></tr>
-            <tr><th>fix</th><td>Name/id/license inputs, picker text/classes, upload state, and submit text are precomputed in JS. WXML no longer uses form&& fields, || fallback, ternary classes, or dynamic bindtap. This fixes the blank name input while form.name exists.</td></tr>
-            <tr><th>state</th><td>page_data has form.name and nameValue for doctor Li Hanxing. element_info shows the name input value is populated. ID/license/hospital are empty; department options include internal medicine and respiratory medicine.</td></tr>
-            <tr><th>console</th><td>Login, profile, and fixed D001 samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>No real certification submission was clicked. Failure/not-registered dialogs still need safe data-condition verification.</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-    <section class="flow">
-      <h2>Consultation Follow-up: Accepted Consultation</h2>
-      <div class="branch">
-        <article class="node blocked">
-          <h3>Patient TabBar Consult List</h3>
-          <div class="shot">screenshot-deferred<br>Evidence: current-list API probe + focused Jest<br>MCP page recheck pending because automator WS stayed not-ready after DevTools restart</div>
-          <table>
-            <tr><th>page</th><td>pages/index/index -> native tabBar switchTab -> pages/consult/list/index</td></tr>
-            <tr><th>data</th><td>The current-user consultation list returns consultation 428197448779345920 and 428207219515371520 with consultationStartTime as millisecond numbers.</td></tr>
-            <tr><th>issue</th><td>The page treated consultationStartTime as a string and called .replace(), causing the session list load to fail and leaving the tab body blank.</td></tr>
-            <tr><th>fix</th><td>pages/consult/list/index.js now parses both numeric timestamps and date strings before sorting and display.</td></tr>
-            <tr><th>verification</th><td>Focused Jest: patient consultation session list accepts numeric backend timestamps. Runtime MCP re-verification is still pending because both patient and doctor automator ports reported tcp_ready=true / ws_ready=false after restart.</td></tr>
-            <tr><th>console</th><td>Before the fix, CDP logs captured 2 errors for item.consultationStartTime.replace. A post-fix runtime console-clean claim is not made until automator page_data and console are available again.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>Patient My Consult -> P019 Chat</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .consult-card:nth-child(1) + page_data + console</div>
-          <table>
-            <tr><th>page</th><td>pages/profile/index/index -> pages/profile/my-consult/index -> pages/consult/chat/index</td></tr>
-            <tr><th>data</th><td>Consultation 428197448779345920 is status=2 / in progress for patient Zhang Laosan and doctor Li Hanxing. The My Consult card shows image-text consultation, respiratory medicine, and in-progress state.</td></tr>
-            <tr><th>state</th><td>P019 loads doctorId=307741580607582208, doctorInfo.deptId=305635524042006528, imReady=true, and consultation-scoped messages including one doctor message and one patient message.</td></tr>
-            <tr><th>console</th><td>My Consult and P019 chat samples: 0 errors / 0 warnings / 0 exceptions. Screenshot attempt timed out but did not disturb page_data or console.</td></tr>
-            <tr><th>gap</th><td>No waiting consultation was available in this account during this pass, so the before-doctor-acceptance patient state remains data-condition blocked for this consult branch.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>P019 Chat -> Patient Diagnosis Records</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .record-btn text ◎ -> .sub-tabs .sub-tab:nth-child(2) + page_data + element_info + console</div>
-          <table>
-            <tr><th>page</th><td>pages/consult/chat/index -> pages/consult/records/index</td></tr>
-            <tr><th>path</th><td>The patient chat header record icon renders as ◎ and opens the diagnosis records page. The selector must be confirmed with element_info before tapping because visible text does not name the product action.</td></tr>
-            <tr><th>state</th><td>The same consultation 428197448779345920 loads patient 张老三, gender 男, age 36, and id card 510102199003077619. Prescription and exam arrays are empty, so the patient page renders explicit empty states.</td></tr>
-            <tr><th>console</th><td>P019 before tap, records page entry, exam sub-tab switch, and post-screenshot samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>No patient-side non-empty prescription or exam record was available on this consultation. Screenshot capture timed out without producing a file.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>Doctor Patient Management -> D040 Chat</h3>
-          <div class="shot">screenshot-missing<br>Evidence: .menu-section .menu-item:nth-child(2) -> .tab:nth-child(2) -> .patient-card:nth-child(1) + page_data + console</div>
-          <table>
-            <tr><th>page</th><td>pages/profile/index/index -> pages/patient/list/index -> pages/consult/doctor-chat/index</td></tr>
-            <tr><th>path</th><td>Doctor Profile second main menu opens patient management. Waiting tab is empty; communicating tab contains the same two status=2 consultations seen by the patient.</td></tr>
-            <tr><th>fix</th><td>Patient-management cards now pass data-status. Status=2 cards route to pages/consult/doctor-chat/index?consultId=&lt;id&gt; instead of always opening patient detail.</td></tr>
-            <tr><th>state</th><td>D040 loads consultId=428197448779345920, patientInfo.id=308386498155347968, patientInfo.imUserId=316783322757505024, status=2, imReady=true, canSendMessage=true, and empty HTTP history for this doctor page.</td></tr>
-            <tr><th>console</th><td>Patient-management waiting, communicating, fixed card tap, and D040 samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>Doctor accept-dialog and reject flow still need a real waiting consultation. Direct route jumps are not counted for that state.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>D040 Chat -> D034 Diagnosis Records</h3>
-          <div class="shot">screenshot-missing<br>Evidence: .tabs .tab:nth-child(2) -> .sub-tabs .sub-tab:nth-child(2) / nth-child(1) + page_data + element_info + console</div>
-          <table>
-            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/consult/records/index</td></tr>
-            <tr><th>design</th><td>D034 design path pages/consult/records/ maps to current registered route pages/consult/records/index. It is reached naturally from the D040 "诊疗记录" tab.</td></tr>
-            <tr><th>state</th><td>The current consultation loads patient 张老三, gender 男, age 36, id card 510102199003077619. Prescription and exam/check arrays are empty, so both sub-tabs render explicit empty states: 暂无处方记录 and 暂无检验检查记录.</td></tr>
-            <tr><th>fix</th><td>D034 tab display state is now precomputed in JS through prescriptionTabClass, examTabClass, showPrescriptionTab, and showExamTab. WXML no longer uses activeSubTab comparison or ternary class expressions.</td></tr>
-            <tr><th>console</th><td>Entering D034, switching to exam, switching back to prescription, and post-compile samples: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>The current real consultation has no historical prescription or exam records, so non-empty card rendering and quote-prescription flow remain data-condition blocked.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>D040 Chat -> D024 Medical Record Edit</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .tabs .tab:nth-child(1) -> .action-bar .action-item:nth-child(1) + input[data-field=&quot;clinicalDiagnosis&quot;] + .search-disease-btn + page_data + console</div>
-          <table>
-            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/medical-record/edit/index</td></tr>
-            <tr><th>path</th><td>From D034 records, the doctor taps "患者沟通" to return to D040, then taps the first bottom action. The action text is "书写病历" and the runtime route is pages/medical-record/edit/index?consultId=428197448779345920.</td></tr>
-            <tr><th>state</th><td>D024 loads medicalRecordCode MR2026062700001 and patient 张老三 / 男 / 36岁 / 身份证 510102199003077619. The current consultation detail has empty chief complaint, clinical diagnosis, and treatment plan, so submit remains blocked by required-field validation.</td></tr>
-            <tr><th>logic</th><td>Typing "感冒" into the clinical diagnosis input and tapping search calls the disease search path and returns one option, "普通感冒" with id 3. Selecting it sets clinicalDiagnosis=普通感冒 and diseaseIds=[3] without submitting a medical record.</td></tr>
-            <tr><th>console</th><td>D040 return, D024 entry, empty-submit validation, disease search, disease selection, screenshot attempt, and patient-side records cross-check: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>Save/归档 was not clicked because it mutates the consultation. The full archive completion path remains for a controlled mutation pass.</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>D040 Chat -> D042/D044 Check Exam Apply</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .action-bar .action-item:nth-child(2) -> D042 fields -> native button.submit-btn -> D044 unsupported state + patient records page_data + console</div>
-          <table>
-            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/consult/exam-apply/index -> pages/consult/exam-select/index</td></tr>
-            <tr><th>design</th><td>D042 high-fidelity docs describe a two-step check/exam application and add-project state. The current runtime exposes D042 form entry and D044 add-project route, but project catalog/submission remains unsupported.</td></tr>
-            <tr><th>state</th><td>D042 loads patient 张老三 / 男 / 36岁. With empty backend complaint/diagnosis/treatment fields, "下一步" is blocked by front-end validation. Filling temporary page state (咳嗽十余次，无胸闷 / 普通感冒 / 建议完善血常规后评估) allows D044 to open.</td></tr>
-            <tr><th>fix</th><td>D044 selected/project-list state is precomputed in JS, removing WXML length/type expressions. D042/D044 critical bottom actions are native button elements; CSS resets button chrome and restores the 690rpx full-width design after the first button conversion shrank to 184px.</td></tr>
-            <tr><th>logic</th><td>D044 renders `检查检验项目暂不支持`, selectedList=[], hasSelectedProjects=false, projectList=[], showProjectNotice=true. Tapping "确认所选项目" stays on D044 and does not submit a backend application.</td></tr>
-            <tr><th>console</th><td>D040 -> D042, empty validation, filled-state next step, D044 unsupported submit, screenshot attempt, and patient records cross-check: 0 errors / 0 warnings / 0 exceptions.</td></tr>
-            <tr><th>gap</th><td>No real check/exam catalog or application API is verified. Patient-side exam records remain empty for this consultation. Screenshot capture still times out without producing a PNG.</td></tr>
-          </table>
-        </article>
-      </div>
-    </section>
-    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
+    <aside class="detail-panel" id="detailPanel">
+      <h2>节点详情</h2>
+      <p>点击任一节点查看文档路径、注册路由、入线和出线。</p>
+    </aside>
   </main>
+
+  <script type="module" src="./progress-map.js"></script>
 </body>
 </html>
