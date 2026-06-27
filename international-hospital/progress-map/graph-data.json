@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T19:13:52.467Z",
+  "generatedAt": "2026-06-27T19:22:29.365Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
@@ -2443,7 +2443,7 @@
       "route": "pages/doctor/detail/index",
       "designPath": "pages/doctor/detail/index",
       "registered": true,
-      "status": "documented",
+      "status": "verified",
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
@@ -2453,7 +2453,7 @@
           "state": "医生介绍",
           "docPath": "患者端/首页/医生详情/医生介绍.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -2461,7 +2461,7 @@
           "state": "医生介绍-当前休息",
           "docPath": "患者端/首页/医生详情/医生介绍-当前休息.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -2469,7 +2469,7 @@
           "state": "医生介绍-无号",
           "docPath": "患者端/首页/医生详情/医生介绍-无号.png.txt",
           "devPath": "DOCS/pages/患者端/首页/医生详情/DEV.md",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -2611,7 +2611,7 @@
       "route": "pages/consult/list/index",
       "designPath": "pages/consult/list/index",
       "registered": true,
-      "status": "partial",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
@@ -2621,7 +2621,7 @@
           "state": "问诊",
           "docPath": "患者端/问诊/问诊列表/问诊.png.txt",
           "devPath": "DOCS/pages/患者端/问诊/问诊列表/DEV.md",
-          "status": "partial",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -3233,7 +3233,7 @@
       "note": "切换Tab",
       "targetDesignPath": "pages/index/index",
       "targetRoute": "pages/index/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -3257,7 +3257,7 @@
       "note": "切换Tab",
       "targetDesignPath": "pages/profile/index/index",
       "targetRoute": "pages/profile/index/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -3269,7 +3269,7 @@
       "note": "进入聊天界面",
       "targetDesignPath": "pages/consult/chat/index",
       "targetRoute": "pages/consult/chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -3461,7 +3461,7 @@
       "note": "查看医生详情",
       "targetDesignPath": "pages/doctor/detail/index",
       "targetRoute": "pages/doctor/detail/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 12
     },
     {
@@ -4469,7 +4469,7 @@
       "note": "返回上一页",
       "targetDesignPath": "pages/doctor/detail/index",
       "targetRoute": "pages/doctor/detail/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 9
     },
     {

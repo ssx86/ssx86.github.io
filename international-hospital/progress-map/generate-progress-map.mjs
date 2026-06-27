@@ -50,9 +50,11 @@ const statusByRoute = {
     'patient:pages/consult/consent/index',
     'patient:pages/pre-diagnosis/questionnaire/index',
     'patient:pages/profile/index/index',
+    'patient:pages/consult/list/index',
     'patient:pages/profile/my-consult/index',
     'patient:pages/consult/chat/index',
     'patient:pages/consult/records/index',
+    'patient:pages/doctor/detail/index',
     'patient:pages/medicine/order-list/index',
     'doctor:pages/index/index',
     'doctor:pages/profile/index/index',
@@ -65,9 +67,7 @@ const statusByRoute = {
     'doctor:pages/consult/exam-apply/index',
     'doctor:pages/consult/exam-select/index'
   ]),
-  partial: new Set([
-    'patient:pages/consult/list/index'
-  ]),
+  partial: new Set([]),
   blocked: new Set([
     'doctor:pages/consult/reject/index',
     'doctor:pages/consult/accept-dialog/index'
