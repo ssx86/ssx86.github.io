@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-27T19:40:47.789Z",
+  "generatedAt": "2026-06-27T19:53:51.908Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
-    "devOnlyCount": 27,
+    "devOnlyCount": 21,
     "stateNodeCount": 166,
     "pageNodeCount": 90,
     "patientRegisteredPages": 59,
@@ -454,7 +454,7 @@
       "route": "pages/prescription/sign/index",
       "designPath": "pages/prescription/sign/index",
       "registered": true,
-      "status": "documented",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
@@ -465,7 +465,7 @@
           "docPath": "医生端/处方/签署处方/签署处方.png.txt",
           "devPath": "DOCS/pages/医生端/处方/签署处方/DEV.md",
           "sourceSide": "doctor",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -504,7 +504,7 @@
       "route": "pages/prescription/drug-add/index",
       "designPath": "pages/prescription/drug-add/index",
       "registered": true,
-      "status": "documented",
+      "status": "verified",
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
@@ -515,7 +515,7 @@
           "docPath": "医生端/处方/添加药品/添加药品.png.txt",
           "devPath": "DOCS/pages/医生端/处方/添加药品/DEV.md",
           "sourceSide": "doctor",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -524,7 +524,7 @@
           "docPath": "医生端/处方/添加药品/添加药品2.png.txt",
           "devPath": "DOCS/pages/医生端/处方/添加药品/DEV.md",
           "sourceSide": "doctor",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -538,10 +538,10 @@
       "route": "pages/prescription/dosage/index",
       "designPath": "pages/prescription/dosage/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "用量设置",
@@ -549,7 +549,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/处方/用量设置/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -588,10 +588,10 @@
       "route": "pages/profile/verify/index",
       "designPath": "pages/profile/verify/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "实名验证",
@@ -599,7 +599,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/实名验证/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -613,10 +613,10 @@
       "route": "pages/profile/index/index",
       "designPath": "pages/doctor-profile/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "我的",
@@ -624,7 +624,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/个人中心/我的/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -945,7 +945,7 @@
       "status": "verified",
       "stateCount": 3,
       "pngCount": 2,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "诊疗记录",
@@ -953,7 +953,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/诊疗记录/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         },
         {
@@ -985,10 +985,10 @@
       "route": "pages/consult/accept-dialog/index",
       "designPath": "pages/consult/accept-dialog/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "blocked",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "接诊确认弹窗",
@@ -996,7 +996,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/问诊管理/接诊确认弹窗/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "blocked",
           "registered": true
         }
       ]
@@ -1069,10 +1069,10 @@
       "route": "pages/consult/doctor-chat/index",
       "designPath": "pages/consult/doctor-chat/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
+      "devOnlyCount": 0,
       "states": [
         {
           "title": "问诊聊天",
@@ -1080,7 +1080,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/医生端/问诊管理/问诊聊天/DEV.md",
           "sourceSide": "doctor",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -3887,7 +3887,7 @@
       "note": "进入签署处方",
       "targetDesignPath": "pages/prescription/sign/index",
       "targetRoute": "pages/prescription/sign/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -3899,7 +3899,7 @@
       "note": "进入用量设置",
       "targetDesignPath": "pages/prescription/dosage/index",
       "targetRoute": "pages/prescription/dosage/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -3911,7 +3911,7 @@
       "note": "进入添加药品页面",
       "targetDesignPath": "pages/prescription/drug-add/index",
       "targetRoute": "pages/prescription/drug-add/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 6
     },
     {
@@ -3923,7 +3923,7 @@
       "note": "前置页面",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -4187,7 +4187,7 @@
       "note": "前置页面",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -4199,7 +4199,7 @@
       "note": "引用历史处方快速开方",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -4235,7 +4235,7 @@
       "note": "切换到问诊管理 Tab",
       "targetDesignPath": "pages/consult/index",
       "targetRoute": "pages/index/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -4247,7 +4247,7 @@
       "note": "跳到实名信息维护页面",
       "targetDesignPath": "pages/profile/verify/index",
       "targetRoute": "pages/profile/verify/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -4331,7 +4331,7 @@
       "note": "从开具处方页 D019 进入",
       "targetDesignPath": "pages/prescription/western/index",
       "targetRoute": "pages/prescription/western/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -4475,7 +4475,7 @@
       "note": "跳转到医生个人中心",
       "targetDesignPath": "pages/doctor-profile/index",
       "targetRoute": "pages/profile/index/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -4499,7 +4499,7 @@
       "note": "进入与患者的聊天页面",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -4631,7 +4631,7 @@
       "note": "进入签署处方页",
       "targetDesignPath": "pages/prescription/sign/index",
       "targetRoute": "pages/prescription/sign/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 1
     },
     {
@@ -5039,7 +5039,7 @@
       "note": "进入问诊聊天页面",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -5051,7 +5051,7 @@
       "note": "接诊并进入聊天",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -5327,7 +5327,7 @@
       "note": "前置页面",
       "targetDesignPath": "pages/prescription/western/index",
       "targetRoute": "pages/prescription/western/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 6
     },
     {
@@ -5339,7 +5339,7 @@
       "note": "确认药品后进入",
       "targetDesignPath": "pages/prescription/dosage/index",
       "targetRoute": "pages/prescription/dosage/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -5351,7 +5351,7 @@
       "note": "跳到处方开具页面（默认西药）",
       "targetDesignPath": "pages/prescription/western/index",
       "targetRoute": "pages/prescription/western/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {
@@ -5483,7 +5483,7 @@
       "note": "返回问诊聊天页面",
       "targetDesignPath": "pages/consult/doctor-chat/index",
       "targetRoute": "pages/consult/doctor-chat/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 3
     },
     {

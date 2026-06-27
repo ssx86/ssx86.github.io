@@ -64,6 +64,9 @@ const statusByRoute = {
     'doctor:pages/consult/doctor-chat/index',
     'doctor:pages/consult/records/index',
     'doctor:pages/prescription/western/index',
+    'doctor:pages/prescription/drug-add/index',
+    'doctor:pages/prescription/dosage/index',
+    'doctor:pages/prescription/sign/index',
     'doctor:pages/medical-record/edit/index',
     'doctor:pages/consult/exam-apply/index',
     'doctor:pages/consult/exam-select/index'
@@ -241,6 +244,11 @@ for (const [dir, devFile] of devFiles.entries()) {
   const dev = parseDev(devFile);
   const route = routeForSide(side, dev.designPath);
   const graphSide = graphSideForRoute(side, route);
+  const routeKey = route ? `${graphSide}:${route}` : '';
+  let status = 'dev-only';
+  if (statusByRoute.verified.has(routeKey)) status = 'verified';
+  else if (statusByRoute.partial.has(routeKey)) status = 'partial';
+  else if (statusByRoute.blocked.has(routeKey)) status = 'blocked';
   const node = {
     id: slug(`dev-only:${relDir}`),
     sourceSide: side,
@@ -254,7 +262,7 @@ for (const [dir, devFile] of devFiles.entries()) {
     designPath: dev.designPath,
     route,
     registered: route ? Boolean(appRoutes[graphSide]?.has(route) || appRoutes[side]?.has(route)) : false,
-    status: 'dev-only'
+    status
   };
   nodes.push(node);
   nodesByDir.set(dir, [node]);
