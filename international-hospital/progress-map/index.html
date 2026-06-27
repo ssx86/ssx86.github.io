@@ -6,104 +6,52 @@
   <title>互联网医院小程序页面验证进度图</title>
   <style>
     :root {
-      --bg: #0f1720;
-      --panel: #17212b;
+      --bg: #101820;
+      --panel: #17222c;
+      --line: rgba(255,255,255,.16);
       --ink: #f7fbff;
       --muted: #a9b8c5;
-      --line: rgba(255,255,255,.16);
       --doc: #2f7df6;
       --ui: #18b7a6;
       --logic: #f4a62a;
       --verified: #23c55e;
       --blocked: #ef4444;
-      --missing: #657386;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at 20% 0%, rgba(47,125,246,.24), transparent 28rem),
-        radial-gradient(circle at 90% 8%, rgba(244,166,42,.18), transparent 26rem),
-        var(--bg);
+      background: radial-gradient(circle at 12% 0%, rgba(47,125,246,.22), transparent 28rem), var(--bg);
       color: var(--ink);
       font-family: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
     }
-    header { padding: 34px clamp(18px, 5vw, 64px) 20px; border-bottom: 1px solid var(--line); }
-    h1 { margin: 0 0 10px; font-size: clamp(30px, 5vw, 52px); line-height: 1.08; letter-spacing: 0; }
-    .subtitle { margin: 0; max-width: 1040px; color: var(--muted); line-height: 1.7; font-size: 15px; }
-    main { padding: 24px clamp(18px, 5vw, 64px) 58px; }
-    .legend, .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .chip, .stat {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.055);
-      border-radius: 8px;
-      padding: 9px 12px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    header { padding: 34px clamp(18px, 5vw, 64px) 22px; border-bottom: 1px solid var(--line); }
+    h1 { margin: 0 0 10px; font-size: clamp(30px, 5vw, 52px); line-height: 1.1; }
+    .subtitle { max-width: 1100px; margin: 0; color: var(--muted); line-height: 1.7; }
+    main { padding: 24px clamp(18px, 5vw, 64px) 60px; }
+    .legend, .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip, .stat { border: 1px solid var(--line); background: rgba(255,255,255,.055); border-radius: 8px; padding: 9px 12px; color: var(--muted); font-size: 13px; }
     .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
-    .flow {
-      margin-top: 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255,255,255,.045);
-      padding: 16px;
-    }
+    .flow { margin-top: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.045); padding: 16px; }
     .flow h2 { margin: 0 0 12px; font-size: 22px; }
-    .branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(278px, 1fr)); gap: 14px; margin: 14px 0 8px; }
-    .node {
-      border: 1px solid var(--line);
-      border-left: 7px solid var(--missing);
-      border-radius: 8px;
-      background: rgba(0,0,0,.18);
-      padding: 13px;
-      min-height: 280px;
-    }
-    .node.doc { border-left-color: var(--doc); }
+    .branch { display: grid; grid-template-columns: repeat(auto-fit, minmax(286px, 1fr)); gap: 14px; }
+    .node { border: 1px solid var(--line); border-left: 7px solid var(--doc); border-radius: 8px; background: rgba(0,0,0,.18); padding: 13px; min-height: 290px; }
     .node.ui { border-left-color: var(--ui); }
     .node.logic { border-left-color: var(--logic); }
     .node.verified { border-left-color: var(--verified); background: rgba(35,197,94,.11); }
     .node.blocked { border-left-color: var(--blocked); background: rgba(239,68,68,.10); }
     .node h3 { margin: 0 0 9px; font-size: 16px; line-height: 1.35; }
-    .shot {
-      display: grid;
-      place-items: center;
-      min-height: 94px;
-      border: 1px dashed rgba(255,255,255,.28);
-      border-radius: 8px;
-      margin: 8px 0 10px;
-      color: var(--muted);
-      font-size: 12px;
-      text-align: center;
-      padding: 10px;
-      line-height: 1.45;
-    }
+    .shot { display: grid; place-items: center; min-height: 94px; border: 1px dashed rgba(255,255,255,.28); border-radius: 8px; margin: 8px 0 10px; color: var(--muted); font-size: 12px; text-align: center; padding: 10px; line-height: 1.45; }
     table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.45; }
     th, td { border-top: 1px solid rgba(255,255,255,.13); padding: 6px 0; vertical-align: top; text-align: left; }
-    th { width: 74px; color: var(--muted); font-weight: 500; padding-right: 8px; }
-    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 22px; }
-    .summary-card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
-      padding: 14px;
-    }
-    .summary-card b { display: block; margin-bottom: 8px; }
-    .summary-card p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 13px; }
-    .note {
-      margin-top: 22px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--logic);
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
-      line-height: 1.65;
-    }
+    th { width: 76px; color: var(--muted); font-weight: 500; padding-right: 8px; }
+    .note { margin-top: 22px; padding: 14px 16px; border-left: 4px solid var(--logic); background: rgba(255,255,255,.06); color: var(--muted); line-height: 1.65; }
   </style>
 </head>
 <body>
   <header>
     <h1>互联网医院小程序页面验证进度图</h1>
-    <p class="subtitle">按 DOCS/pages/**/*.png.txt 和 DEV.md 组织为产品功能分支。每个节点对应一个页面或页面状态，记录自然入口、UI/逻辑/API、console、截图证据和剩余差异。颜色越绿表示 MCP 自然操作证据越完整。</p>
+    <p class="subtitle">按产品功能分支记录页面状态。每个节点对应一个页面或页面状态，说明自然入口、界面状态、逻辑/API、console、截图证据和剩余差异。截图通道当前仍超时，因此本轮证据以 MCP page_data、element_info、wechat_inspector console 为主。</p>
   </header>
   <main>
     <section class="stats">
@@ -111,150 +59,93 @@
       <div class="stat">患者端：<strong>94</strong></div>
       <div class="stat">医生端：<strong>30</strong></div>
       <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27</strong></div>
+      <div class="stat">更新：<strong>2026-06-27 16:05</strong></div>
     </section>
-    <section class="legend" aria-label="状态说明">
-      <div class="chip"><i class="dot" style="background:var(--doc)"></i>已建立文档索引</div>
-      <div class="chip"><i class="dot" style="background:var(--ui)"></i>UI 已实现待核对</div>
+    <section class="legend">
+      <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
+      <div class="chip"><i class="dot" style="background:var(--ui)"></i>UI 已实现</div>
       <div class="chip"><i class="dot" style="background:var(--logic)"></i>逻辑/API 初步跑通</div>
-      <div class="chip"><i class="dot" style="background:var(--verified)"></i>元素/page_data/console 已核对</div>
-      <div class="chip"><i class="dot" style="background:var(--blocked)"></i>阻断或不一致</div>
+      <div class="chip"><i class="dot" style="background:var(--verified)"></i>MCP 自然路径 + console 已验证</div>
+      <div class="chip"><i class="dot" style="background:var(--blocked)"></i>数据条件或工具通道阻塞</div>
     </section>
 
     <section class="flow">
-      <h2>患者端分支</h2>
+      <h2>患者端：问诊后续</h2>
       <div class="branch">
         <article class="node verified">
-          <h3>首页 -> 慢特病线上门诊 -> 便民门诊</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot 90 秒超时且未落盘<br>证据：page_data + element_info + console</div>
+          <h3>个人中心 -> 我的问诊 -> 已完成空态</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon 90 秒超时<br>证据：page_data + element_info + console</div>
           <table>
-            <tr><th>页面</th><td>pages/index/index -> pages/chronic-disease/convenient-clinic/index</td></tr>
-            <tr><th>自然入口</th><td>患者首页第四个 .func-item，element_info 文本为“慢特病线上门诊”。</td></tr>
-            <tr><th>状态</th><td>当前账号医生列表为空，显示搜索、全部/仅看有号筛选、空态、页面说明。</td></tr>
-            <tr><th>逻辑</th><td>切换“仅看有号”后 activeFilter=available，空态副文案变为“当前没有可预约的医生，试试查看全部”。</td></tr>
-            <tr><th>console</th><td>5 秒采样：0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>慢病总入口 pages/chronic-disease/index/index 已注册，但当前首页卡片不进入该页；真实医生卡片样式仍需有数据时复核。</td></tr>
+            <tr><th>页面</th><td>pages/profile/index/index -> pages/profile/my-consult/index</td></tr>
+            <tr><th>自然入口</th><td>native tabBar 到“我的”，点击 `.order-item:nth-child(1)`；已完成 tab 为 `.tabs .tab:nth-child(5)`。</td></tr>
+            <tr><th>状态</th><td>当前账号只有两条 status=2 问诊中记录；点“已完成”后 `activeTab=3`、`consultList=[]`、`showEmpty=true`、`emptyTitle=暂无已完成记录`。</td></tr>
+            <tr><th>console</th><td>个人中心、我的问诊、已完成 tab 后采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
+            <tr><th>差异</th><td>暂无已完成真实患者数据，P020 已完成详情自然入口受数据条件阻塞。</td></tr>
           </table>
         </article>
-        <article class="node logic">
-          <h3>首页 -> 院内制剂</h3>
-          <div class="shot">screenshot-missing<br>截图通道待恢复</div>
-          <table>
-            <tr><th>页面</th><td>pages/medicine/hospital-preparation/index</td></tr>
-            <tr><th>状态</th><td>自然入口已核对，当前为真实空态而非模拟制剂卡片。</td></tr>
-            <tr><th>console</th><td>历史采样为 0；后续需补截图。</td></tr>
-            <tr><th>差异</th><td>卡片浏览态依赖真实制剂数据。</td></tr>
-          </table>
-        </article>
-        <article class="node logic">
-          <h3>个人中心 -> 购药订单 / 地址</h3>
-          <div class="shot">screenshot-missing<br>截图通道待恢复</div>
-          <table>
-            <tr><th>页面</th><td>pages/medicine/order-list/index、pages/medicine/address/index、pages/medicine/address-edit/index</td></tr>
-            <tr><th>状态</th><td>购药订单为空态、地址列表真实数据、新增地址初始表单已通过自然路径核对。</td></tr>
-            <tr><th>console</th><td>历史采样为 0；未触发保存/删除等变更动作。</td></tr>
-            <tr><th>差异</th><td>订单详情、保存态、物流态仍待数据条件。</td></tr>
-          </table>
-        </article>
-        <article class="node logic">
-          <h3>问诊后续 -> 我的问诊 / 患者聊天 / 诊疗记录</h3>
-          <div class="shot">screenshot-missing<br>patient-consult-records 截图：wechat_screenshot daemon 90 秒超时<br>证据：element_info + page_data + console</div>
+        <article class="node verified">
+          <h3>我的问诊 -> 问诊中聊天 -> 诊疗记录</h3>
+          <div class="shot">screenshot-missing<br>patient-consult-records 截图仍超时<br>证据：element_info + page_data + console</div>
           <table>
             <tr><th>页面</th><td>pages/profile/my-consult/index -> pages/consult/chat/index -> pages/consult/records/index</td></tr>
-            <tr><th>自然入口</th><td>Profile native tabBar -> `.order-item:nth-child(1)` 我的问诊 -> `.consult-card:nth-child(1)` 问诊中卡片 -> chat header `.record-btn`。</td></tr>
-            <tr><th>状态</th><td>同一问诊单 `428197448779345920`：聊天页显示医生/患者两条文本消息；诊疗记录页显示患者张老三，处方和检验检查均为真实空态。</td></tr>
-            <tr><th>逻辑</th><td>诊疗记录默认 activeSubTab=prescription；点击 `.sub-tab:nth-child(2)` 后 activeSubTab=exam，tab class 由 JS 预计算。</td></tr>
-            <tr><th>console</th><td>个人中心、我的问诊、聊天、诊疗记录、诊疗记录 tab 切换采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>当前患者账号没有已完成问诊，P020 已完成详情自然入口为数据条件阻塞；截图通道仍需恢复。</td></tr>
+            <tr><th>自然入口</th><td>问诊中卡片 `428197448779345920` 进入聊天；聊天 header `.record-btn` 进入诊疗记录。</td></tr>
+            <tr><th>状态</th><td>诊疗记录默认处方 tab，可点 `.sub-tab:nth-child(2)` 切到检查检验；当前处方/检查均为真实空态。</td></tr>
+            <tr><th>console</th><td>聊天、诊疗记录、tab 切换均采样为 0。</td></tr>
+            <tr><th>差异</th><td>截图证据待 screenshot 通道恢复。</td></tr>
           </table>
         </article>
       </div>
     </section>
 
     <section class="flow">
-      <h2>医生端分支</h2>
+      <h2>医生端：已完成问诊只读链路</h2>
       <div class="branch">
         <article class="node verified">
-          <h3>登录 -> 问诊管理首页</h3>
-          <div class="shot">screenshot-missing<br>wechat_screenshot 当前仍超时<br>证据：page_data + element_info + console</div>
+          <h3>登录 -> 问诊管理 -> 已完成列表</h3>
+          <div class="shot">screenshot-missing<br>证据：输入/点击 MCP + page_data + console</div>
           <table>
             <tr><th>页面</th><td>pages/login/index -> pages/login/verify-code/index -> pages/index/index</td></tr>
-            <tr><th>自然入口</th><td>手机号、协议勾选、验证码页均通过 MCP 输入/点击完成；验证码只临时使用并已在输出中打码。</td></tr>
-            <tr><th>状态</th><td>登录后进入医生问诊管理首页，默认 activeTab=waiting，当前待接诊为空。</td></tr>
-            <tr><th>console</th><td>登录页、验证码页、首页采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>登录源码终端显示有乱码和 WXML 表达式历史债，runtime 文案可读；后续应单独清理。</td></tr>
+            <tr><th>自然入口</th><td>医生手机号输入、协议勾选、验证码页输入均通过 MCP；验证码输出已脱敏。</td></tr>
+            <tr><th>状态</th><td>登录后待接诊为空；点击 `.status-tab:nth-child(3)` 后已完成列表有 `307744509397712896`、`310017955464531968`。</td></tr>
+            <tr><th>console</th><td>登录页、验证码页、首页、已完成 tab 均为 0。</td></tr>
+            <tr><th>差异</th><td>登录页源码仍有历史模板表达式，runtime 本轮未报错，后续可单独清理。</td></tr>
           </table>
         </article>
         <article class="node verified">
-          <h3>问诊管理 -> 问诊中</h3>
-          <div class="shot">screenshot-missing<br>证据：page_data + element_info + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/index/index</td></tr>
-            <tr><th>自然入口</th><td>点击 .status-tabs .status-tab:nth-child(2)，element_info 文本为“问诊中”。</td></tr>
-            <tr><th>状态</th><td>加载两条真实状态 2 问诊：428197448779345920、428207219515371520。</td></tr>
-            <tr><th>逻辑</th><td>卡片字段预计算：statusClass=communicating、title=图文、canAccept=false、无空 divider。</td></tr>
-            <tr><th>console</th><td>5 秒采样：0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>本节点未继续点击进入聊天，后续仍沿同一问诊单串到 D040。</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>问诊管理 -> 已完成</h3>
-          <div class="shot">screenshot-missing<br>证据：page_data + console</div>
-          <table>
-            <tr><th>页面</th><td>pages/index/index</td></tr>
-            <tr><th>自然入口</th><td>点击 .status-tabs .status-tab:nth-child(3)，element_info 文本为“已完成”。</td></tr>
-            <tr><th>状态</th><td>加载两条真实状态 3 问诊：307744509397712896、310017955464531968。</td></tr>
-            <tr><th>逻辑</th><td>activeTab=records，statusLabel=已完成，statusClass=completed，showEmpty=false。</td></tr>
-            <tr><th>console</th><td>5 秒采样：0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>已完成卡片到详情已在下一节点覆盖；处方/检验记录仍受真实数据条件限制。</td></tr>
-          </table>
-        </article>
-        <article class="node verified">
-          <h3>问诊管理 -> 已完成 -> 医生问诊详情</h3>
-          <div class="shot">screenshot-missing<br>截图通道仍超时；当前以重进页面后的 page_data + console 为证据</div>
+          <h3>已完成卡片 -> D029 医生问诊详情</h3>
+          <div class="shot">screenshot-missing<br>证据：`.consult-header` element_info + page_data + console</div>
           <table>
             <tr><th>页面</th><td>pages/index/index -> pages/consult/detail/index</td></tr>
-            <tr><th>自然入口</th><td>医生登录后在问诊管理点击 `.status-tab:nth-child(3)` 已完成，再点击第一张 `.consult-card`。</td></tr>
-            <tr><th>状态</th><td>详情 consultId=`307744509397712896`，状态 `3 / 已完成`，患者张松石，性别男，年龄 39，主诉从后端 `patientComplaint` 显示。</td></tr>
-            <tr><th>逻辑</th><td>D029 当前运行 route 是 `pages/consult/detail/index`；修复后使用 `patientGender`、`patientAge`、`patientComplaint` 兜底，处方/检验列表为空态。</td></tr>
-            <tr><th>console</th><td>登录、首页、已完成 tab、详情修复后重进页面采样均为 0 errors / 0 warnings / 0 exceptions。</td></tr>
-            <tr><th>差异</th><td>设计文档仍有旧路径 `pages/patient/consult-detail/`；截图证据缺失，需待 screenshot daemon 通道恢复。</td></tr>
+            <tr><th>自然入口</th><td>已完成 tab 后点击第一张 `.consult-card:nth-child(1)`。</td></tr>
+            <tr><th>状态</th><td>consultId=`307744509397712896`，状态 `3/已完成`，患者张松石，性别男，年龄 39，主诉来自 `patientComplaint`。</td></tr>
+            <tr><th>修复</th><td>重建 D029 原生 WXML 首屏，去掉关键渲染路径上的自定义组件依赖；`.consult-header` 和 `.chat-history-card` 已可被 MCP 识别。</td></tr>
+            <tr><th>console</th><td>重进页面后 0 errors / 0 warnings / 0 exceptions。</td></tr>
+          </table>
+        </article>
+        <article class="node verified">
+          <h3>D029 沟通记录 -> D040 只读聊天</h3>
+          <div class="shot">screenshot-missing<br>证据：`.chat-history-card` tap + readonly page_data + element_info + console</div>
+          <table>
+            <tr><th>页面</th><td>pages/consult/detail/index -> pages/consult/doctor-chat/index?readonly=true</td></tr>
+            <tr><th>自然入口</th><td>详情页点击 `.chat-history-card`，文本为“沟通记录 / 共0条消息”。</td></tr>
+            <tr><th>状态</th><td>只读聊天页 `readonly=true`、`isEnded=true`、`canSendMessage=false`，患者信息已回填张松石，聊天记录为空态。</td></tr>
+            <tr><th>UI</th><td>`.readonly-banner` 可见；`.input-area` 和 `.action-bar` 均不存在，避免已完成问诊继续发送或开处方。</td></tr>
+            <tr><th>console</th><td>8 秒采样 0 errors / 0 warnings / 0 exceptions。</td></tr>
           </table>
         </article>
         <article class="node blocked">
           <h3>问诊管理 -> 拒绝接诊</h3>
-          <div class="shot">无截图<br>自然入口数据条件未满足</div>
+          <div class="shot">无截图<br>真实 waiting 数据条件不满足</div>
           <table>
             <tr><th>页面</th><td>pages/consult/reject/index</td></tr>
-            <tr><th>入口</th><td>只能从真实待接诊问诊的拒绝入口自然进入；当前待接诊列表为空。</td></tr>
-            <tr><th>状态</th><td>页面文件已注册，字数统计改为 JS 预计算 reasonCountText。</td></tr>
-            <tr><th>console</th><td>未直接跳转验证；等待真实 waiting 数据。</td></tr>
-            <tr><th>差异</th><td>需要一个待接诊问诊单，且读写动作要避免误提交拒绝。</td></tr>
+            <tr><th>入口</th><td>必须从真实待接诊问诊的拒绝入口自然进入；当前医生待接诊列表为空。</td></tr>
+            <tr><th>状态</th><td>页面文件已注册，暂不 direct jump 计入产品路径验证。</td></tr>
           </table>
         </article>
       </div>
     </section>
 
-    <section class="summary-grid">
-      <article class="summary-card">
-        <b>工具通道</b>
-        <p>患者端 9420、医生端 9421 都必须通过项目脚本 npm run start:patient / npm run start:doctor 确认真实 LISTEN。单独 wechat_automator start 有时只短暂探测成功，随后 page_data 仍会连接失败。</p>
-      </article>
-      <article class="summary-card">
-        <b>控制台</b>
-        <p>本轮所有有效页面交互后都用 wechat_inspector(action=console, log_type=all) 采样；患者便民门诊、医生问诊管理三种 tab、医生登录链路均为 0。</p>
-      </article>
-      <article class="summary-card">
-        <b>文件修复</b>
-        <p>患者慢病入口和便民门诊曾出现编码污染与 WXML 结构损坏，已重建为有效中文和预计算字段绑定。后续遇到终端乱码必须以 runtime element_info/compile 为准。</p>
-      </article>
-      <article class="summary-card">
-        <b>截图缺口</b>
-        <p>wechat_screenshot 对当前页面仍超时并未写入 DOCS/progress-map/evidence/。在通道恢复前，节点必须明确标注 screenshot-missing，不能伪造视觉证据。</p>
-      </article>
-    </section>
-
-    <p class="note">下一轮继续按同一原则扩展：每个页面状态先 element_info，再 tap/input，再 page_data，再 console；只有单步成功后才允许脚本批量化。截图恢复后，把每个节点的截图槽替换为真实图片。</p>
+    <p class="note">下一轮继续沿真实问诊单后续扩展：优先做医生 D040 的诊疗记录 tab、病历/检查/处方只读或阻塞态，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
   </main>
 </body>
 </html>
