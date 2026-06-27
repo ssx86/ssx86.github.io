@@ -59,7 +59,7 @@
       <div class="stat">患者端：<strong>94</strong></div>
       <div class="stat">医生端：<strong>30</strong></div>
       <div class="stat">通用：<strong>12</strong></div>
-      <div class="stat">更新：<strong>2026-06-27 17:38</strong></div>
+      <div class="stat">更新：<strong>2026-06-27 17:55</strong></div>
     </section>
     <section class="legend">
       <div class="chip"><i class="dot" style="background:var(--doc)"></i>文档已索引</div>
@@ -266,9 +266,21 @@
             <tr><th>gap</th><td>The current real consultation has no historical prescription or exam records, so non-empty card rendering and quote-prescription flow remain data-condition blocked.</td></tr>
           </table>
         </article>
+        <article class="node verified">
+          <h3>D040 Chat -> D024 Medical Record Edit</h3>
+          <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .tabs .tab:nth-child(1) -> .action-bar .action-item:nth-child(1) + input[data-field=&quot;clinicalDiagnosis&quot;] + .search-disease-btn + page_data + console</div>
+          <table>
+            <tr><th>page</th><td>pages/consult/doctor-chat/index -> pages/medical-record/edit/index</td></tr>
+            <tr><th>path</th><td>From D034 records, the doctor taps "患者沟通" to return to D040, then taps the first bottom action. The action text is "书写病历" and the runtime route is pages/medical-record/edit/index?consultId=428197448779345920.</td></tr>
+            <tr><th>state</th><td>D024 loads medicalRecordCode MR2026062700001 and patient 张老三 / 男 / 36岁 / 身份证 510102199003077619. The current consultation detail has empty chief complaint, clinical diagnosis, and treatment plan, so submit remains blocked by required-field validation.</td></tr>
+            <tr><th>logic</th><td>Typing "感冒" into the clinical diagnosis input and tapping search calls the disease search path and returns one option, "普通感冒" with id 3. Selecting it sets clinicalDiagnosis=普通感冒 and diseaseIds=[3] without submitting a medical record.</td></tr>
+            <tr><th>console</th><td>D040 return, D024 entry, empty-submit validation, disease search, disease selection, screenshot attempt, and patient-side records cross-check: 0 errors / 0 warnings / 0 exceptions.</td></tr>
+            <tr><th>gap</th><td>Save/归档 was not clicked because it mutates the consultation. The full archive completion path remains for a controlled mutation pass.</td></tr>
+          </table>
+        </article>
       </div>
     </section>
-    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的病历、检查、处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
+    <p class="note">下一轮继续沿真实问诊单后续扩展：从医生 D040 的检查、处方、完成/关闭入口继续做只读或阻塞态验证，再回到患者端对应结果页。每个节点仍按 element_info -> tap/input -> page_data -> console 的顺序推进；截图通道恢复前保持 screenshot-missing 标记。</p>
   </main>
 </body>
 </html>
