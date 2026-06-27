@@ -220,6 +220,18 @@
     <section class="flow">
       <h2>Consultation Follow-up: Accepted Consultation</h2>
       <div class="branch">
+        <article class="node blocked">
+          <h3>Patient TabBar Consult List</h3>
+          <div class="shot">screenshot-deferred<br>Evidence: current-list API probe + focused Jest<br>MCP page recheck pending because automator WS stayed not-ready after DevTools restart</div>
+          <table>
+            <tr><th>page</th><td>pages/index/index -> native tabBar switchTab -> pages/consult/list/index</td></tr>
+            <tr><th>data</th><td>The current-user consultation list returns consultation 428197448779345920 and 428207219515371520 with consultationStartTime as millisecond numbers.</td></tr>
+            <tr><th>issue</th><td>The page treated consultationStartTime as a string and called .replace(), causing the session list load to fail and leaving the tab body blank.</td></tr>
+            <tr><th>fix</th><td>pages/consult/list/index.js now parses both numeric timestamps and date strings before sorting and display.</td></tr>
+            <tr><th>verification</th><td>Focused Jest: patient consultation session list accepts numeric backend timestamps. Runtime MCP re-verification is still pending because both patient and doctor automator ports reported tcp_ready=true / ws_ready=false after restart.</td></tr>
+            <tr><th>console</th><td>Before the fix, CDP logs captured 2 errors for item.consultationStartTime.replace. A post-fix runtime console-clean claim is not made until automator page_data and console are available again.</td></tr>
+          </table>
+        </article>
         <article class="node verified">
           <h3>Patient My Consult -> P019 Chat</h3>
           <div class="shot">screenshot-missing<br>wechat_screenshot daemon timeout at 90s<br>Evidence: .consult-card:nth-child(1) + page_data + console</div>
