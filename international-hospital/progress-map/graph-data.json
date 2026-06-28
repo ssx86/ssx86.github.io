@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T03:32:34.754Z",
+  "generatedAt": "2026-06-28T03:38:26.487Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
@@ -1558,9 +1558,15 @@
       "devOnlyCount": 0,
       "evidence": [
         {
+          "type": "screenshot",
+          "title": "P055 添加就诊人当前视口截图",
+          "summary": "MCP wechat_screenshot 使用绝对路径成功保存当前视口；人工查看确认不是空白图，内容为添加就诊人表单与底部注册电子健康卡按钮。",
+          "path": "evidence/patient-p055-add-current.png"
+        },
+        {
           "type": "runtime",
           "title": "P055 添加就诊人空表单校验证据",
-          "summary": "从 P051 点击 .add-btn 进入 pages/patient/add/index；初始 page_data 显示身份证/男等默认字典值、民族和地区占位；点击原生 button.btn-primary 空提交后仍停留本页、submitting=false，未写后端；console 采样 0 warning/error/exception。"
+          "summary": "从 P051 点击 .add-btn 进入 pages/patient/add/index；初始 page_data 显示身份证/男等默认字典值、民族和地区占位；点击原生 button.btn-primary 空提交后仍停留本页、submitting=false，未写后端；民族行 .form-section .form-item:nth-child(11) 已用 element_info 和 tap 证明自然 picker 入口，但 picker 选择结果尚未通过 MCP 改变 page_data；console 采样 0 warning/error/exception。"
         }
       ],
       "states": [
