@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T15:05:35.493Z",
+  "generatedAt": "2026-06-28T16:10:04.203Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
@@ -2857,7 +2857,7 @@
         {
           "type": "runtime",
           "title": "P051 就诊人管理运行时证据",
-          "summary": "患者个人中心第二个更多项 .more-list .more-item:nth-child(2) 文本为就诊人管理；点击后进入 pages/patient/manage/index；page_data 显示真实就诊人列表、maskedIdCard、cardClass、sideLabel；卡片整体点击会切换默认就诊人，读-only 验证应使用 .detail-link。console 采样 0 warning/error/exception。"
+          "summary": "Patient home electronic health card switch entry is visible and this route previously had natural-entry runtime evidence with real patientList, maskedIdCard, cardClass, and sideLabel. Card tap can switch the default patient, so read-only checks should use .detail-link. On 2026-06-28 the duplicate self-drawn .navbar/.back-btn/.menu-btn was removed from this default-navigation page; patient compile passed with no WXML errors. Runtime recheck is still pending because automator 9420 entered a health-check/navigation-context failure after compile, so .navbar absence and console-clean must be re-proven after MCP recovery."
         }
       ],
       "states": [
