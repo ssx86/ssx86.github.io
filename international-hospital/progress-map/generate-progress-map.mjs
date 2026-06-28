@@ -194,7 +194,7 @@ const evidenceByRoute = {
       summary: 'Natural entry Patient Profile -> first order item reached pages/profile/my-consult/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/my-consult/index, element_info .navbar returned not found, .tabs remained visible with five business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing because the screenshot channel timed out in this verification round.'
     }
   ],
-  'patient:pages/profile/prescription/index': [
+  'noroute:patient:处方:我的处方': [
     {
       type: 'runtime',
       title: 'P024 prescription duplicate native navigation check',
@@ -254,7 +254,7 @@ const evidenceByRoute = {
     }
   ]
   ,
-  'doctor:pages/consult/exam-apply/index': [
+  'noroute:doctor:问诊:检查检验申请': [
     {
       type: 'runtime',
       title: 'D042 exam-apply duplicate native navigation check',

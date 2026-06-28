@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T09:18:29.371Z",
+  "generatedAt": "2026-06-28T13:54:20.333Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
@@ -762,7 +762,13 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D042 exam-apply duplicate native navigation check",
+          "summary": "Natural path Doctor Profile -> Patient Management -> communicating tab -> first in-progress card -> doctor chat -> 检查检验 reached pages/consult/exam-apply/index for consultId 428197448779345920. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.more-btn/.refresh-btn was removed. After the edit and doctor compile, page_data stayed healthy, element_info .navbar returned not found, .form-section remained visible, and console capture reported 0 logs/warnings/errors/exceptions. Re-entering was blocked because wx.navigateBack/goBack/redirectTo/reLaunch/wechat_navigate did not leave the current D042 instance; this is recorded as a navigation recovery issue to investigate separately."
+        }
+      ],
       "states": [
         {
           "title": "检查检验申请 / 检查检验申请-第二步",
@@ -946,7 +952,13 @@
       "stateCount": 1,
       "pngCount": 1,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P024 prescription duplicate native navigation check",
+          "summary": "Natural entry Patient Profile -> second order item reached pages/profile/prescription/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .custom-nav/.nav-back/.nav-title was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/prescription/index, element_info .custom-nav returned not found, .filter-section remained visible with four business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing in this round."
+        }
+      ],
       "states": [
         {
           "title": "我的处方",
