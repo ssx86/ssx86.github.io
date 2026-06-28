@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T17:41:44.714Z",
+  "generatedAt": "2026-06-28T18:04:47.665Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
@@ -2823,14 +2823,14 @@
       "evidence": [
         {
           "type": "screenshot",
-          "title": "P055 添加就诊人当前视口截图",
-          "summary": "Earlier MCP screenshot evidence shows the add-patient form state. Current 2026-06-29 screenshot capture timed out and did not write a new file after removing the copied navbar, so the linked image is historical visual context rather than current post-fix proof.",
-          "path": "evidence/patient-p055-add-current.png"
+          "title": "P055 add visit-person screenshot after navbar removal",
+          "summary": "Current MCP screenshot for pages/patient/add/index after removing the copied WeChat title bar. The viewport shows the add-patient form fields and fixed submit area without a duplicate in-page navbar.",
+          "path": "evidence/patient-p055-add-navbar-removed.png"
         },
         {
           "type": "runtime",
-          "title": "P055 添加就诊人运行时证据",
-          "summary": "Natural path Patient Home -> health-card .switch-btn -> P051 -> .add-btn reached pages/patient/add/index. The page uses default native navigation through navigationBarTitleText; runtime element_info confirmed the copied .navbar with back arrow/title/simulated capsule before the fix. The copied navbar WXML and related WXSS were removed. After patient compile and automator daemon recovery, natural re-entry reached pages/patient/add/index, page_data retained the expected empty form defaults, element_info .navbar returned not found, .form-section remained visible, and 8 second console capture reported 0 logs/warnings/errors/exceptions. Current screenshot capture timed out without writing a file, so post-fix screenshot proof is missing."
+          "title": "P055 add visit-person runtime evidence",
+          "summary": "Natural path Patient Home -> health-card .switch-btn -> P051 -> .add-btn reached pages/patient/add/index. The page uses default native navigation through navigationBarTitleText; runtime element_info confirmed the copied .navbar with back arrow/title/simulated capsule before the fix. The copied navbar WXML and related WXSS were removed. After patient compile and automator daemon recovery, natural re-entry reached pages/patient/add/index, page_data retained the expected empty form defaults, element_info .navbar returned not found, .form-section remained visible, and 8 second console capture reported 0 logs/warnings/errors/exceptions."
         }
       ],
       "states": [
@@ -2860,9 +2860,15 @@
       "devOnlyCount": 0,
       "evidence": [
         {
+          "type": "screenshot",
+          "title": "P056 visit-person detail screenshot after navbar removal",
+          "summary": "Current MCP screenshot for pages/patient/edit/index after removing the copied WeChat title bar. The viewport shows the QR card, real patient name, detail rows, and fixed bottom actions without a duplicate in-page navbar.",
+          "path": "evidence/patient-p056-edit-navbar-removed.png"
+        },
+        {
           "type": "runtime",
-          "title": "P056 就诊人详情运行时证据",
-          "summary": "从 P051 的 .detail-link 进入 pages/patient/edit/index?id=<patientId>；page_data 显示 patientId、姓名、证件类型、手机号、住址，并将后端 birthday=636768000000 格式化为 birthDate=1990-03-07；删除/修改动作未执行；console 采样 0 warning/error/exception。"
+          "title": "P056 visit-person detail runtime evidence",
+          "summary": "Natural entry from P051 .detail-link reached pages/patient/edit/index with patientId=308386498155347968. page_data showed real patient detail fields and birthDate=1990-03-07. The default-navigation page previously rendered a copied .navbar/menu capsule; after removal and patient compile, element_info .navbar returned not found, .qr-section remained visible with the patient name, and 8 second console capture reported 0 logs/warnings/errors/exceptions."
         }
       ],
       "states": [
