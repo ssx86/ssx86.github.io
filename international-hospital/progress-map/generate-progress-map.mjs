@@ -196,7 +196,7 @@ const evidenceByRoute = {
     {
       type: 'screenshot',
       title: 'P055 添加就诊人当前视口截图',
-      summary: 'MCP wechat_screenshot 使用绝对路径成功保存当前视口；人工查看确认不是空白图，内容为添加就诊人表单与底部注册电子健康卡按钮。',
+      summary: 'MCP wechat_screenshot 使用绝对路径成功保存当前视口；人工查看确认不是空白图，内容为添加就诊人表单与底部注册电子健康卡按钮。修复后 .navbar 与 .form-section 均为 390px 全宽，返回符号不再显示为 &lt; 实体文本。',
       path: 'evidence/patient-p055-add-current.png'
     },
     {
@@ -217,6 +217,12 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'D029 问诊详情运行时证据',
       summary: '医生首页恢复到个人中心 -> 患者管理 -> 已完成 tab -> 第一张 completed patient-card 自然进入；实际路由为 pages/consult/detail/index 而非旧设计路径 pages/patient/consult-detail/index；page_data 显示 consultStatus=已完成、consultType=图文、patientInfo、medicalRecord 和空处方/检查列表；.consult-header 与 .chat-history-card 元素存在，console 采样 0 warning/error/exception。'
+    },
+    {
+      type: 'screenshot',
+      title: 'D029 只读沟通记录截图',
+      summary: '从 D029 沟通记录进入医生只读聊天页后，doctor MCP 截图成功保存；人工查看确认页面显示“当前问诊已结束，仅可查看沟通记录”和“暂无聊天记录”，不是空白图。',
+      path: 'evidence/doctor-d029-readonly-chat.png'
     },
     {
       type: 'runtime',
