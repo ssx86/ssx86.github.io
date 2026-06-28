@@ -29,6 +29,7 @@ const routeAliases = {
     'pages/doctor-profile/index/index': 'pages/profile/index/index',
     'pages/doctor-profile/index': 'pages/profile/index/index',
     'pages/auth/realname/index': 'pages/profile/real-name/index',
+    'pages/patient/consult-detail/index': 'pages/consult/detail/index',
     'pages/prescription/submit/index': 'pages/prescription/submit/index/index'
   },
   common: {
@@ -55,6 +56,9 @@ const statusByRoute = {
     'patient:pages/consult/chat/index',
     'patient:pages/consult/records/index',
     'patient:pages/doctor/detail/index',
+    'patient:pages/patient/manage/index',
+    'patient:pages/patient/edit/index',
+    'patient:pages/patient/add/index',
     'patient:pages/medicine/address/index',
     'patient:pages/medicine/address-edit/index',
     'patient:pages/medicine/order-list/index',
@@ -63,6 +67,7 @@ const statusByRoute = {
     'doctor:pages/profile/verify/index',
     'doctor:pages/profile/real-name/index',
     'doctor:pages/patient/list/index',
+    'doctor:pages/consult/detail/index',
     'doctor:pages/consult/doctor-chat/index',
     'doctor:pages/consult/records/index',
     'doctor:pages/prescription/western/index',
@@ -173,11 +178,44 @@ const evidenceByRoute = {
       summary: '从 P029 点击原生 button.add-btn 进入 pages/medicine/address-edit/index；page_data 显示 title=新增地址、form 为空、regionText=请选择省市区；点击原生 button.submit-btn 空提交后仍停留本页且 submitting=false，未保存后端数据；3 秒 console 采样 0 warning/error/exception。'
     }
   ],
+  'patient:pages/patient/manage/index': [
+    {
+      type: 'runtime',
+      title: 'P051 就诊人管理运行时证据',
+      summary: '患者个人中心第二个更多项 .more-list .more-item:nth-child(2) 文本为就诊人管理；点击后进入 pages/patient/manage/index；page_data 显示真实就诊人列表、maskedIdCard、cardClass、sideLabel；卡片整体点击会切换默认就诊人，读-only 验证应使用 .detail-link。console 采样 0 warning/error/exception。'
+    }
+  ],
+  'patient:pages/patient/edit/index': [
+    {
+      type: 'runtime',
+      title: 'P056 就诊人详情运行时证据',
+      summary: '从 P051 的 .detail-link 进入 pages/patient/edit/index?id=<patientId>；page_data 显示 patientId、姓名、证件类型、手机号、住址，并将后端 birthday=636768000000 格式化为 birthDate=1990-03-07；删除/修改动作未执行；console 采样 0 warning/error/exception。'
+    }
+  ],
+  'patient:pages/patient/add/index': [
+    {
+      type: 'runtime',
+      title: 'P055 添加就诊人空表单校验证据',
+      summary: '从 P051 点击 .add-btn 进入 pages/patient/add/index；初始 page_data 显示身份证/男等默认字典值、民族和地区占位；点击原生 button.btn-primary 空提交后仍停留本页、submitting=false，未写后端；console 采样 0 warning/error/exception。'
+    }
+  ],
   'doctor:pages/patient/list/index': [
     {
       type: 'runtime',
       title: 'D006/D007/D008 患者管理三 tab 运行时证据',
       summary: '医生个人中心第二个主菜单 .menu-section .menu-item:nth-child(2) 文本为患者管理；进入 pages/patient/list/index 后待接诊 tab 为空，切换问诊中 tab 得到 consultId=428197448779345920 等状态 2 卡片，切换已完成 tab 得到状态 3 卡片；每次切换后 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。'
+    }
+  ],
+  'doctor:pages/consult/detail/index': [
+    {
+      type: 'runtime',
+      title: 'D029 问诊详情运行时证据',
+      summary: '医生首页恢复到个人中心 -> 患者管理 -> 已完成 tab -> 第一张 completed patient-card 自然进入；实际路由为 pages/consult/detail/index 而非旧设计路径 pages/patient/consult-detail/index；page_data 显示 consultStatus=已完成、consultType=图文、patientInfo、medicalRecord 和空处方/检查列表；.consult-header 与 .chat-history-card 元素存在，console 采样 0 warning/error/exception。'
+    },
+    {
+      type: 'runtime',
+      title: 'D029 到只读聊天运行时证据',
+      summary: '从 D029 点击 .chat-history-card 进入 pages/consult/doctor-chat/index?readonly=true；page_data 显示 readonly=true、isEnded=true、canSendMessage=false、emptyMessages=true；.readonly-banner 可见，.input-area 不存在；console 采样 0 warning/error/exception。'
     }
   ]
 };
