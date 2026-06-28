@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-28T16:10:04.203Z",
+  "generatedAt": "2026-06-28T16:34:35.709Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
     "devOnlyCount": 0,
     "stateNodeCount": 136,
-    "pageNodeCount": 83,
+    "pageNodeCount": 84,
     "patientRegisteredPages": 59,
     "doctorRegisteredPages": 39
   },
@@ -2623,6 +2623,38 @@
       "states": [
         {
           "title": "convenient-clinic/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "n9nkyja",
+      "side": "patient",
+      "module": "index",
+      "page": "index",
+      "title": "index",
+      "route": "pages/index/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "static-risk",
+          "title": "P001 home duplicate navigation risk needs MCP recheck",
+          "summary": "Static audit shows pages/index/index is a native tabBar page with default navigationBarTitleText but still renders a custom .navbar/.navbar-left/.navbar-right brand bar copied from the design screenshot. Trusted DOCS/pages home png.txt also includes that brand navbar, so this must be verified in runtime before editing: if the native WeChat title/capsule and the custom brand/capsule are both visible, remove or redesign the duplicate custom shell; if the custom bar is the intended product brand area without native duplication, document the exception. MCP runtime proof is pending because automator 9420 currently reports CLI auto success without a real LISTENING WebSocket and page_data/console cannot connect."
+        }
+      ],
+      "states": [
+        {
+          "title": "index",
           "state": "runtime-evidence",
           "docPath": "",
           "devPath": "",

@@ -95,6 +95,13 @@ const statusByRoute = {
 };
 
 const evidenceByRoute = {
+  'patient:pages/index/index': [
+    {
+      type: 'static-risk',
+      title: 'P001 home duplicate navigation risk needs MCP recheck',
+      summary: 'Static audit shows pages/index/index is a native tabBar page with default navigationBarTitleText but still renders a custom .navbar/.navbar-left/.navbar-right brand bar copied from the design screenshot. Trusted DOCS/pages home png.txt also includes that brand navbar, so this must be verified in runtime before editing: if the native WeChat title/capsule and the custom brand/capsule are both visible, remove or redesign the duplicate custom shell; if the custom bar is the intended product brand area without native duplication, document the exception. MCP runtime proof is pending because automator 9420 currently reports CLI auto success without a real LISTENING WebSocket and page_data/console cannot connect.'
+    }
+  ],
   'doctor:pages/consult/end-dialog/index': [
     {
       type: 'screenshot',
