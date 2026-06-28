@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T17:25:18.571Z",
+  "generatedAt": "2026-06-28T17:41:44.714Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
@@ -2824,13 +2824,13 @@
         {
           "type": "screenshot",
           "title": "P055 添加就诊人当前视口截图",
-          "summary": "MCP wechat_screenshot 使用绝对路径成功保存当前视口；人工查看确认不是空白图，内容为添加就诊人表单与底部注册电子健康卡按钮。修复后 .navbar 与 .form-section 均为 390px 全宽，返回符号不再显示为 &lt; 实体文本。",
+          "summary": "Earlier MCP screenshot evidence shows the add-patient form state. Current 2026-06-29 screenshot capture timed out and did not write a new file after removing the copied navbar, so the linked image is historical visual context rather than current post-fix proof.",
           "path": "evidence/patient-p055-add-current.png"
         },
         {
           "type": "runtime",
-          "title": "P055 添加就诊人空表单校验证据",
-          "summary": "从 P051 点击 .add-btn 进入 pages/patient/add/index；初始 page_data 显示身份证/男等默认字典值、民族和地区占位；点击原生 button.btn-primary 空提交后仍停留本页、submitting=false，未写后端；民族行 .form-section .form-item:nth-child(11) 已用 element_info 和 tap 证明自然 picker 入口，但 picker 选择结果尚未通过 MCP 改变 page_data；console 采样 0 warning/error/exception。"
+          "title": "P055 添加就诊人运行时证据",
+          "summary": "Natural path Patient Home -> health-card .switch-btn -> P051 -> .add-btn reached pages/patient/add/index. The page uses default native navigation through navigationBarTitleText; runtime element_info confirmed the copied .navbar with back arrow/title/simulated capsule before the fix. The copied navbar WXML and related WXSS were removed. After patient compile and automator daemon recovery, natural re-entry reached pages/patient/add/index, page_data retained the expected empty form defaults, element_info .navbar returned not found, .form-section remained visible, and 8 second console capture reported 0 logs/warnings/errors/exceptions. Current screenshot capture timed out without writing a file, so post-fix screenshot proof is missing."
         }
       ],
       "states": [
@@ -2894,7 +2894,7 @@
         {
           "type": "runtime",
           "title": "P051 就诊人管理运行时证据",
-          "summary": "Patient home electronic health card switch entry is visible and this route previously had natural-entry runtime evidence with real patientList, maskedIdCard, cardClass, and sideLabel. Card tap can switch the default patient, so read-only checks should use .detail-link. On 2026-06-28 the duplicate self-drawn .navbar/.back-btn/.menu-btn was removed from this default-navigation page; patient compile passed with no WXML errors. Runtime recheck is still pending because automator 9420 entered a health-check/navigation-context failure after compile, so .navbar absence and console-clean must be re-proven after MCP recovery."
+          "summary": "Natural entry was rechecked after patient automator recovery: Patient Home health-card .switch-btn -> pages/patient/manage/index. page_data showed the real patientList with maskedIdCard, cardClass, and sideLabel; element_info .navbar returned not found, .health-card and .add-btn remained visible, and console capture reported 0 logs/warnings/errors/exceptions. Card tap can switch the default patient, so read-only checks should use .detail-link for detail navigation."
         }
       ],
       "states": [
