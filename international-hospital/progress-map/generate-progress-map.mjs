@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ROOT = process.cwd();
+const ARTIFACT_ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DOC_ROOT = path.join(ROOT, 'DOCS', 'pages');
-const OUT = path.join(ROOT, 'DOCS', 'progress-map', 'graph-data.json');
+const OUT = path.join(ARTIFACT_ROOT, 'graph-data.json');
 
 const routeAliases = {
   patient: {
@@ -102,9 +104,9 @@ const evidenceByRoute = {
   ],
   'doctor:pages/consult/records/index': [
     {
-      type: 'screenshot',
-      title: '医生端诊疗记录 MCP 截图',
-      path: 'evidence/doctor-current-mcp-screenshot.png'
+      type: 'runtime',
+      title: 'D034/D061 records duplicate system UI check',
+      summary: 'Natural path Doctor Home -> My -> Patient Management -> completed patient card -> D029 communication record -> readonly doctor chat -> Records reached pages/consult/records/index. The page uses default native navigation, so the copied WXML .navbar and detail-page .bottom-nav were removed. After compile and natural re-entry, page_data stayed on pages/consult/records/index, element_info .navbar and .bottom-nav returned not found, business .tabs remained visible, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot timed out, so screenshot proof is missing for this state.'
     }
   ],
   'patient:pages/medicine/hospital-preparation/index': [
@@ -176,6 +178,20 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'P073 新增地址表单校验证据',
       summary: '从 P029 点击原生 button.add-btn 进入 pages/medicine/address-edit/index；page_data 显示 title=新增地址、form 为空、regionText=请选择省市区；点击原生 button.submit-btn 空提交后仍停留本页且 submitting=false，未保存后端数据；3 秒 console 采样 0 warning/error/exception。'
+    }
+  ],
+  'patient:pages/medicine/order-list/index': [
+    {
+      type: 'runtime',
+      title: 'P079 purchase-order list duplicate native navigation check',
+      summary: 'Natural entry Patient Profile -> third order item reached pages/medicine/order-list/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After re-entering naturally, page_data stayed on pages/medicine/order-list/index, element_info .navbar returned not found, .filter-tabs remained visible with four business tabs, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot still timed out, so screenshot proof is missing for this state.'
+    }
+  ],
+  'patient:pages/profile/my-consult/index': [
+    {
+      type: 'runtime',
+      title: 'P053 my-consult duplicate native navigation check',
+      summary: 'Natural entry Patient Profile -> first order item reached pages/profile/my-consult/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/my-consult/index, element_info .navbar returned not found, .tabs remained visible with five business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing because the screenshot channel timed out in this verification round.'
     }
   ],
   'patient:pages/patient/manage/index': [
@@ -628,7 +644,7 @@ const data = {
     partial: 'fixed or analyzed, runtime recheck pending',
     blocked: 'blocked by data condition or intentional mutation guard',
     documented: 'documented product page, not verified yet',
-    'dev-only': 'DEV.md exists but no png.txt state was found',
+    'dev-only': 'verified auxiliary doc exists but no png.txt state was found',
     'missing-doc': 'route referenced by docs but no png.txt node was found'
   },
   nodes: pageGraph.nodes,
