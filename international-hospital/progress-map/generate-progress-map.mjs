@@ -97,9 +97,9 @@ const statusByRoute = {
 const evidenceByRoute = {
   'patient:pages/index/index': [
     {
-      type: 'static-risk',
-      title: 'P001 home duplicate navigation risk needs MCP recheck',
-      summary: 'Static audit shows pages/index/index is a native tabBar page with default navigationBarTitleText but still renders a custom .navbar/.navbar-left/.navbar-right brand bar copied from the design screenshot. Trusted DOCS/pages home png.txt also includes that brand navbar, so this must be verified in runtime before editing: if the native WeChat title/capsule and the custom brand/capsule are both visible, remove or redesign the duplicate custom shell; if the custom bar is the intended product brand area without native duplication, document the exception. MCP runtime proof is pending because automator 9420 currently reports CLI auto success without a real LISTENING WebSocket and page_data/console cannot connect.'
+      type: 'runtime',
+      title: 'P001 home duplicate navigation fixed',
+      summary: 'Patient home pages/index/index is a native tabBar page with default navigationBarTitleText. Runtime element_info confirmed the copied WXML .navbar rendered at the top with brand text and simulated capsule dots; page_data was healthy on pages/index/index. The copied navbar WXML and related WXSS were removed. Patient compile succeeded, page_data stayed on pages/index/index, element_info .navbar returned not found, .banner-wrap remained visible at the top of page content, and 8 second console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot still timed out on this state, so screenshot proof is missing and page_data/element_info/console are the current evidence.'
     }
   ],
   'doctor:pages/consult/end-dialog/index': [
