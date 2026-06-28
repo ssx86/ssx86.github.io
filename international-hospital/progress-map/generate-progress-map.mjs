@@ -201,6 +201,13 @@ const evidenceByRoute = {
       summary: 'Natural entry Patient Profile -> second order item reached pages/profile/prescription/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .custom-nav/.nav-back/.nav-title was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/prescription/index, element_info .custom-nav returned not found, .filter-section remained visible with four business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing in this round.'
     }
   ],
+  'noroute:patient:个人中心:个人信息': [
+    {
+      type: 'runtime',
+      title: 'P057 personal-info duplicate native navigation check',
+      summary: 'Natural entry Patient Profile -> first more-list item reached pages/profile/personal-info/index/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.more-btn/.view-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/personal-info/index/index, element_info .navbar returned not found, .form-section remained visible with avatar, nickname, and masked phone, and console capture reported 0 logs/warnings/errors/exceptions.'
+    }
+  ],
   'patient:pages/patient/manage/index': [
     {
       type: 'runtime',
@@ -259,6 +266,13 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'D042 exam-apply duplicate native navigation check',
       summary: 'Natural path Doctor Profile -> Patient Management -> communicating tab -> first in-progress card -> doctor chat -> 检查检验 reached pages/consult/exam-apply/index for consultId 428197448779345920. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.more-btn/.refresh-btn was removed. After the edit and doctor compile, page_data stayed healthy, element_info .navbar returned not found, .form-section remained visible, and console capture reported 0 logs/warnings/errors/exceptions. Re-entering was blocked because wx.navigateBack/goBack/redirectTo/reLaunch/wechat_navigate did not leave the current D042 instance; this is recorded as a navigation recovery issue to investigate separately.'
+    }
+  ],
+  'doctor:pages/login/index': [
+    {
+      type: 'runtime',
+      title: 'Doctor login duplicate native navigation check',
+      summary: 'After doctor automator start reset to pages/login/index, the current natural page was verified directly. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.navbar-title/.menu-btn capsule was removed. After doctor compile, page_data stayed on pages/login/index, element_info .navbar returned not found, .login-section remained visible with phone input and agreement controls, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot timed out for this state while page_data, element_info, and console remained healthy.'
     }
   ]
 };
@@ -560,6 +574,38 @@ function aggregateGraph(rawNodes, rawEdges) {
     group.registered = group.registered || node.registered;
   }
 
+  for (const [evidenceKey, evidence] of Object.entries(evidenceByRoute)) {
+    const match = evidenceKey.match(/^(patient|doctor|common):(pages\/.+)$/);
+    if (!match || groups.has(evidenceKey)) continue;
+    const [, side, route] = match;
+    const parts = route.split('/');
+    const module = parts[1] || 'runtime';
+    const page = parts.slice(2).join('/') || route;
+    groups.set(evidenceKey, {
+      key: evidenceKey,
+      raw: [{
+        id: slug(`evidence:${evidenceKey}`),
+        side,
+        module,
+        page,
+        title: page,
+        route,
+        designPath: '',
+        docPath: '',
+        devPath: '',
+        state: 'runtime-evidence',
+        status: 'verified',
+        registered: true,
+        sourceSide: side
+      }],
+      modules: new Set([module]),
+      pages: new Set([page]),
+      designPaths: new Set(),
+      registered: true,
+      evidenceOnly: evidence
+    });
+  }
+
   const pageNodes = [];
   for (const group of groups.values()) {
     const first = group.raw[0];
@@ -582,7 +628,7 @@ function aggregateGraph(rawNodes, rawEdges) {
       stateCount: group.raw.length,
       pngCount: group.raw.filter((node) => node.docPath).length,
       devOnlyCount: group.raw.filter((node) => node.status === 'dev-only').length,
-      evidence: evidenceByRoute[`${displaySide}:${route}`] || evidenceByRoute[group.key] || [],
+      evidence: group.evidenceOnly || evidenceByRoute[`${displaySide}:${route}`] || evidenceByRoute[group.key] || [],
       states: group.raw
         .map((node) => ({
           title: node.title,

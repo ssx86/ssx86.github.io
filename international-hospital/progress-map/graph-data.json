@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-28T13:54:20.333Z",
+  "generatedAt": "2026-06-28T15:05:35.493Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 0,
     "devOnlyCount": 0,
     "stateNodeCount": 136,
-    "pageNodeCount": 65,
+    "pageNodeCount": 83,
     "patientRegisteredPages": 59,
     "doctorRegisteredPages": 39
   },
@@ -896,6 +896,241 @@
       ]
     },
     {
+      "id": "nj69u3y",
+      "side": "doctor",
+      "module": "consult",
+      "page": "detail/index",
+      "title": "detail/index",
+      "route": "pages/consult/detail/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D029 问诊详情运行时证据",
+          "summary": "医生首页恢复到个人中心 -> 患者管理 -> 已完成 tab -> 第一张 completed patient-card 自然进入；实际路由为 pages/consult/detail/index 而非旧设计路径 pages/patient/consult-detail/index；page_data 显示 consultStatus=已完成、consultType=图文、patientInfo、medicalRecord 和空处方/检查列表；.consult-header 与 .chat-history-card 元素存在，console 采样 0 warning/error/exception。"
+        },
+        {
+          "type": "screenshot",
+          "title": "D029 只读沟通记录截图",
+          "summary": "从 D029 沟通记录进入医生只读聊天页后，doctor MCP 截图成功保存；人工查看确认页面显示“当前问诊已结束，仅可查看沟通记录”和“暂无聊天记录”，不是空白图。",
+          "path": "evidence/doctor-d029-readonly-chat.png"
+        },
+        {
+          "type": "runtime",
+          "title": "D029 到只读聊天运行时证据",
+          "summary": "从 D029 点击 .chat-history-card 进入 pages/consult/doctor-chat/index?readonly=true；page_data 显示 readonly=true、isEnded=true、canSendMessage=false、emptyMessages=true；.readonly-banner 可见，.input-area 不存在；console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "detail/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "ncoll17",
+      "side": "doctor",
+      "module": "consult",
+      "page": "end-dialog/index",
+      "title": "end-dialog/index",
+      "route": "pages/consult/end-dialog/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "D026 双选项确认页 MCP 截图",
+          "path": "evidence/doctor-end-dialog-fixed.png"
+        }
+      ],
+      "states": [
+        {
+          "title": "end-dialog/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nft3pkp",
+      "side": "doctor",
+      "module": "consult",
+      "page": "records/index",
+      "title": "records/index",
+      "route": "pages/consult/records/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D034/D061 records duplicate system UI check",
+          "summary": "Natural path Doctor Home -> My -> Patient Management -> completed patient card -> D029 communication record -> readonly doctor chat -> Records reached pages/consult/records/index. The page uses default native navigation, so the copied WXML .navbar and detail-page .bottom-nav were removed. After compile and natural re-entry, page_data stayed on pages/consult/records/index, element_info .navbar and .bottom-nav returned not found, business .tabs remained visible, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot timed out, so screenshot proof is missing for this state."
+        }
+      ],
+      "states": [
+        {
+          "title": "records/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nsc801b",
+      "side": "doctor",
+      "module": "login",
+      "page": "index",
+      "title": "index",
+      "route": "pages/login/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "Doctor login duplicate native navigation check",
+          "summary": "After doctor automator start reset to pages/login/index, the current natural page was verified directly. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.navbar-title/.menu-btn capsule was removed. After doctor compile, page_data stayed on pages/login/index, element_info .navbar returned not found, .login-section remained visible with phone input and agreement controls, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot timed out for this state while page_data, element_info, and console remained healthy."
+        }
+      ],
+      "states": [
+        {
+          "title": "index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nj304o6",
+      "side": "doctor",
+      "module": "patient",
+      "page": "list/index",
+      "title": "list/index",
+      "route": "pages/patient/list/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D006/D007/D008 患者管理三 tab 运行时证据",
+          "summary": "医生个人中心第二个主菜单 .menu-section .menu-item:nth-child(2) 文本为患者管理；进入 pages/patient/list/index 后待接诊 tab 为空，切换问诊中 tab 得到 consultId=428197448779345920 等状态 2 卡片，切换已完成 tab 得到状态 3 卡片；每次切换后 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。"
+        }
+      ],
+      "states": [
+        {
+          "title": "list/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nkn7wxd",
+      "side": "doctor",
+      "module": "profile",
+      "page": "about/index",
+      "title": "about/index",
+      "route": "pages/profile/about/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D039 关于我们运行时证据",
+          "summary": "医生首页底部导航进入我的，再点服务菜单第一项关于我们；page_data 显示 appInfo、companyIntro、contactItems；8 秒 console 采样 0 warning/error/exception；wechat_screenshot UNKNOWN_ERROR daemon 超时，截图缺失。"
+        }
+      ],
+      "states": [
+        {
+          "title": "about/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nlj605z",
+      "side": "doctor",
+      "module": "profile",
+      "page": "feedback/index",
+      "title": "feedback/index",
+      "route": "pages/profile/feedback/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D041 意见反馈空表单校验证据",
+          "summary": "医生首页底部导航进入我的，再点服务菜单第二项意见反馈；初始 page_data 显示 feedbackTypes 和空表单；点击 .submit-section button 后仅触发前端校验 errors.type=请选择反馈类型、errors.content=请至少输入10个字符；8 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "feedback/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "doctor",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
       "id": "nzbcg07",
       "side": "patient",
       "module": "处方",
@@ -1090,7 +1325,13 @@
       "stateCount": 5,
       "pngCount": 5,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P057 personal-info duplicate native navigation check",
+          "summary": "Natural entry Patient Profile -> first more-list item reached pages/profile/personal-info/index/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.more-btn/.view-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/personal-info/index/index, element_info .navbar returned not found, .form-section remained visible with avatar, nickname, and masked phone, and console capture reported 0 logs/warnings/errors/exceptions."
+        }
+      ],
       "states": [
         {
           "title": "个人信息",
@@ -2356,6 +2597,379 @@
           "sourceSide": "patient",
           "status": "documented",
           "registered": false
+        }
+      ]
+    },
+    {
+      "id": "np51yj8",
+      "side": "patient",
+      "module": "chronic-disease",
+      "page": "convenient-clinic/index",
+      "title": "convenient-clinic/index",
+      "route": "pages/chronic-disease/convenient-clinic/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P081 便民门诊空态运行时证据",
+          "summary": "患者首页第四个功能入口自然进入；page_data 显示 showEmpty=true、emptyText=暂无医生；8 秒 console 采样 0 warning/error/exception；wechat_screenshot 多次 UNKNOWN_ERROR daemon 超时，截图缺失。"
+        }
+      ],
+      "states": [
+        {
+          "title": "convenient-clinic/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nb1a8ts",
+      "side": "patient",
+      "module": "medicine",
+      "page": "address-edit/index",
+      "title": "address-edit/index",
+      "route": "pages/medicine/address-edit/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P073 新增地址表单校验证据",
+          "summary": "从 P029 点击原生 button.add-btn 进入 pages/medicine/address-edit/index；page_data 显示 title=新增地址、form 为空、regionText=请选择省市区；点击原生 button.submit-btn 空提交后仍停留本页且 submitting=false，未保存后端数据；3 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "address-edit/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nddsfzh",
+      "side": "patient",
+      "module": "medicine",
+      "page": "address/index",
+      "title": "address/index",
+      "route": "pages/medicine/address/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P029 地址管理运行时证据",
+          "summary": "患者个人中心第三个更多项 .more-list .more-item:nth-child(3) 文本为地址管理；点击后进入 pages/medicine/address/index；page_data 显示 showAddressList=true、showEmpty=false，地址 JSON 已规范化为省市区和 detail；3 秒 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。"
+        }
+      ],
+      "states": [
+        {
+          "title": "address/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "ncmh8pd",
+      "side": "patient",
+      "module": "medicine",
+      "page": "hospital-preparation/index",
+      "title": "hospital-preparation/index",
+      "route": "pages/medicine/hospital-preparation/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂空态",
+          "path": "evidence/patient-hospital-preparation-empty.png"
+        },
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂分类空态",
+          "path": "evidence/patient-hospital-preparation-internal-empty.png"
+        },
+        {
+          "type": "screenshot",
+          "title": "P078 院内制剂搜索空态",
+          "path": "evidence/patient-hospital-preparation-search-empty.png"
+        }
+      ],
+      "states": [
+        {
+          "title": "hospital-preparation/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "np0eapi",
+      "side": "patient",
+      "module": "medicine",
+      "page": "order-list/index",
+      "title": "order-list/index",
+      "route": "pages/medicine/order-list/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P079 purchase-order list duplicate native navigation check",
+          "summary": "Natural entry Patient Profile -> third order item reached pages/medicine/order-list/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After re-entering naturally, page_data stayed on pages/medicine/order-list/index, element_info .navbar returned not found, .filter-tabs remained visible with four business tabs, and console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot still timed out, so screenshot proof is missing for this state."
+        }
+      ],
+      "states": [
+        {
+          "title": "order-list/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "ncxqhdb",
+      "side": "patient",
+      "module": "patient",
+      "page": "add/index",
+      "title": "add/index",
+      "route": "pages/patient/add/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "P055 添加就诊人当前视口截图",
+          "summary": "MCP wechat_screenshot 使用绝对路径成功保存当前视口；人工查看确认不是空白图，内容为添加就诊人表单与底部注册电子健康卡按钮。修复后 .navbar 与 .form-section 均为 390px 全宽，返回符号不再显示为 &lt; 实体文本。",
+          "path": "evidence/patient-p055-add-current.png"
+        },
+        {
+          "type": "runtime",
+          "title": "P055 添加就诊人空表单校验证据",
+          "summary": "从 P051 点击 .add-btn 进入 pages/patient/add/index；初始 page_data 显示身份证/男等默认字典值、民族和地区占位；点击原生 button.btn-primary 空提交后仍停留本页、submitting=false，未写后端；民族行 .form-section .form-item:nth-child(11) 已用 element_info 和 tap 证明自然 picker 入口，但 picker 选择结果尚未通过 MCP 改变 page_data；console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "add/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "npqr7fm",
+      "side": "patient",
+      "module": "patient",
+      "page": "edit/index",
+      "title": "edit/index",
+      "route": "pages/patient/edit/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P056 就诊人详情运行时证据",
+          "summary": "从 P051 的 .detail-link 进入 pages/patient/edit/index?id=<patientId>；page_data 显示 patientId、姓名、证件类型、手机号、住址，并将后端 birthday=636768000000 格式化为 birthDate=1990-03-07；删除/修改动作未执行；console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "edit/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "n22j1vh",
+      "side": "patient",
+      "module": "patient",
+      "page": "manage/index",
+      "title": "manage/index",
+      "route": "pages/patient/manage/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P051 就诊人管理运行时证据",
+          "summary": "患者个人中心第二个更多项 .more-list .more-item:nth-child(2) 文本为就诊人管理；点击后进入 pages/patient/manage/index；page_data 显示真实就诊人列表、maskedIdCard、cardClass、sideLabel；卡片整体点击会切换默认就诊人，读-only 验证应使用 .detail-link。console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "manage/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nmj2ll0",
+      "side": "patient",
+      "module": "profile",
+      "page": "index/index",
+      "title": "index/index",
+      "route": "pages/profile/index/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "screenshot",
+          "title": "P052 个人中心 MCP 截图",
+          "path": "evidence/patient-profile-screenshot-probe.png"
+        },
+        {
+          "type": "runtime",
+          "title": "P052 个人中心手机号展示修复证据",
+          "summary": "通过原生 tabBar switchTab 进入个人中心；修复后 page_data 显示 userInfo.phone=159****7669，与 P057 personal-info 的手机号来源一致；患者端编译成功，8 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
+      "states": [
+        {
+          "title": "index/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "nblm3cx",
+      "side": "patient",
+      "module": "profile",
+      "page": "my-consult/index",
+      "title": "my-consult/index",
+      "route": "pages/profile/my-consult/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P053 my-consult duplicate native navigation check",
+          "summary": "Natural entry Patient Profile -> first order item reached pages/profile/my-consult/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/my-consult/index, element_info .navbar returned not found, .tabs remained visible with five business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing because the screenshot channel timed out in this verification round."
+        }
+      ],
+      "states": [
+        {
+          "title": "my-consult/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
+        }
+      ]
+    },
+    {
+      "id": "n8p9zlc",
+      "side": "patient",
+      "module": "profile",
+      "page": "personal-info/index/index",
+      "title": "personal-info/index/index",
+      "route": "pages/profile/personal-info/index/index",
+      "designPath": "",
+      "registered": true,
+      "status": "verified",
+      "stateCount": 1,
+      "pngCount": 0,
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P057 个人信息运行时证据",
+          "summary": "患者个人中心 more-list 第一项自然进入；page_data 显示 nickname=用户:15901447669、phone=15901447669、maskedPhone=159****7669、showAvatarModal=false；8 秒 console 采样 0 warning/error/exception；截图通道仍超时。"
+        }
+      ],
+      "states": [
+        {
+          "title": "personal-info/index/index",
+          "state": "runtime-evidence",
+          "docPath": "",
+          "devPath": "",
+          "sourceSide": "patient",
+          "status": "verified",
+          "registered": true
         }
       ]
     }
