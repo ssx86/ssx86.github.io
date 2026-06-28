@@ -97,9 +97,14 @@ const statusByRoute = {
 const evidenceByRoute = {
   'patient:pages/index/index': [
     {
+      type: 'screenshot',
+      title: 'P001 home after navbar removal',
+      path: 'evidence/patient-p001-home-after-navbar-removal.png'
+    },
+    {
       type: 'runtime',
       title: 'P001 home duplicate navigation fixed',
-      summary: 'Patient home pages/index/index is a native tabBar page with default navigationBarTitleText. Runtime element_info confirmed the copied WXML .navbar rendered at the top with brand text and simulated capsule dots; page_data was healthy on pages/index/index. The copied navbar WXML and related WXSS were removed. Patient compile succeeded, page_data stayed on pages/index/index, element_info .navbar returned not found, .banner-wrap remained visible at the top of page content, and 8 second console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot still timed out on this state, so screenshot proof is missing and page_data/element_info/console are the current evidence.'
+      summary: 'Patient home pages/index/index is a native tabBar page with default navigationBarTitleText. Runtime element_info confirmed the copied WXML .navbar rendered at the top with brand text and simulated capsule dots; page_data was healthy on pages/index/index. The copied navbar WXML and related WXSS were removed. Patient compile succeeded, page_data stayed on pages/index/index, element_info .navbar returned not found, .banner-wrap remained visible at the top of page content, and 8 second console capture reported 0 logs/warnings/errors/exceptions. wechat_screenshot returned a daemon timeout but still wrote a valid viewport screenshot, which was visually inspected and linked as evidence.'
     }
   ],
   'doctor:pages/consult/end-dialog/index': [
