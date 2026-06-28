@@ -194,6 +194,13 @@ const evidenceByRoute = {
       summary: 'Natural entry Patient Profile -> first order item reached pages/profile/my-consult/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.menu-btn was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/my-consult/index, element_info .navbar returned not found, .tabs remained visible with five business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing because the screenshot channel timed out in this verification round.'
     }
   ],
+  'patient:pages/profile/prescription/index': [
+    {
+      type: 'runtime',
+      title: 'P024 prescription duplicate native navigation check',
+      summary: 'Natural entry Patient Profile -> second order item reached pages/profile/prescription/index. The page uses default native navigation through navigationBarTitleText, so the copied WXML .custom-nav/.nav-back/.nav-title was removed. After patient compile, automator daemon recovery, and natural re-entry, page_data stayed on pages/profile/prescription/index, element_info .custom-nav returned not found, .filter-section remained visible with four business tabs, and console capture reported 0 logs/warnings/errors/exceptions. Screenshot proof is missing in this round.'
+    }
+  ],
   'patient:pages/patient/manage/index': [
     {
       type: 'runtime',
@@ -244,6 +251,14 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'D029 到只读聊天运行时证据',
       summary: '从 D029 点击 .chat-history-card 进入 pages/consult/doctor-chat/index?readonly=true；page_data 显示 readonly=true、isEnded=true、canSendMessage=false、emptyMessages=true；.readonly-banner 可见，.input-area 不存在；console 采样 0 warning/error/exception。'
+    }
+  ]
+  ,
+  'doctor:pages/consult/exam-apply/index': [
+    {
+      type: 'runtime',
+      title: 'D042 exam-apply duplicate native navigation check',
+      summary: 'Natural path Doctor Profile -> Patient Management -> communicating tab -> first in-progress card -> doctor chat -> 检查检验 reached pages/consult/exam-apply/index for consultId 428197448779345920. The page uses default native navigation through navigationBarTitleText, so the copied WXML .navbar/.back-btn/.more-btn/.refresh-btn was removed. After the edit and doctor compile, page_data stayed healthy, element_info .navbar returned not found, .form-section remained visible, and console capture reported 0 logs/warnings/errors/exceptions. Re-entering was blocked because wx.navigateBack/goBack/redirectTo/reLaunch/wechat_navigate did not leave the current D042 instance; this is recorded as a navigation recovery issue to investigate separately.'
     }
   ]
 };
