@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-27T21:02:34.520Z",
+  "generatedAt": "2026-06-28T02:58:37.688Z",
   "source": {
     "pngTxtCount": 136,
     "devMdCount": 89,
-    "devOnlyCount": 19,
+    "devOnlyCount": 18,
     "stateNodeCount": 166,
     "pageNodeCount": 90,
     "patientRegisteredPages": 59,
@@ -703,7 +703,13 @@
       "stateCount": 3,
       "pngCount": 3,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "D006/D007/D008 患者管理三 tab 运行时证据",
+          "summary": "医生个人中心第二个主菜单 .menu-section .menu-item:nth-child(2) 文本为患者管理；进入 pages/patient/list/index 后待接诊 tab 为空，切换问诊中 tab 得到 consultId=428197448779345920 等状态 2 卡片，切换已完成 tab 得到状态 3 卡片；每次切换后 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。"
+        }
+      ],
       "states": [
         {
           "title": "患者列表 / 患者-待接诊",
@@ -1555,6 +1561,11 @@
       "devOnlyCount": 0,
       "evidence": [
         {
+          "type": "screenshot",
+          "title": "P052 个人中心 MCP 截图",
+          "path": "evidence/patient-profile-screenshot-probe.png"
+        },
+        {
           "type": "runtime",
           "title": "P052 个人中心手机号展示修复证据",
           "summary": "通过原生 tabBar switchTab 进入个人中心；修复后 page_data 显示 userInfo.phone=159****7669，与 P057 personal-info 的手机号来源一致；患者端编译成功，8 秒 console 采样 0 warning/error/exception。"
@@ -1678,11 +1689,17 @@
       "route": "pages/medicine/address/index",
       "designPath": "pages/medicine/address/index",
       "registered": true,
-      "status": "documented",
+      "status": "verified",
       "stateCount": 2,
       "pngCount": 2,
       "devOnlyCount": 0,
-      "evidence": [],
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P029 地址管理运行时证据",
+          "summary": "患者个人中心第三个更多项 .more-list .more-item:nth-child(3) 文本为地址管理；点击后进入 pages/medicine/address/index；page_data 显示 showAddressList=true、showEmpty=false，地址 JSON 已规范化为省市区和 detail；3 秒 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。"
+        }
+      ],
       "states": [
         {
           "title": "地址管理",
@@ -1690,7 +1707,7 @@
           "docPath": "患者端/购药/地址管理/地址管理.png.txt",
           "devPath": "DOCS/pages/患者端/购药/地址管理/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         },
         {
@@ -1699,7 +1716,7 @@
           "docPath": "患者端/购药/地址管理/地址管理-1.png.txt",
           "devPath": "DOCS/pages/患者端/购药/地址管理/DEV.md",
           "sourceSide": "patient",
-          "status": "documented",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -1871,11 +1888,17 @@
       "route": "pages/medicine/address-edit/index",
       "designPath": "pages/medicine/address-edit/index",
       "registered": true,
-      "status": "dev-only",
+      "status": "verified",
       "stateCount": 1,
       "pngCount": 0,
-      "devOnlyCount": 1,
-      "evidence": [],
+      "devOnlyCount": 0,
+      "evidence": [
+        {
+          "type": "runtime",
+          "title": "P073 新增地址表单校验证据",
+          "summary": "从 P029 点击原生 button.add-btn 进入 pages/medicine/address-edit/index；page_data 显示 title=新增地址、form 为空、regionText=请选择省市区；点击原生 button.submit-btn 空提交后仍停留本页且 submitting=false，未保存后端数据；3 秒 console 采样 0 warning/error/exception。"
+        }
+      ],
       "states": [
         {
           "title": "添加地址",
@@ -1883,7 +1906,7 @@
           "docPath": "",
           "devPath": "DOCS/pages/患者端/购药/添加地址/DEV.md",
           "sourceSide": "patient",
-          "status": "dev-only",
+          "status": "verified",
           "registered": true
         }
       ]
@@ -4155,7 +4178,7 @@
       "note": "新增地址",
       "targetDesignPath": "pages/medicine/address-edit/index",
       "targetRoute": "pages/medicine/address-edit/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -4167,7 +4190,7 @@
       "note": "编辑地址",
       "targetDesignPath": "pages/medicine/address-edit/index",
       "targetRoute": "pages/medicine/address-edit/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -4179,7 +4202,7 @@
       "note": "返回个人中心",
       "targetDesignPath": "pages/profile/index/index",
       "targetRoute": "pages/profile/index/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 2
     },
     {
@@ -4935,7 +4958,7 @@
       "note": "跳转地址管理页",
       "targetDesignPath": "pages/medicine/address/index",
       "targetRoute": "pages/medicine/address/index",
-      "status": "documented",
+      "status": "verified",
       "rawCount": 10
     },
     {

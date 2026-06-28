@@ -55,6 +55,8 @@ const statusByRoute = {
     'patient:pages/consult/chat/index',
     'patient:pages/consult/records/index',
     'patient:pages/doctor/detail/index',
+    'patient:pages/medicine/address/index',
+    'patient:pages/medicine/address-edit/index',
     'patient:pages/medicine/order-list/index',
     'doctor:pages/index/index',
     'doctor:pages/profile/index/index',
@@ -133,6 +135,11 @@ const evidenceByRoute = {
   ],
   'patient:pages/profile/index/index': [
     {
+      type: 'screenshot',
+      title: 'P052 个人中心 MCP 截图',
+      path: 'evidence/patient-profile-screenshot-probe.png'
+    },
+    {
       type: 'runtime',
       title: 'P052 个人中心手机号展示修复证据',
       summary: '通过原生 tabBar switchTab 进入个人中心；修复后 page_data 显示 userInfo.phone=159****7669，与 P057 personal-info 的手机号来源一致；患者端编译成功，8 秒 console 采样 0 warning/error/exception。'
@@ -150,6 +157,27 @@ const evidenceByRoute = {
       type: 'runtime',
       title: 'D041 意见反馈空表单校验证据',
       summary: '医生首页底部导航进入我的，再点服务菜单第二项意见反馈；初始 page_data 显示 feedbackTypes 和空表单；点击 .submit-section button 后仅触发前端校验 errors.type=请选择反馈类型、errors.content=请至少输入10个字符；8 秒 console 采样 0 warning/error/exception。'
+    }
+  ],
+  'patient:pages/medicine/address/index': [
+    {
+      type: 'runtime',
+      title: 'P029 地址管理运行时证据',
+      summary: '患者个人中心第三个更多项 .more-list .more-item:nth-child(3) 文本为地址管理；点击后进入 pages/medicine/address/index；page_data 显示 showAddressList=true、showEmpty=false，地址 JSON 已规范化为省市区和 detail；3 秒 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。'
+    }
+  ],
+  'patient:pages/medicine/address-edit/index': [
+    {
+      type: 'runtime',
+      title: 'P073 新增地址表单校验证据',
+      summary: '从 P029 点击原生 button.add-btn 进入 pages/medicine/address-edit/index；page_data 显示 title=新增地址、form 为空、regionText=请选择省市区；点击原生 button.submit-btn 空提交后仍停留本页且 submitting=false，未保存后端数据；3 秒 console 采样 0 warning/error/exception。'
+    }
+  ],
+  'doctor:pages/patient/list/index': [
+    {
+      type: 'runtime',
+      title: 'D006/D007/D008 患者管理三 tab 运行时证据',
+      summary: '医生个人中心第二个主菜单 .menu-section .menu-item:nth-child(2) 文本为患者管理；进入 pages/patient/list/index 后待接诊 tab 为空，切换问诊中 tab 得到 consultId=428197448779345920 等状态 2 卡片，切换已完成 tab 得到状态 3 卡片；每次切换后 console 采样 0 warning/error/exception；截图通道仍为 UNKNOWN_ERROR daemon 超时。'
     }
   ]
 };
