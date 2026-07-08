@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小白也能懂：电脑、程序与大模型</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tpl-computer-llm">
+<div class="deck">
+
+<!-- 1. 封面 -->
+<section class="slide cover-center" data-title="封面">
+  <div class="big-emoji mb-m">🖥️</div>
+  <h1 class="h1 anim-fade-up" data-anim="fade-up">小白也能懂<br>电脑、程序与大模型</h1>
+  <p class="lede">从输入输出的角度，一层一层看懂 AI</p>
+  <div class="speaker" style="justify-content:center"><div class="av"></div><div><b>张松石</b><span>给完全不懂电脑的朋友</span></div></div>
+  <div class="deck-footer"><span>2026</span><span class="slide-number" data-current="1" data-total="17"></span></div>
+  <div class="notes">
+    <p>大家好，今天我会用尽量简单的语言，从"输入"和"输出"这两个最基础的概念出发，带大家理解电脑、程序、以及最近很火的大模型。</p>
+  </div>
+</section>
+
+<!-- 2. 电脑是个盒子 -->
+<section class="slide" data-title="电脑是个盒子">
+  <p class="kicker">第一课 · 电脑</p>
+  <h2 class="h2">电脑，可以看成一只盒子</h2>
+  <p class="lede">它有入口、有出口；中间会发生一些事情</p>
+  <div class="visual">
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+      <rect x="220" y="80" width="360" height="200" rx="32" fill="white" stroke="#f49bb8" stroke-width="3"/>
+      <text x="400" y="190" text-anchor="middle" font-size="36" fill="#3a1f33" font-weight="700">电脑</text>
+      <text x="400" y="220" text-anchor="middle" font-size="18" fill="#6b4d62">CPU · 内存 · 硬盘</text>
+      <path d="M80 180 L220 180" stroke="#f49bb8" stroke-width="4" marker-end="url(#arrow-pink)"/>
+      <text x="80" y="160" font-size="22" fill="#3a1f33">输入</text>
+      <path d="M580 180 L720 180" stroke="#b5d5f0" stroke-width="4" marker-end="url(#arrow-blue)"/>
+      <text x="620" y="160" font-size="22" fill="#3a1f33">输出</text>
+      <defs>
+        <marker id="arrow-pink" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#f49bb8"/>
+        </marker>
+        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#b5d5f0"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <div class="deck-footer"><span>输入 → 处理 → 输出</span><span class="slide-number" data-current="2" data-total="17"></span></div>
+  <div class="notes">
+    <p>我们先不要想CPU、内存、硬盘这些名词。把电脑想象成一只盒子：左边有入口，右边有出口。东西从入口进去，在盒子里被加工一下，再从出口出来。这就是输入、处理、输出。</p>
+  </div>
+</section>
+
+<!-- 3. 输入与输出设备 -->
+<section class="slide" data-title="输入与输出设备">
+  <p class="kicker">第一课 · 电脑</p>
+  <h2 class="h2">人能用的入口和出口</h2>
+  <p class="lede">键盘鼠标把人的动作变成输入；屏幕音箱把结果变成输出</p>
+  <div class="visual">
+    <div class="io-flow">
+      <div class="device"><div class="icon">⌨️</div><div>键盘</div></div>
+      <div class="device"><div class="icon">🖱️</div><div>鼠标</div></div>
+      <div class="arrow-box">→</div>
+      <div class="device" style="border-color:#f49bb8"><div class="icon">🖥️</div><div>电脑</div></div>
+      <div class="arrow-box">→</div>
+      <div class="device"><div class="icon">🖵</div><div>屏幕</div></div>
+      <div class="device"><div class="icon">🔊</div><div>音箱</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>输入设备 · 输出设备</span><span class="slide-number" data-current="3" data-total="17"></span></div>
+  <div class="notes">
+    <p>人怎么和这个盒子交流？键盘和鼠标是我们最常用的输入设备，相当于我们往盒子里塞东西。屏幕和音箱是输出设备，相当于盒子把处理结果展示给我们看。</p>
+  </div>
+</section>
+
+<!-- 4. 老板派活 -->
+<section class="slide" data-title="老板派活">
+  <p class="kicker">做个类比</p>
+  <h2 class="h2">老板让你做 PPT</h2>
+  <p class="lede">只说"做 PPT"够吗？你需要先知道主题、页数、风格</p>
+  <div class="visual">
+    <div class="arrow-illustration">
+      <div class="box">
+        <div style="font-size:32px">👔</div>
+        <div>老板</div>
+        <div style="font-size:14px;color:#a28a99">输入：做份PPT</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:#f7d08a">
+        <div style="font-size:32px">🙋</div>
+        <div>你</div>
+        <div style="font-size:14px;color:#a28a99">必须澄清细节</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <div style="font-size:32px">📑</div>
+        <div>成果</div>
+        <div style="font-size:14px;color:#a28a99">输出：合格PPT</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>输入越清楚，输出越靠谱</span><span class="slide-number" data-current="4" data-total="17"></span></div>
+  <div class="notes">
+    <p>老板跟你说"做份PPT"，你肯定不会直接动手。你会问：主题是什么？给谁看？多少页？要什么风格？这就是在澄清输入。只有输入明确，输出才可能对。电脑程序也是一样的。</p>
+  </div>
+</section>
+
+<!-- 5. 程序是指令清单 -->
+<section class="slide" data-title="程序是指令清单">
+  <p class="kicker">第二课 · 程序</p>
+  <h2 class="h2">程序 = 给盒子看的指令清单</h2>
+  <p class="lede">告诉电脑：收到什么输入、怎么加工、输出什么</p>
+  <div class="visual">
+    <div class="arrow-illustration">
+      <div class="box" style="min-width:180px">
+        <div style="font-size:28px">📝</div>
+        <div>代码</div>
+        <div style="font-size:14px;color:#a28a99">还没运行</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="min-width:180px;border-color:#f49bb8">
+        <div style="font-size:28px">🖥️</div>
+        <div>运行</div>
+        <div style="font-size:14px;color:#a28a99">电脑开始执行</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="min-width:180px">
+        <div style="font-size:28px">🖵</div>
+        <div>结果</div>
+        <div style="font-size:14px;color:#a28a99">屏幕显示</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>代码 → 运行 → 结果</span><span class="slide-number" data-current="5" data-total="17"></span></div>
+  <div class="notes">
+    <p>程序就是一份清单。这份清单用电脑能懂的语言写成，告诉它：如果有人输入A，你就做什么；如果有人输入B，你又做什么。清单本身只是文字，只有电脑真正去执行，才会产生结果。</p>
+  </div>
+</section>
+
+<!-- 6. 代码 vs 运行 -->
+<section class="slide" data-title="代码 vs 运行">
+  <p class="kicker">第二课 · 程序</p>
+  <h2 class="h2">代码是菜谱，运行是炒菜</h2>
+  <p class="lede">写过菜谱 ≠ 吃过菜；写好代码 ≠ 已经运行</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:900px">
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>time.py（代码文件）</span></div>
+        <pre><span class="code-cmt"># 这是一份代码</span>
+<span class="code-keyword">import</span> time
+now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
+<span class="code-func">print</span>(now)</pre>
+      </div>
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>终端（运行中）</span></div>
+        <pre>$ python time.py
+14:32:05</pre>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>execute / run = 让代码活起来</span><span class="slide-number" data-current="6" data-total="17"></span></div>
+  <div class="notes">
+    <p>代码本身就像菜谱，只是写了步骤。运行（execute/run）就像真正开火炒菜。左边是写在文件里的代码，右边是电脑执行后显示的时间。大家一定要区分：文件是静态的，运行是动态的。</p>
+  </div>
+</section>
+
+<!-- 7. 只有输出的程序 -->
+<section class="slide" data-title="只有输出的程序">
+  <p class="kicker">第二课 · 程序</p>
+  <h2 class="h2">显示时间的程序：没有输入</h2>
+  <p class="lede">它只负责输出，人类无法介入控制</p>
+  <div class="visual">
+    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="110" width="240" height="140" rx="24" fill="white" stroke="#f49bb8" stroke-width="3"/>
+      <text x="200" y="170" text-anchor="middle" font-size="24" fill="#3a1f33">程序</text>
+      <text x="200" y="200" text-anchor="middle" font-size="16" fill="#6b4d62">print(time)</text>
+      <text x="200" y="230" text-anchor="middle" font-size="14" fill="#a28a99">不需要输入</text>
+      <path d="M320 180 L460 180" stroke="#b5d5f0" stroke-width="4" marker-end="url(#arrow-blue)"/>
+      <rect x="460" y="100" width="240" height="160" rx="24" fill="white" stroke="#b5d5f0" stroke-width="3"/>
+      <text x="580" y="150" text-anchor="middle" font-size="18" fill="#3a1f33">屏幕</text>
+      <text x="580" y="190" text-anchor="middle" font-size="32" fill="#6b9ac7" font-family="monospace">14:32:05</text>
+      <text x="580" y="230" text-anchor="middle" font-size="14" fill="#a28a99">这是输出</text>
+    </svg>
+  </div>
+  <div class="deck-footer"><span>无输入 · 只有输出</span><span class="slide-number" data-current="7" data-total="17"></span></div>
+  <div class="notes">
+    <p>看一个最简单的程序：显示当前时间。它运行后，只把当前时间打印到屏幕上。这个程序没有输入，人没法跟它互动。你启动它，它输出结果，就结束了。</p>
+  </div>
+</section>
+
+<!-- 8. 有人类输入的程序 -->
+<section class="slide" data-title="有人类输入的程序">
+  <p class="kicker">第二课 · 程序</p>
+  <h2 class="h2">计算器：人类输入，程序输出</h2>
+  <p class="lede">你提供两个数字和运算符，它返回结果</p>
+  <div class="visual">
+    <div class="arrow-illustration">
+      <div class="box">
+        <div style="font-size:28px">🧑</div>
+        <div>输入</div>
+        <div style="font-size:18px;color:#6b9ac7;font-weight:700">3 + 5</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:#f49bb8">
+        <div style="font-size:28px">🧮</div>
+        <div>计算器</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <div style="font-size:28px">📟</div>
+        <div>输出</div>
+        <div style="font-size:18px;color:#6b9ac7;font-weight:700">8</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>输入 → 程序 → 输出</span><span class="slide-number" data-current="8" data-total="17"></span></div>
+  <div class="notes">
+    <p>计算器就是典型的有输入有输出。你输入3+5，计算器按你给的指令处理，输出8。这里的输入就是数字和运算符，输出就是结果。大部分程序都是这样的：人给输入，程序给输出。</p>
+  </div>
+</section>
+
+<!-- 9. CLI 到 GUI -->
+<section class="slide" data-title="CLI 到 GUI">
+  <p class="kicker">第三课 · 界面</p>
+  <h2 class="h2">命令行 vs 图形界面</h2>
+  <p class="lede">命令行打字输入，图形界面点按钮输入</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:1000px">
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>命令行 CLI</span></div>
+        <pre>$ 输入文字指令
+$ 程序读取后执行
+$ 输出文字结果</pre>
+      </div>
+      <div class="card card-accent" style="text-align:center">
+        <div style="font-size:48px">🖱️</div>
+        <h3>图形界面 GUI</h3>
+        <div>点击按钮</div>
+        <div>拖动滑块</div>
+        <div>选择菜单</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>CLI 文字输入 · GUI 视觉输入</span><span class="slide-number" data-current="9" data-total="17"></span></div>
+  <div class="notes">
+    <p>程序和人交互的方式可以有很多种。命令行是打字输入、看文字输出；图形界面是点按钮、拖滑块、看画面变化。它们的本质一样：都是输入和输出，只是形式不同。</p>
+  </div>
+</section>
+
+<!-- 10. GUI 的输入输出 -->
+<section class="slide" data-title="GUI 的输入输出">
+  <p class="kicker">第三课 · 界面</p>
+  <h2 class="h2">图形界面里的输入输出</h2>
+  <p class="lede">输入 = 点击、滑动、语音；输出 = 画面变化</p>
+  <div class="visual">
+    <div class="three-col" style="max-width:1000px">
+      <div class="card card-accent">
+        <div style="font-size:48px;text-align:center">👆</div>
+        <h3>输入</h3>
+        <div style="font-size:15px;color:#6b4d62">点击按钮<br>输入框打字<br>拖动滑块</div>
+      </div>
+      <div class="card" style="text-align:center;border-color:#f49bb8">
+        <div style="font-size:48px">🖥️</div>
+        <h3>程序</h3>
+        <div style="font-size:15px;color:#6b4d62">处理输入<br>更新状态</div>
+      </div>
+      <div class="card card-accent-2">
+        <div style="font-size:48px;text-align:center">🖼️</div>
+        <h3>输出</h3>
+        <div style="font-size:15px;color:#6b4d62">页面刷新<br>弹窗提示<br>播放声音</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>输入形式变，本质不变</span><span class="slide-number" data-current="10" data-total="17"></span></div>
+  <div class="notes">
+    <p>在图形界面里，输入不一定是键盘。你点按钮、拖滑块、发语音，都是输入。程序收到后，可能更新界面、播放声音、跳出新窗口，这些都是输出。形式变了，但"输入→处理→输出"的本质没变。</p>
+  </div>
+</section>
+
+<!-- 11. 大模型雏形 -->
+<section class="slide" data-title="大模型雏形">
+  <p class="kicker">第四课 · AI</p>
+  <h2 class="h2">大模型的雏形：if-else 聊天</h2>
+  <p class="lede">输入一句话 → 匹配规则 → 输出下一句话</p>
+  <div class="visual">
+    <div class="ifelse-box">
+      <div><span class="highlight-pink">如果</span> 你说"你好" → <span class="highlight-blue">回复</span>"你好呀！"</div>
+      <div><span class="highlight-pink">如果</span> 你说"再见" → <span class="highlight-blue">回复</span>"拜拜！"</div>
+      <div><span class="highlight-pink">如果</span> 你说"几点了" → <span class="highlight-blue">回复</span> 当前时间</div>
+      <div><span class="highlight-pink">如果</span> 都不匹配 → <span class="highlight-blue">回复</span>"我没听懂"</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>if-else 是规则匹配，不是真理解</span><span class="slide-number" data-current="11" data-total="17"></span></div>
+  <div class="notes">
+    <p>现在进入 AI。大模型看起来很神奇，但我们可以从一个最简单的版本开始理解。想象一个聊天程序，里面写满了"如果用户说A，就回复B"的规则。输入一句话，程序匹配规则，输出下一句话。这是大模型的雏形，但它不是真正理解，只是按规则匹配。</p>
+  </div>
+</section>
+
+<!-- 12. 一次运行中的输入输出 -->
+<section class="slide" data-title="一次运行中的输入输出">
+  <p class="kicker">第四课 · AI</p>
+  <h2 class="h2">一次运行：一问一答</h2>
+  <p class="lede">大模型一次运行只干一件事：输入一段话，输出一段话</p>
+  <div class="visual">
+    <div class="arrow-illustration">
+      <div class="box" style="border-color:#f49bb8">
+        <div style="font-size:22px">输入</div>
+        <div style="font-size:18px;color:#3a1f33;font-weight:700">你好</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="min-width:180px;border-color:#c4a0e8">
+        <div style="font-size:28px">🤖</div>
+        <div>大模型</div>
+        <div style="font-size:14px;color:#a28a99">一次运行</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:#b5d5f0">
+        <div style="font-size:22px">输出</div>
+        <div style="font-size:18px;color:#3a1f33;font-weight:700">你好！</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>单次运行：输入一段 → 输出一段</span><span class="slide-number" data-current="12" data-total="17"></span></div>
+  <div class="notes">
+    <p>大模型的一次运行，本质上和前面讲的程序一样：输入一段文字，输出一段文字。它不会自己主动说，也不会记得你之前说过什么。每次运行都是独立的。</p>
+  </div>
+</section>
+
+<!-- 13. 第二次运行 -->
+<section class="slide" data-title="第二次运行">
+  <p class="kicker">第四课 · AI</p>
+  <h2 class="h2">第二次运行：输入变了</h2>
+  <p class="lede">从第二次开始，输入 = 历史 + 新问题</p>
+  <div class="visual">
+    <div class="context-box">
+      <div class="line">🧑 第一轮：你好</div>
+      <div class="line">🤖 第一轮：你好！有什么可以帮你？</div>
+      <div class="line">🧑 第二轮：<span class="highlight-pink">（历史）+ 今天北京天气</span></div>
+      <div class="line">🤖 第二轮：北京今天晴天。</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第二次输入 = 对话历史 + 你的新问题</span><span class="slide-number" data-current="13" data-total="17"></span></div>
+  <div class="notes">
+    <p>第二轮看起来大模型记得第一轮，其实不是。第二轮的输入被悄悄改成了"历史 + 新问题"。程序会把前面说过的话一起塞进去，再让模型回答。这样模型才能看起来在延续对话。</p>
+  </div>
+</section>
+
+<!-- 14. 多轮对话 = 多次运行串联 -->
+<section class="slide" data-title="多轮对话 = 多次运行串联">
+  <p class="kicker">第四课 · AI</p>
+  <h2 class="h2">多轮对话 = 多次运行串联</h2>
+  <p class="lede">不是一次超长思考，而是很多次一问一答拼起来的</p>
+  <div class="visual">
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+      <rect x="60" y="130" width="140" height="100" rx="20" fill="white" stroke="#f49bb8" stroke-width="3"/>
+      <text x="130" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 1</text>
+      <text x="130" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">问 1 / 答 1</text>
+      <path d="M200 180 L280 180" stroke="#c4a0e8" stroke-width="3" marker-end="url(#arrow-purple)"/>
+      <rect x="280" y="130" width="140" height="100" rx="20" fill="white" stroke="#c4a0e8" stroke-width="3"/>
+      <text x="350" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 2</text>
+      <text x="350" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">历史+问2</text>
+      <path d="M420 180 L500 180" stroke="#c4a0e8" stroke-width="3" marker-end="url(#arrow-purple)"/>
+      <rect x="500" y="130" width="140" height="100" rx="20" fill="white" stroke="#b5d5f0" stroke-width="3"/>
+      <text x="570" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 3</text>
+      <text x="570" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">历史+问3</text>
+      <text x="400" y="280" text-anchor="middle" font-size="18" fill="#6b4d62">每次运行都独立，只是程序把历史一起带进去</text>
+      <defs>
+        <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#c4a0e8"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <div class="deck-footer"><span>多次运行 + 累积历史 = 连贯对话</span><span class="slide-number" data-current="14" data-total="17"></span></div>
+  <div class="notes">
+    <p>所以真正的多轮对话，不是大模型一次想了很久，而是程序把每次运行拼接起来。每次运行还是一问一答，只是程序把前面所有对话都加到新的输入里。这是大模型能连续聊天的关键。</p>
+  </div>
+</section>
+
+<!-- 15. 上下文有限 -->
+<section class="slide" data-title="上下文有限">
+  <p class="kicker">第四课 · AI</p>
+  <h2 class="h2">上下文长度是有限的</h2>
+  <p class="lede">对话历史太多，盒子装不下，旧内容会被丢掉</p>
+  <div class="visual">
+    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="100" width="600" height="160" rx="28" fill="white" stroke="#f49bb8" stroke-width="3"/>
+      <text x="380" y="150" text-anchor="middle" font-size="22" fill="#3a1f33">上下文盒子</text>
+      <rect x="110" y="180" width="140" height="40" rx="8" fill="#f49bb8" opacity="0.35"/>
+      <rect x="260" y="180" width="140" height="40" rx="8" fill="#b5d5f0" opacity="0.5"/>
+      <rect x="410" y="180" width="140" height="40" rx="8" fill="#c4a0e8" opacity="0.6"/>
+      <rect x="560" y="180" width="90" height="40" rx="8" fill="#f7d08a"/>
+      <text x="380" y="260" text-anchor="middle" font-size="16" fill="#6b4d62">旧内容在左边，可能被丢弃；新内容在右边</text>
+    </svg>
+  </div>
+  <div class="deck-footer"><span>上下文有限 → 太久的事会忘记</span><span class="slide-number" data-current="15" data-total="17"></span></div>
+  <div class="notes">
+    <p>但是这个装历史的盒子不是无限大的。大模型能同时看到的文字长度有限，叫"上下文长度"。如果聊得太久，最前面的内容会被丢掉，模型就"忘记"了。所以有时候你提到之前的事，它会一脸懵。</p>
+  </div>
+</section>
+
+<!-- 16. 提示词 上下文 技能 记忆 -->
+<section class="slide" data-title="提示词 上下文 技能 记忆">
+  <p class="kicker">第五课 · 概念</p>
+  <h2 class="h2">四个关键概念</h2>
+  <div class="visual">
+    <div class="two-col" style="max-width:1000px">
+      <div class="card card-accent">
+        <h3>💬 提示词</h3>
+        <p class="dim">你给 AI 的"任务说明书"</p>
+      </div>
+      <div class="card card-accent-2">
+        <h3>📜 上下文</h3>
+        <p class="dim">当前对话里 AI 能看到的全部内容</p>
+      </div>
+      <div class="card card-accent-3">
+        <h3>🛠️ 技能</h3>
+        <p class="dim">让 AI 调用外部工具，比如查天气、算工资</p>
+      </div>
+      <div class="memory-box">
+        <h3>🧠 记忆</h3>
+        <p class="dim">把重要信息存起来，跨对话也能用</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>提示词 · 上下文 · 技能 · 记忆</span><span class="slide-number" data-current="16" data-total="17"></span></div>
+  <div class="notes">
+    <p>最后归纳四个概念：提示词就是你发给 AI 的话；上下文是当前 AI 能看到的全部历史；技能是 AI 调用外部工具的能力；记忆是把重要信息存起来，换一轮对话也能用。它们一起让 AI 更好用。</p>
+  </div>
+</section>
+
+<!-- 17. Q&A -->
+<section class="slide center tc" data-title="Q&A">
+  <div class="big-emoji mb-m">💬</div>
+  <h2 class="h2">有问题吗？</h2>
+  <p class="lede" style="margin:14px auto">从输入输出开始，电脑、程序、AI 都变简单了</p>
+  <div class="row mt-l" style="justify-content:center">
+    <span class="tag tag-pink">输入</span>
+    <span class="tag tag-blue">输出</span>
+    <span class="tag tag-yellow">上下文</span>
+  </div>
+  <div class="deck-footer"><span>谢谢</span><span class="slide-number" data-current="17" data-total="17"></span></div>
+  <div class="notes">
+    <p>总结今天的核心：电脑是盒子，程序是规则，AI 也是程序。它们都有输入和输出。大模型能连续对话，靠的不是它自己记得，而是程序把历史一次次塞进去。上下文有限，所以重要信息要靠技能调用和记忆存储。谢谢大家。</p>
+  </div>
+</section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>
