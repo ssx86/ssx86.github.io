@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>小白也能懂：电脑、程序与大模型</title>
+<title>小白也能懂：电脑、大模型与 AI 编程助手</title>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/animations/animations.css">
@@ -15,13 +15,15 @@
 <!-- 1. 封面 -->
 <section class="slide cover-center" data-title="封面">
   <div class="big-emoji mb-m">🖥️</div>
-  <h1 class="h1 anim-fade-up" data-anim="fade-up">小白也能懂<br>电脑、程序与大模型</h1>
-  <p class="lede">从输入输出的角度，一层一层看懂 AI</p>
+  <h1 class="h1 anim-fade-up" data-anim="fade-up">小白也能懂<br>电脑、大模型与 AI 编程助手</h1>
+  <p class="lede">从「输入输出」出发，看懂 AI，并学会和它好好说话</p>
   <div class="speaker" style="justify-content:center"><div class="av"></div><div><b>张松石</b><span>给完全不懂电脑的朋友</span></div></div>
-  <div class="deck-footer"><span>2026</span><span class="slide-number" data-current="1" data-total="17"></span></div>
-  <div class="notes">
-    <p>大家好，今天我会用尽量简单的语言，从"输入"和"输出"这两个最基础的概念出发，带大家理解电脑、程序、以及最近很火的大模型。</p>
-  </div>
+  <div class="deck-footer"><span>2026</span><span class="slide-number" data-current="1" data-total="38"></span></div>
+  <aside class="notes">
+    <p>大家好，欢迎来到今天的分享。今天我不讲任何技术术语，只从两个字出发——<strong>「输入」和「输出」</strong>。</p>
+    <p>我会带大家一层一层看懂：电脑是什么、程序是什么、大模型是什么。最后还会认识几个真实的产品，比如你手机里的豆包，和我电脑里用的 ZCode。</p>
+    <p>完全不懂电脑的朋友也放心，<strong>今天的内容你一定能跟上</strong>。准备好了我们就开始。</p>
+  </aside>
 </section>
 
 <!-- 2. 电脑是个盒子 -->
@@ -32,33 +34,31 @@
   <div class="visual">
     <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
       <rect x="220" y="80" width="360" height="200" rx="32" fill="white" stroke="#f49bb8" stroke-width="3"/>
-      <text x="400" y="190" text-anchor="middle" font-size="36" fill="#3a1f33" font-weight="700">电脑</text>
-      <text x="400" y="220" text-anchor="middle" font-size="18" fill="#6b4d62">CPU · 内存 · 硬盘</text>
-      <path d="M80 180 L220 180" stroke="#f49bb8" stroke-width="4" marker-end="url(#arrow-pink)"/>
-      <text x="80" y="160" font-size="22" fill="#3a1f33">输入</text>
-      <path d="M580 180 L720 180" stroke="#b5d5f0" stroke-width="4" marker-end="url(#arrow-blue)"/>
-      <text x="620" y="160" font-size="22" fill="#3a1f33">输出</text>
+      <text x="400" y="185" text-anchor="middle" font-size="36" fill="#3a1f33" font-weight="700">电脑</text>
+      <text x="400" y="220" text-anchor="middle" font-size="18" fill="#6b4d62">里面在做某种加工</text>
+      <path d="M80 180 L220 180" stroke="#f49bb8" stroke-width="4" marker-end="url(#arrow-pink2)"/>
+      <text x="90" y="160" font-size="22" fill="#3a1f33" font-weight="600">输入</text>
+      <path d="M580 180 L720 180" stroke="#b5d5f0" stroke-width="4" marker-end="url(#arrow-blue2)"/>
+      <text x="630" y="160" font-size="22" fill="#3a1f33" font-weight="600">输出</text>
       <defs>
-        <marker id="arrow-pink" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-          <path d="M0,0 L0,6 L9,3 z" fill="#f49bb8"/>
-        </marker>
-        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-          <path d="M0,0 L0,6 L9,3 z" fill="#b5d5f0"/>
-        </marker>
+        <marker id="arrow-pink2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#f49bb8"/></marker>
+        <marker id="arrow-blue2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#b5d5f0"/></marker>
       </defs>
     </svg>
   </div>
-  <div class="deck-footer"><span>输入 → 处理 → 输出</span><span class="slide-number" data-current="2" data-total="17"></span></div>
-  <div class="notes">
-    <p>我们先不要想CPU、内存、硬盘这些名词。把电脑想象成一只盒子：左边有入口，右边有出口。东西从入口进去，在盒子里被加工一下，再从出口出来。这就是输入、处理、输出。</p>
-  </div>
+  <div class="deck-footer"><span>输入 → 处理 → 输出</span><span class="slide-number" data-current="2" data-total="38"></span></div>
+  <aside class="notes">
+    <p>我们先不要想 CPU、内存、硬盘这些名词。把电脑<strong>想象成一个盒子</strong>：左边有个入口，右边有个出口。</p>
+    <p>东西从入口进去，在盒子里被加工一下，再从出口出来。<strong>这就是输入、处理、输出</strong>。</p>
+    <p>记住这三个字，后面所有东西都建立在这上面。不管是电脑、还是大模型，归根到底都是这个「进→加工→出」的盒子。</p>
+  </aside>
 </section>
 
-<!-- 3. 输入与输出设备 -->
-<section class="slide" data-title="输入与输出设备">
+<!-- 3. 人能用的入口和出口 -->
+<section class="slide" data-title="人能用的入口和出口">
   <p class="kicker">第一课 · 电脑</p>
   <h2 class="h2">人能用的入口和出口</h2>
-  <p class="lede">键盘鼠标把人的动作变成输入；屏幕音箱把结果变成输出</p>
+  <p class="lede">键盘、鼠标把人的动作变成输入；屏幕、音箱把结果变成输出</p>
   <div class="visual">
     <div class="io-flow">
       <div class="device"><div class="icon">⌨️</div><div>键盘</div></div>
@@ -70,382 +70,884 @@
       <div class="device"><div class="icon">🔊</div><div>音箱</div></div>
     </div>
   </div>
-  <div class="deck-footer"><span>输入设备 · 输出设备</span><span class="slide-number" data-current="3" data-total="17"></span></div>
-  <div class="notes">
-    <p>人怎么和这个盒子交流？键盘和鼠标是我们最常用的输入设备，相当于我们往盒子里塞东西。屏幕和音箱是输出设备，相当于盒子把处理结果展示给我们看。</p>
-  </div>
+  <div class="deck-footer"><span>输入设备 · 输出设备</span><span class="slide-number" data-current="3" data-total="38"></span></div>
+  <aside class="notes">
+    <p>那人怎么跟这个盒子交流呢？<strong>键盘和鼠标</strong>是我们最常用的入口，相当于我们把动作塞进盒子里。</p>
+    <p><strong>屏幕和音箱</strong>是出口，盒子把处理结果展示给我们看、给我们听。</p>
+    <p>这些都有一个统一的名字：键盘鼠标叫「输入设备」，屏幕音箱叫「输出设备」。但说白了，就是盒子的入口和出口。</p>
+  </aside>
 </section>
 
-<!-- 4. 老板派活 -->
-<section class="slide" data-title="老板派活">
-  <p class="kicker">做个类比</p>
-  <h2 class="h2">老板让你做 PPT</h2>
-  <p class="lede">只说"做 PPT"够吗？你需要先知道主题、页数、风格</p>
-  <div class="visual">
-    <div class="arrow-illustration">
-      <div class="box">
-        <div style="font-size:32px">👔</div>
-        <div>老板</div>
-        <div style="font-size:14px;color:#a28a99">输入：做份PPT</div>
-      </div>
-      <div class="arrow">→</div>
-      <div class="box" style="border-color:#f7d08a">
-        <div style="font-size:32px">🙋</div>
-        <div>你</div>
-        <div style="font-size:14px;color:#a28a99">必须澄清细节</div>
-      </div>
-      <div class="arrow">→</div>
-      <div class="box">
-        <div style="font-size:32px">📑</div>
-        <div>成果</div>
-        <div style="font-size:14px;color:#a28a99">输出：合格PPT</div>
-      </div>
-    </div>
-  </div>
-  <div class="deck-footer"><span>输入越清楚，输出越靠谱</span><span class="slide-number" data-current="4" data-total="17"></span></div>
-  <div class="notes">
-    <p>老板跟你说"做份PPT"，你肯定不会直接动手。你会问：主题是什么？给谁看？多少页？要什么风格？这就是在澄清输入。只有输入明确，输出才可能对。电脑程序也是一样的。</p>
-  </div>
-</section>
-
-<!-- 5. 程序是指令清单 -->
-<section class="slide" data-title="程序是指令清单">
+<!-- 4. 程序是给盒子的指令清单 -->
+<section class="slide" data-title="程序是给盒子的指令清单">
   <p class="kicker">第二课 · 程序</p>
   <h2 class="h2">程序 = 给盒子看的指令清单</h2>
   <p class="lede">告诉电脑：收到什么输入、怎么加工、输出什么</p>
   <div class="visual">
     <div class="arrow-illustration">
-      <div class="box" style="min-width:180px">
-        <div style="font-size:28px">📝</div>
-        <div>代码</div>
-        <div style="font-size:14px;color:#a28a99">还没运行</div>
-      </div>
+      <div class="box"><div style="font-size:28px">📝</div><div>代码</div></div>
       <div class="arrow">→</div>
-      <div class="box" style="min-width:180px;border-color:#f49bb8">
-        <div style="font-size:28px">🖥️</div>
-        <div>运行</div>
-        <div style="font-size:14px;color:#a28a99">电脑开始执行</div>
-      </div>
+      <div class="box" style="border-color:#f49bb8"><div style="font-size:28px">🖥️</div><div>运行</div></div>
       <div class="arrow">→</div>
-      <div class="box" style="min-width:180px">
-        <div style="font-size:28px">🖵</div>
-        <div>结果</div>
-        <div style="font-size:14px;color:#a28a99">屏幕显示</div>
-      </div>
+      <div class="box"><div style="font-size:28px">🖵</div><div>结果</div></div>
     </div>
   </div>
-  <div class="deck-footer"><span>代码 → 运行 → 结果</span><span class="slide-number" data-current="5" data-total="17"></span></div>
-  <div class="notes">
-    <p>程序就是一份清单。这份清单用电脑能懂的语言写成，告诉它：如果有人输入A，你就做什么；如果有人输入B，你又做什么。清单本身只是文字，只有电脑真正去执行，才会产生结果。</p>
-  </div>
+  <div class="deck-footer"><span>代码 → 运行 → 结果</span><span class="slide-number" data-current="4" data-total="38"></span></div>
+  <aside class="notes">
+    <p>程序，说白了就是<strong>一份清单</strong>。这份清单用电脑能看懂的语言写成，告诉它：如果收到 A，你就做这个；如果收到 B，你就做那个。</p>
+    <p>但清单本身只是文字，<strong>放在那儿它什么也不会做</strong>。要电脑真正按照清单去做，这个动作叫「运行」。</p>
+    <p>所以顺序是：先有一份代码（清单），然后运行它，最后得到结果。下一页我用一个特别直观的比喻，帮你记住它。</p>
+  </aside>
 </section>
 
-<!-- 6. 代码 vs 运行 -->
-<section class="slide" data-title="代码 vs 运行">
+<!-- 5. 代码是菜谱，运行是炒菜 -->
+<section class="slide" data-title="代码是菜谱，运行是炒菜">
   <p class="kicker">第二课 · 程序</p>
   <h2 class="h2">代码是菜谱，运行是炒菜</h2>
-  <p class="lede">写过菜谱 ≠ 吃过菜；写好代码 ≠ 已经运行</p>
+  <p class="lede">写好菜谱 ≠ 已经把菜做出来；写好代码 ≠ 已经跑出结果</p>
   <div class="visual">
     <div class="two-col" style="max-width:900px">
       <div class="terminal">
-        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>time.py（代码文件）</span></div>
-        <pre><span class="code-cmt"># 这是一份代码</span>
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>一份代码</span></div>
+        <pre><span class="code-cmt"># 显示现在的时间</span>
 <span class="code-keyword">import</span> time
 now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
 <span class="code-func">print</span>(now)</pre>
       </div>
       <div class="terminal">
-        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>终端（运行中）</span></div>
-        <pre>$ python time.py
-14:32:05</pre>
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>让它跑起来</span></div>
+        <pre>14:32:05</pre>
       </div>
     </div>
   </div>
-  <div class="deck-footer"><span>execute / run = 让代码活起来</span><span class="slide-number" data-current="6" data-total="17"></span></div>
-  <div class="notes">
-    <p>代码本身就像菜谱，只是写了步骤。运行（execute/run）就像真正开火炒菜。左边是写在文件里的代码，右边是电脑执行后显示的时间。大家一定要区分：文件是静态的，运行是动态的。</p>
-  </div>
+  <div class="deck-footer"><span>让代码活起来 = 运行</span><span class="slide-number" data-current="5" data-total="38"></span></div>
+  <aside class="notes">
+    <p>这个比喻请大家一定记住：<strong>代码本身就像菜谱，只是写了步骤</strong>。你写完菜谱，菜还没做出来呢。</p>
+    <p><strong>「运行」就像真正开火炒菜</strong>——只有运行了，菜才端上桌。</p>
+    <p>左边是一份代码，写在文件里，安安静静的；右边是它跑起来之后，屏幕上显示的时间。<strong>一定要分清：文件是静态的，跑起来才是动态的</strong>。很多人会混淆「我写了代码」和「代码已经跑出结果了」，记住炒菜的比喻就不会错。</p>
+  </aside>
 </section>
 
-<!-- 7. 只有输出的程序 -->
-<section class="slide" data-title="只有输出的程序">
+<!-- 6. 程序分三类 -->
+<section class="slide" data-title="程序分三类">
   <p class="kicker">第二课 · 程序</p>
-  <h2 class="h2">显示时间的程序：没有输入</h2>
-  <p class="lede">它只负责输出，人类无法介入控制</p>
-  <div class="visual">
-    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
-      <rect x="80" y="110" width="240" height="140" rx="24" fill="white" stroke="#f49bb8" stroke-width="3"/>
-      <text x="200" y="170" text-anchor="middle" font-size="24" fill="#3a1f33">程序</text>
-      <text x="200" y="200" text-anchor="middle" font-size="16" fill="#6b4d62">print(time)</text>
-      <text x="200" y="230" text-anchor="middle" font-size="14" fill="#a28a99">不需要输入</text>
-      <path d="M320 180 L460 180" stroke="#b5d5f0" stroke-width="4" marker-end="url(#arrow-blue)"/>
-      <rect x="460" y="100" width="240" height="160" rx="24" fill="white" stroke="#b5d5f0" stroke-width="3"/>
-      <text x="580" y="150" text-anchor="middle" font-size="18" fill="#3a1f33">屏幕</text>
-      <text x="580" y="190" text-anchor="middle" font-size="32" fill="#6b9ac7" font-family="monospace">14:32:05</text>
-      <text x="580" y="230" text-anchor="middle" font-size="14" fill="#a28a99">这是输出</text>
-    </svg>
-  </div>
-  <div class="deck-footer"><span>无输入 · 只有输出</span><span class="slide-number" data-current="7" data-total="17"></span></div>
-  <div class="notes">
-    <p>看一个最简单的程序：显示当前时间。它运行后，只把当前时间打印到屏幕上。这个程序没有输入，人没法跟它互动。你启动它，它输出结果，就结束了。</p>
-  </div>
-</section>
-
-<!-- 8. 有人类输入的程序 -->
-<section class="slide" data-title="有人类输入的程序">
-  <p class="kicker">第二课 · 程序</p>
-  <h2 class="h2">计算器：人类输入，程序输出</h2>
-  <p class="lede">你提供两个数字和运算符，它返回结果</p>
-  <div class="visual">
-    <div class="arrow-illustration">
-      <div class="box">
-        <div style="font-size:28px">🧑</div>
-        <div>输入</div>
-        <div style="font-size:18px;color:#6b9ac7;font-weight:700">3 + 5</div>
-      </div>
-      <div class="arrow">→</div>
-      <div class="box" style="border-color:#f49bb8">
-        <div style="font-size:28px">🧮</div>
-        <div>计算器</div>
-      </div>
-      <div class="arrow">→</div>
-      <div class="box">
-        <div style="font-size:28px">📟</div>
-        <div>输出</div>
-        <div style="font-size:18px;color:#6b9ac7;font-weight:700">8</div>
-      </div>
-    </div>
-  </div>
-  <div class="deck-footer"><span>输入 → 程序 → 输出</span><span class="slide-number" data-current="8" data-total="17"></span></div>
-  <div class="notes">
-    <p>计算器就是典型的有输入有输出。你输入3+5，计算器按你给的指令处理，输出8。这里的输入就是数字和运算符，输出就是结果。大部分程序都是这样的：人给输入，程序给输出。</p>
-  </div>
-</section>
-
-<!-- 9. CLI 到 GUI -->
-<section class="slide" data-title="CLI 到 GUI">
-  <p class="kicker">第三课 · 界面</p>
-  <h2 class="h2">命令行 vs 图形界面</h2>
-  <p class="lede">命令行打字输入，图形界面点按钮输入</p>
-  <div class="visual">
-    <div class="two-col" style="max-width:1000px">
-      <div class="terminal">
-        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>命令行 CLI</span></div>
-        <pre>$ 输入文字指令
-$ 程序读取后执行
-$ 输出文字结果</pre>
-      </div>
-      <div class="card card-accent" style="text-align:center">
-        <div style="font-size:48px">🖱️</div>
-        <h3>图形界面 GUI</h3>
-        <div>点击按钮</div>
-        <div>拖动滑块</div>
-        <div>选择菜单</div>
-      </div>
-    </div>
-  </div>
-  <div class="deck-footer"><span>CLI 文字输入 · GUI 视觉输入</span><span class="slide-number" data-current="9" data-total="17"></span></div>
-  <div class="notes">
-    <p>程序和人交互的方式可以有很多种。命令行是打字输入、看文字输出；图形界面是点按钮、拖滑块、看画面变化。它们的本质一样：都是输入和输出，只是形式不同。</p>
-  </div>
-</section>
-
-<!-- 10. GUI 的输入输出 -->
-<section class="slide" data-title="GUI 的输入输出">
-  <p class="kicker">第三课 · 界面</p>
-  <h2 class="h2">图形界面里的输入输出</h2>
-  <p class="lede">输入 = 点击、滑动、语音；输出 = 画面变化</p>
+  <h2 class="h2">程序可以分三类</h2>
   <div class="visual">
     <div class="three-col" style="max-width:1000px">
-      <div class="card card-accent">
-        <div style="font-size:48px;text-align:center">👆</div>
-        <h3>输入</h3>
-        <div style="font-size:15px;color:#6b4d62">点击按钮<br>输入框打字<br>拖动滑块</div>
+      <div class="card">
+        <div style="font-size:40px;text-align:center">⏰</div>
+        <h3>自己跑的</h3>
+        <div style="font-size:15px;color:#6b4d62">显示时间的程序<br>不需要人输入</div>
       </div>
-      <div class="card" style="text-align:center;border-color:#f49bb8">
-        <div style="font-size:48px">🖥️</div>
-        <h3>程序</h3>
-        <div style="font-size:15px;color:#6b4d62">处理输入<br>更新状态</div>
+      <div class="card" style="border-color:#f49bb8">
+        <div style="font-size:40px;text-align:center">🧮</div>
+        <h3>算给它看的</h3>
+        <div style="font-size:15px;color:#6b4d62">计算器<br>人输数字，它出结果</div>
       </div>
-      <div class="card card-accent-2">
-        <div style="font-size:48px;text-align:center">🖼️</div>
-        <h3>输出</h3>
-        <div style="font-size:15px;color:#6b4d62">页面刷新<br>弹窗提示<br>播放声音</div>
+      <div class="card">
+        <div style="font-size:40px;text-align:center">📱</div>
+        <h3>点按钮用的</h3>
+        <div style="font-size:15px;color:#6b4d62">手机 app、网页<br>点按钮、拖滑块</div>
       </div>
     </div>
   </div>
-  <div class="deck-footer"><span>输入形式变，本质不变</span><span class="slide-number" data-current="10" data-total="17"></span></div>
-  <div class="notes">
-    <p>在图形界面里，输入不一定是键盘。你点按钮、拖滑块、发语音，都是输入。程序收到后，可能更新界面、播放声音、跳出新窗口，这些都是输出。形式变了，但"输入→处理→输出"的本质没变。</p>
-  </div>
+  <div style="background:rgba(247,208,138,.2);border:1px solid rgba(247,208,138,.5);border-radius:var(--radius-sm);padding:14px 22px;margin-top:20px;text-align:center;font-size:17px;color:#3a1f33;font-weight:600">🔑 关键：这些程序的指令，<strong>都是人提前写死在里面的</strong></div>
+  <div class="deck-footer"><span>指令都是人提前写死的</span><span class="slide-number" data-current="6" data-total="38"></span></div>
+  <aside class="notes">
+    <p>程序可以分成三类，大家对照生活经验就懂。</p>
+    <p>第一类，<strong>自己就能跑的</strong>，比如显示时间的程序，它不需要你输入什么，自己就开始显示。</p>
+    <p>第二类，<strong>要你输东西给它才算的</strong>，比如计算器，你输入数字，它算给你看。</p>
+    <p>第三类，<strong>靠你点按钮、拖滑块来用的</strong>，比如手机 app、网页。</p>
+    <p>但不管哪一类，<strong>它们怎么做，都是人提前写死的</strong>。这句话请一定记住——下一页，我就要拿这句话来考你们了：既然程序都是人写死的，那会聊天的 AI 呢？</p>
+  </aside>
 </section>
 
-<!-- 11. 大模型雏形 -->
-<section class="slide" data-title="大模型雏形">
-  <p class="kicker">第四课 · AI</p>
-  <h2 class="h2">大模型的雏形：if-else 聊天</h2>
-  <p class="lede">输入一句话 → 匹配规则 → 输出下一句话</p>
+<!-- 7. 引出真问题 -->
+<section class="slide" data-title="那AI的指令从哪来">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">那……会聊天的 AI，指令从哪来？</h2>
+  <p class="lede">它没人一条条告诉它该说什么。那它是怎么学会回话的？</p>
   <div class="visual">
-    <div class="ifelse-box">
-      <div><span class="highlight-pink">如果</span> 你说"你好" → <span class="highlight-blue">回复</span>"你好呀！"</div>
-      <div><span class="highlight-pink">如果</span> 你说"再见" → <span class="highlight-blue">回复</span>"拜拜！"</div>
-      <div><span class="highlight-pink">如果</span> 你说"几点了" → <span class="highlight-blue">回复</span> 当前时间</div>
-      <div><span class="highlight-pink">如果</span> 都不匹配 → <span class="highlight-blue">回复</span>"我没听懂"</div>
+    <div class="two-col" style="max-width:900px">
+      <div class="card">
+        <div style="font-size:40px;text-align:center">📝</div>
+        <h3>前面的程序</h3>
+        <p class="dim">菜谱是人提前写死的</p>
+      </div>
+      <div class="card" style="border-color:#c4a0e8">
+        <div style="font-size:40px;text-align:center">🤖</div>
+        <h3>会聊天的 AI</h3>
+        <p class="dim">「菜谱」<strong>不是</strong>人一条条写死的？</p>
+      </div>
     </div>
   </div>
-  <div class="deck-footer"><span>if-else 是规则匹配，不是真理解</span><span class="slide-number" data-current="11" data-total="17"></span></div>
-  <div class="notes">
-    <p>现在进入 AI。大模型看起来很神奇，但我们可以从一个最简单的版本开始理解。想象一个聊天程序，里面写满了"如果用户说A，就回复B"的规则。输入一句话，程序匹配规则，输出下一句话。这是大模型的雏形，但它不是真正理解，只是按规则匹配。</p>
-  </div>
+  <div class="deck-footer"><span>悬念：AI 的「菜谱」是谁写的？</span><span class="slide-number" data-current="7" data-total="38"></span></div>
+  <aside class="notes">
+    <p>前面那些程序，怎么做都是<strong>人提前写死</strong>的，对吧？</p>
+    <p>可是你在手机上聊天的 AI，比如豆包、ChatGPT，它回你的话千变万化，<strong>显然不是人一条条写死的</strong>。要是写死，那得写多少条？根本写不完。</p>
+    <p>那它的「菜谱」是谁写的？它凭什么会回话？<strong>这就是今天要解开的谜</strong>。答案可能会让你意外，下一页揭晓。</p>
+  </aside>
 </section>
 
-<!-- 12. 一次运行中的输入输出 -->
-<section class="slide" data-title="一次运行中的输入输出">
-  <p class="kicker">第四课 · AI</p>
-  <h2 class="h2">一次运行：一问一答</h2>
-  <p class="lede">大模型一次运行只干一件事：输入一段话，输出一段话</p>
+<!-- 8. 大模型就是故事接龙 -->
+<section class="slide" data-title="大模型就是故事接龙">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">大模型，其实在玩「故事接龙」</h2>
+  <p class="lede">你在手机上聊天的 AI（豆包、ChatGPT），它的大脑就是一个「大模型」。给它一段开头，它顺着往下续下一个字</p>
+  <div class="visual">
+    <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;max-width:760px;text-align:center">
+      <div style="font-size:22px;color:#3a1f33;line-height:1.8;margin-bottom:16px">从前有座山，山里有座庙，庙里有个老和尚，老和尚<span style="border-bottom:2px solid #f49bb8;padding:0 8px;color:#f49bb8;font-weight:700">在给小和尚讲故事</span><span style="color:#f49bb8;font-weight:700;animation:blink 1s step-end infinite">_</span></div>
+      <div style="font-size:14px;color:#a28a99">↑ 大模型顺着开头，续出了下面这段</div>
+    </div>
+  </div>
+  <div style="background:rgba(247,208,138,.25);border-left:4px solid #f7d08a;border-radius:8px;padding:14px 20px;margin-top:20px;font-size:16px;color:#3a1f33;max-width:820px">⚠️ 注意：这里的「接龙」<strong>不是成语接龙那种「字尾接字首」</strong>，而是像作文续写——顺着开头往下写下一个字</div>
+  <style>@keyframes blink{50%{opacity:0}}</style>
+  <div class="deck-footer"><span>大模型 = 预测下一个字</span><span class="slide-number" data-current="8" data-total="38"></span></div>
+  <aside class="notes">
+    <p>先点明一件事：你在手机上聊天的那些 AI，比如<strong>豆包、ChatGPT，它们的大脑就是一个「大模型」</strong>。大模型不是一个神秘的东西，它有明确的名字。</p>
+    <p>那大模型到底在干嘛？<strong>它在玩一种接龙</strong>——给它一段开头，比如「从前有座山」，它就顺着往下续，「山里有座庙」，接着续「庙里有个老和尚」……它每次只做一件事：<strong>预测下一个字</strong>。</p>
+    <p>这里要特别提醒：这里的「接龙」，<strong>不是成语接龙那种「上一个词的字尾接下一个词的字首」</strong>。它是像写作文一样，顺着开头往下续写。千万别搞混，后面所有的理解都靠这个。</p>
+  </aside>
+</section>
+
+<!-- 9. 为什么续得通顺 -->
+<section class="slide" data-title="为什么续得通顺">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">它为什么续得这么通顺？</h2>
+  <p class="lede">因为它「读过」的东西多到没法想象——几乎整个互联网的文字都读过</p>
+  <div class="visual">
+    <div style="text-align:center">
+      <div style="font-size:72px;margin-bottom:12px">📚</div>
+      <div style="font-size:20px;color:#6b4d62;max-width:560px;margin:0 auto">几乎整个互联网的文字</div>
+      <div class="arrow-box" style="margin:16px 0">↓</div>
+      <div style="font-size:22px;color:#3a1f33;font-weight:700">读多了，就有了「语言直觉」</div>
+      <div style="font-size:15px;color:#a28a99;margin-top:8px">什么话后面常跟什么话</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>读得多 → 有了语言直觉</span><span class="slide-number" data-current="9" data-total="38"></span></div>
+  <aside class="notes">
+    <p>你可能会好奇：它凭什么能续得这么通顺？</p>
+    <p>答案很简单：<strong>因为它「读」过的东西多到没法想象</strong>——几乎整个互联网的文字，它都读过。</p>
+    <p>一个人一辈子能读多少书？顶天了几万本。可大模型读的是<strong>整个互联网</strong>。读得这么多，它自然就有了一种「<strong>语言直觉</strong>」——它知道什么话后面通常跟着什么话。</p>
+    <p>这个直觉从哪来的？背后是一个叫「训练」的过程，下一节我就讲它。但先记住这个直觉，它是理解后面所有东西的基础。</p>
+  </aside>
+</section>
+
+<!-- 10. 大模型一次运行 -->
+<section class="slide" data-title="大模型也是一种盒子">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">大模型，也是一种「输入→输出」的盒子</h2>
+  <p class="lede">和前面的程序一样：输入文字，输出文字。只是它的「加工」方式特别——靠续字</p>
   <div class="visual">
     <div class="arrow-illustration">
-      <div class="box" style="border-color:#f49bb8">
-        <div style="font-size:22px">输入</div>
-        <div style="font-size:18px;color:#3a1f33;font-weight:700">你好</div>
-      </div>
+      <div class="box" style="border-color:#f49bb8"><div style="font-size:20px">输入</div><div style="font-size:20px;color:#3a1f33;font-weight:700">你好</div></div>
       <div class="arrow">→</div>
-      <div class="box" style="min-width:180px;border-color:#c4a0e8">
-        <div style="font-size:28px">🤖</div>
-        <div>大模型</div>
-        <div style="font-size:14px;color:#a28a99">一次运行</div>
-      </div>
+      <div class="box" style="min-width:160px;border-color:#c4a0e8"><div style="font-size:28px">🤖</div><div>大模型</div></div>
       <div class="arrow">→</div>
-      <div class="box" style="border-color:#b5d5f0">
-        <div style="font-size:22px">输出</div>
-        <div style="font-size:18px;color:#3a1f33;font-weight:700">你好！</div>
-      </div>
+      <div class="box" style="border-color:#b5d5f0"><div style="font-size:20px">输出</div><div style="font-size:20px;color:#3a1f33;font-weight:700">你好！</div></div>
     </div>
   </div>
-  <div class="deck-footer"><span>单次运行：输入一段 → 输出一段</span><span class="slide-number" data-current="12" data-total="17"></span></div>
-  <div class="notes">
-    <p>大模型的一次运行，本质上和前面讲的程序一样：输入一段文字，输出一段文字。它不会自己主动说，也不会记得你之前说过什么。每次运行都是独立的。</p>
-  </div>
+  <div class="deck-footer"><span>大模型 = 输入文字 → 输出文字</span><span class="slide-number" data-current="10" data-total="38"></span></div>
+  <aside class="notes">
+    <p>现在我们把大模型，<strong>装回一开始那个「盒子」框架里</strong>。</p>
+    <p>你看，它也是一种「输入→输出」的盒子：你输入「你好」，它输出「你好！」。输入是文字，输出也是文字。</p>
+    <p>只不过它的加工方式很特别——<strong>靠续下一个字</strong>。所以大模型本质上也是一种程序，只是它和人写死的程序不一样：它的「菜谱」不是人写死的，是自己学出来的。</p>
+    <p>记住这一点，对理解后面的多轮对话很重要。</p>
+  </aside>
 </section>
 
-<!-- 13. 第二次运行 -->
-<section class="slide" data-title="第二次运行">
-  <p class="kicker">第四课 · AI</p>
-  <h2 class="h2">第二次运行：输入变了</h2>
-  <p class="lede">从第二次开始，输入 = 历史 + 新问题</p>
+<!-- 11. 多轮对话的真相 -->
+<section class="slide" data-title="多轮对话的真相">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">多轮对话的真相：它其实不记得</h2>
+  <p class="lede">第二轮的输入，是把「前面所有对话 + 你的新问题」拼起来，重新喂给它一次</p>
   <div class="visual">
     <div class="context-box">
       <div class="line">🧑 第一轮：你好</div>
       <div class="line">🤖 第一轮：你好！有什么可以帮你？</div>
-      <div class="line">🧑 第二轮：<span class="highlight-pink">（历史）+ 今天北京天气</span></div>
+      <div class="line">🧑 第二轮：<span class="highlight-pink">（前面说过的话）</span> + 今天北京天气</div>
       <div class="line">🤖 第二轮：北京今天晴天。</div>
     </div>
   </div>
-  <div class="deck-footer"><span>第二次输入 = 对话历史 + 你的新问题</span><span class="slide-number" data-current="13" data-total="17"></span></div>
-  <div class="notes">
-    <p>第二轮看起来大模型记得第一轮，其实不是。第二轮的输入被悄悄改成了"历史 + 新问题"。程序会把前面说过的话一起塞进去，再让模型回答。这样模型才能看起来在延续对话。</p>
-  </div>
+  <div style="background:var(--surface-2);border:1px dashed var(--border-strong);border-radius:var(--radius-sm);padding:12px 18px;margin-top:18px;font-size:14px;color:#6b4d62;max-width:820px">💡 这一整段拼起来的输入，我们叫它「<strong>上下文</strong>」。补充：输入其实通常分两层——一层是你这次说的话，一层是每次都固定带上的「设定」。后面讲对话技巧时会用到。</div>
+  <div class="deck-footer"><span>上下文 = 历史对话 + 新问题</span><span class="slide-number" data-current="11" data-total="38"></span></div>
+  <aside class="notes">
+    <p>你以为它记得前面聊过什么？<strong>其实不是</strong>。</p>
+    <p>每次你发一条新消息，程序都会<strong>把「前面所有的对话」加上「你这次的新问题」，拼成一整段</strong>，重新喂给大模型。它看了这一整段，再续出回复。</p>
+    <p>这一整段拼起来的输入，有个名字，叫「<strong>上下文</strong>」。记住这个词，后面经常用。</p>
+    <p>顺便说一个细节，后面会用到：<strong>输入其实分两层</strong>——一层是你这次说的话，一层是每次都固定带上的「设定」。这个先记着，讲到对话技巧时我就不绕了。</p>
+  </aside>
 </section>
 
-<!-- 14. 多轮对话 = 多次运行串联 -->
-<section class="slide" data-title="多轮对话 = 多次运行串联">
-  <p class="kicker">第四课 · AI</p>
-  <h2 class="h2">多轮对话 = 多次运行串联</h2>
-  <p class="lede">不是一次超长思考，而是很多次一问一答拼起来的</p>
+<!-- 12. 上下文是有限的 -->
+<section class="slide" data-title="上下文是有限的">
+  <p class="kicker">第三课 · 大模型</p>
+  <h2 class="h2">上下文的「容量」是有限的</h2>
+  <p class="lede">能同时装下的字有上限。装满了，最早聊的内容就被丢掉，它就「忘了」</p>
   <div class="visual">
-    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
-      <rect x="60" y="130" width="140" height="100" rx="20" fill="white" stroke="#f49bb8" stroke-width="3"/>
-      <text x="130" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 1</text>
-      <text x="130" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">问 1 / 答 1</text>
-      <path d="M200 180 L280 180" stroke="#c4a0e8" stroke-width="3" marker-end="url(#arrow-purple)"/>
-      <rect x="280" y="130" width="140" height="100" rx="20" fill="white" stroke="#c4a0e8" stroke-width="3"/>
-      <text x="350" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 2</text>
-      <text x="350" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">历史+问2</text>
-      <path d="M420 180 L500 180" stroke="#c4a0e8" stroke-width="3" marker-end="url(#arrow-purple)"/>
-      <rect x="500" y="130" width="140" height="100" rx="20" fill="white" stroke="#b5d5f0" stroke-width="3"/>
-      <text x="570" y="170" text-anchor="middle" font-size="16" fill="#3a1f33">运行 3</text>
-      <text x="570" y="200" text-anchor="middle" font-size="14" fill="#6b4d62">历史+问3</text>
-      <text x="400" y="280" text-anchor="middle" font-size="18" fill="#6b4d62">每次运行都独立，只是程序把历史一起带进去</text>
-      <defs>
-        <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-          <path d="M0,0 L0,6 L9,3 z" fill="#c4a0e8"/>
-        </marker>
-      </defs>
+    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="70" width="600" height="160" rx="28" fill="white" stroke="#f49bb8" stroke-width="3"/>
+      <text x="380" y="115" text-anchor="middle" font-size="22" fill="#3a1f33" font-weight="600">上下文盒子</text>
+      <rect x="110" y="140" width="140" height="50" rx="8" fill="#f49bb8" opacity="0.3" stroke="#ef9a9a" stroke-dasharray="4 3"/>
+      <text x="180" y="170" text-anchor="middle" font-size="13" fill="#a28a99">可能被丢掉</text>
+      <rect x="260" y="140" width="140" height="50" rx="8" fill="#b5d5f0" opacity="0.5"/>
+      <rect x="410" y="140" width="140" height="50" rx="8" fill="#c4a0e8" opacity="0.6"/>
+      <rect x="560" y="140" width="90" height="50" rx="8" fill="#f7d08a"/>
+      <text x="380" y="270" text-anchor="middle" font-size="15" fill="#6b4d62">旧内容在左边会被丢；新内容在右边</text>
     </svg>
   </div>
-  <div class="deck-footer"><span>多次运行 + 累积历史 = 连贯对话</span><span class="slide-number" data-current="14" data-total="17"></span></div>
-  <div class="notes">
-    <p>所以真正的多轮对话，不是大模型一次想了很久，而是程序把每次运行拼接起来。每次运行还是一问一答，只是程序把前面所有对话都加到新的输入里。这是大模型能连续聊天的关键。</p>
-  </div>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:10px 18px;margin-top:14px;font-size:14px;color:#6b4d62;max-width:700px;text-align:center">💡「容量」不是指一句话的长短，是指能<strong>同时装下多少字</strong></div>
+  <div class="deck-footer"><span>容量有限 → 太久的事会忘</span><span class="slide-number" data-current="12" data-total="38"></span></div>
+  <aside class="notes">
+    <p>这个装上下文的盒子，<strong>不是无限大的</strong>。</p>
+    <p>它能同时装下的字，有一个上限，这个上限我们叫「<strong>容量</strong>」。注意，不是指一句话有多长，是指<strong>能同时装下多少字</strong>。</p>
+    <p>一旦装满了，<strong>最早聊的那些内容，就会被丢出去</strong>。它就「忘了」。</p>
+    <p>所以有时候你跟 AI 聊着聊着，提到很早之前说的事，它一脸懵——<strong>不是它故意装傻，是真的被丢了</strong>。这个特点后面讲避坑的时候还要用。</p>
+  </aside>
 </section>
 
-<!-- 15. 上下文有限 -->
-<section class="slide" data-title="上下文有限">
-  <p class="kicker">第四课 · AI</p>
-  <h2 class="h2">上下文长度是有限的</h2>
-  <p class="lede">对话历史太多，盒子装不下，旧内容会被丢掉</p>
+<!-- 13. 训练 -->
+<section class="slide" data-title="它的本事从哪来">
+  <p class="kicker">第四课 · 它的边界</p>
+  <h2 class="h2">它的本事从哪来：训练</h2>
+  <p class="lede">把「读过」整个互联网、记住词与词怎么搭配的过程，叫「训练」</p>
   <div class="visual">
-    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
-      <rect x="80" y="100" width="600" height="160" rx="28" fill="white" stroke="#f49bb8" stroke-width="3"/>
-      <text x="380" y="150" text-anchor="middle" font-size="22" fill="#3a1f33">上下文盒子</text>
-      <rect x="110" y="180" width="140" height="40" rx="8" fill="#f49bb8" opacity="0.35"/>
-      <rect x="260" y="180" width="140" height="40" rx="8" fill="#b5d5f0" opacity="0.5"/>
-      <rect x="410" y="180" width="140" height="40" rx="8" fill="#c4a0e8" opacity="0.6"/>
-      <rect x="560" y="180" width="90" height="40" rx="8" fill="#f7d08a"/>
-      <text x="380" y="260" text-anchor="middle" font-size="16" fill="#6b4d62">旧内容在左边，可能被丢弃；新内容在右边</text>
-    </svg>
+    <div class="arrow-illustration">
+      <div class="box" style="min-width:180px"><div style="font-size:32px">📚</div><div>整个互联网的文字</div></div>
+      <div class="arrow">→</div>
+      <div class="box" style="min-width:140px;border-color:#c4a0e8"><div style="font-size:32px">🔧</div><div>训练</div></div>
+      <div class="arrow">→</div>
+      <div class="box" style="min-width:140px"><div style="font-size:32px">🧠</div><div>大模型</div></div>
+    </div>
+    <div style="text-align:center;margin-top:14px;font-size:15px;color:#6b4d62">记住「什么词后面常跟什么」</div>
   </div>
-  <div class="deck-footer"><span>上下文有限 → 太久的事会忘记</span><span class="slide-number" data-current="15" data-total="17"></span></div>
-  <div class="notes">
-    <p>但是这个装历史的盒子不是无限大的。大模型能同时看到的文字长度有限，叫"上下文长度"。如果聊得太久，最前面的内容会被丢掉，模型就"忘记"了。所以有时候你提到之前的事，它会一脸懵。</p>
-  </div>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:12px 18px;margin-top:16px;font-size:14px;color:#6b4d62;max-width:780px">但它「读」<strong>不像人那样去理解内容</strong>，只是记住了「哪些词经常挨在一起」这种规律</div>
+  <div class="deck-footer"><span>训练 = 读海量文字，记住词的搭配规律</span><span class="slide-number" data-current="13" data-total="38"></span></div>
+  <aside class="notes">
+    <p>上一页我说它「读过」很多东西，有了语言直觉。<strong>这个让它「读」的过程，有个名字，叫「训练」</strong>。</p>
+    <p>训练就是：把几乎整个互联网的文字喂给它，让它记住「<strong>什么词后面通常跟着什么词</strong>」。</p>
+    <p>但这里有个特别重要的区别，请你一定记住：<strong>它「读」不像人那样去理解内容</strong>。人读书是理解意思、记住故事；它「读」只是记住了「哪些词经常挨在一起」这种<strong>规律</strong>。</p>
+    <p>记住「它只记规律、不记事实」这一点，下一页你就会明白，它为什么会一本正经地胡说八道。</p>
+  </aside>
 </section>
 
-<!-- 16. 提示词 上下文 技能 记忆 -->
-<section class="slide" data-title="提示词 上下文 技能 记忆">
-  <p class="kicker">第五课 · 概念</p>
-  <h2 class="h2">四个关键概念</h2>
+<!-- 14. 它懂规律不懂事实 -->
+<section class="slide" data-title="它懂规律不懂事实">
+  <p class="kicker">第四课 · 它的边界</p>
+  <h2 class="h2">它给的是「最可能的字」，不是「事实」</h2>
+  <p class="lede">所以它会一本正经地胡说八道</p>
   <div class="visual">
-    <div class="two-col" style="max-width:1000px">
-      <div class="card card-accent">
-        <h3>💬 提示词</h3>
-        <p class="dim">你给 AI 的"任务说明书"</p>
+    <div class="two-col" style="max-width:900px">
+      <div class="card" style="border-top:4px solid #9dd9a3">
+        <div style="font-size:32px">✅</div>
+        <h3>规律它见得多</h3>
+        <div style="font-size:15px;color:#6b4d62">「故宫在____」后面常跟「北京」<br>→ 填「北京」<span style="color:#5a9e60;font-weight:600">（对）</span></div>
       </div>
-      <div class="card card-accent-2">
-        <h3>📜 上下文</h3>
-        <p class="dim">当前对话里 AI 能看到的全部内容</p>
-      </div>
-      <div class="card card-accent-3">
-        <h3>🛠️ 技能</h3>
-        <p class="dim">让 AI 调用外部工具，比如查天气、算工资</p>
-      </div>
-      <div class="memory-box">
-        <h3>🧠 记忆</h3>
-        <p class="dim">把重要信息存起来，跨对话也能用</p>
+      <div class="card" style="border-top:4px solid #ef9a9a">
+        <div style="font-size:32px">❌</div>
+        <h3>冷知识它没见过</h3>
+        <div style="font-size:15px;color:#6b4d62">也照「最顺口的接法」<br>填一个看起来像答案的假东西<span style="color:#c55;font-weight:600">（错）</span></div>
       </div>
     </div>
   </div>
-  <div class="deck-footer"><span>提示词 · 上下文 · 技能 · 记忆</span><span class="slide-number" data-current="16" data-total="17"></span></div>
-  <div class="notes">
-    <p>最后归纳四个概念：提示词就是你发给 AI 的话；上下文是当前 AI 能看到的全部历史；技能是 AI 调用外部工具的能力；记忆是把重要信息存起来，换一轮对话也能用。它们一起让 AI 更好用。</p>
-  </div>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:12px 18px;margin-top:16px;font-size:14px;color:#6b4d62;max-width:820px">AI 圈把这种「一本正经胡说」叫「<strong>幻觉</strong>」——和人生病的幻觉不是一回事，只是借用了这个词</div>
+  <div class="deck-footer"><span>规律 ≠ 事实 → 会「幻觉」</span><span class="slide-number" data-current="14" data-total="38"></span></div>
+  <aside class="notes">
+    <p>既然它只记规律、不记事实，那就会出问题。<strong>它每次给的，都是「最可能的下一个字」，不是「事实真相」</strong>。</p>
+    <p>看个对比。左边：它知道「故宫在」后面常跟「北京」，所以填「北京」——这是<strong>对的</strong>，因为这条规律它见过太多次。</p>
+    <p>右边：但如果你问它一个<strong>它没见过的冷知识</strong>，它也不会说「我不知道」，它照样按「最顺口的接法」，给你填一个看起来像答案的东西——结果就是<strong>错的，假的</strong>。</p>
+    <p>AI 圈管这种一本正经胡说叫「<strong>幻觉</strong>」。特别说明一下，跟人生病的幻觉不是一回事，只是借了这个词。所以你用 AI，<strong>不能它说什么就信什么，重要的事一定要核实</strong>。</p>
+  </aside>
 </section>
 
-<!-- 17. Q&A -->
-<section class="slide center tc" data-title="Q&A">
-  <div class="big-emoji mb-m">💬</div>
-  <h2 class="h2">有问题吗？</h2>
-  <p class="lede" style="margin:14px auto">从输入输出开始，电脑、程序、AI 都变简单了</p>
+<!-- 15. 它还会顺着你 -->
+<section class="slide" data-title="它还会顺着你">
+  <p class="kicker">第四课 · 它的边界</p>
+  <h2 class="h2">它还会「顺着你」说话</h2>
+  <p class="lede"><strong>因为你话里的倾向，也成了它接龙的输入</strong>，它就顺着最顺口的接法接下去</p>
+  <div class="visual">
+    <div class="context-box" style="max-width:720px">
+      <div class="line">🧑「这个方案没问题吧？」 → 🤖「没问题！非常好！」 <span style="color:#c4a0e8">（顺着）</span></div>
+      <div class="line">🧑「这个方案有什么问题？」 → 🤖「有几个问题……」 <span style="color:#6b9ac7">（不顺着）</span></div>
+    </div>
+  </div>
+  <div style="background:rgba(247,208,138,.2);border-radius:var(--radius-sm);padding:12px 18px;margin-top:16px;font-size:14px;color:#3a1f33;max-width:820px">⚠️ 哪怕你的说法其实是对的，只要<strong>语气在求认同</strong>，它也可能反过来附和一个错的</div>
+  <div class="deck-footer"><span>你的语气 = 它的输入 → 它会顺着接</span><span class="slide-number" data-current="15" data-total="38"></span></div>
+  <aside class="notes">
+    <p>除了胡说，大模型还有一个毛病：<strong>它会「顺着你」</strong>。</p>
+    <p>为什么？根源还是在接龙这里——<strong>你话里的倾向，也成了它接龙输入的一部分</strong>。你问「没问题吧？」，它就顺着「没问题」往下接；你问「有什么问题？」，它就顺着「有问题」往下接。</p>
+    <p>更糟的是，<strong>哪怕你的说法其实是对的，只要你语气在求认同</strong>，它也可能反过来，附和一个错的答案来顺着你。</p>
+    <p>所以你跟 AI 聊天，<strong>问法本身就会影响答案</strong>。这个后面讲避坑时还要讲怎么对付。先记住：它会顺着你的语气走。</p>
+  </aside>
+</section>
+
+<!-- 16. 关键转折 -->
+<section class="slide" data-title="你的输入是唯一依据">
+  <p class="kicker">第五课 · 为什么不能随便说</p>
+  <h2 class="h2">记住这句话：你的输入，是它这次接龙的<strong style="color:var(--accent)">唯一依据</strong></h2>
+  <p class="lede">你没给的，它的世界里就没有</p>
+  <div class="visual">
+    <div style="text-align:center;padding:20px 0">
+      <div style="font-size:64px;margin-bottom:16px">📥</div>
+      <div style="background:linear-gradient(135deg,rgba(244,155,184,.15),rgba(181,213,240,.15));border:2px solid var(--accent);border-radius:var(--radius);padding:24px 40px;display:inline-block">
+        <div style="font-size:26px;color:#3a1f33;font-weight:700">你给的 = 它这次唯一的依据</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;font-size:14px;color:#a28a99;margin-top:12px">所以上一页说的「顺着你」，根源就在这里——你的话就是它这次能依据的全部</div>
+  <div class="deck-footer"><span>输入 = 唯一依据</span><span class="slide-number" data-current="16" data-total="38"></span></div>
+  <aside class="notes">
+    <p>这一页是后面所有技巧的<strong>总原理，一定要记住</strong>。</p>
+    <p><strong>你这次给它的输入，是它这次接龙的唯一依据</strong>。你没给的，它的世界里就没有。它只能基于你这次说的，去续下一个字。</p>
+    <p>所以上一页讲的「它会顺着你」，<strong>根源就在这里</strong>——你的话就是它这次能参考的全部。你怎么问，很大程度上决定了它怎么答。</p>
+    <p>这句话接下来还会反复用到。记住它，你就懂了为什么和 AI 说话不能随便说。</p>
+  </aside>
+</section>
+
+<!-- 17. 你没给的它只能猜 -->
+<section class="slide" data-title="你没给的它只能猜">
+  <p class="kicker">第五课</p>
+  <h2 class="h2">你没告诉它的，它只能靠猜</h2>
+  <p class="lede">猜，就是用它记住的规律去填空。猜对了运气好，猜错了就答非所问</p>
+  <div class="visual">
+    <div class="arrow-illustration">
+      <div class="box" style="border-color:#f7d08a"><div style="font-size:32px">❓</div><div>信息缺口</div></div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:#c4a0e8"><div style="font-size:32px">🤖</div><div>用规律猜</div></div>
+      <div class="arrow">→</div>
+      <div class="box" style="border-color:#ef9a9a"><div style="font-size:32px">❌</div><div>可能猜错</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>缺信息 → 它只能猜 → 可能猜错</span><span class="slide-number" data-current="17" data-total="38"></span></div>
+  <aside class="notes">
+    <p>既然你的输入是它唯一的依据，那<strong>你没给的信息怎么办？它只能猜</strong>。</p>
+    <p>猜，就是用它记住的那些规律去填空。有时候猜对——那是运气好；<strong>有时候猜错，结果就是答非所问</strong>。</p>
+    <p>所以很多时候你觉得「这个 AI 怎么这么笨，完全不懂我」，其实不是它笨，<strong>是你给的信息不够，逼着它去猜</strong>。下一页我用一个对比给你看，差别有多大。</p>
+  </aside>
+</section>
+
+<!-- 18. 对比演示 -->
+<section class="slide" data-title="随便说vs说清楚">
+  <p class="kicker">第五课</p>
+  <h2 class="h2">同一件事，两种说法</h2>
+  <p class="lede">模型在这两种输入下，「看到的世界」完全不同</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:1000px;align-items:stretch">
+      <div class="card" style="border-top:4px solid #ef9a9a">
+        <h3>🙁 随便说</h3>
+        <div style="background:var(--surface-2);border-radius:8px;padding:12px 16px;font-size:16px;color:#3a1f33;margin-bottom:12px">「帮我写个 PPT」</div>
+        <div style="font-size:14px;color:#6b4d62">模型只能瞎猜：<br>主题？给谁看？几页？什么风格？<br>全是问号 ❓❓❓❓</div>
+      </div>
+      <div class="card" style="border-top:4px solid #9dd9a3">
+        <h3>😀 说清楚</h3>
+        <div style="background:var(--surface-2);border-radius:8px;padding:12px 16px;font-size:15px;color:#3a1f33;margin-bottom:12px">「帮我写一份给<strong>大学生</strong>的、<strong>AI 入门</strong>主题、<strong>8 页</strong>、<strong>轻松风格</strong>的 PPT」</div>
+        <div style="font-size:14px;color:#6b4d62">每个信息都对齐 ✓<br>模型有据可依</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>给清楚 = 让它少猜 = 答得好</span><span class="slide-number" data-current="18" data-total="38"></span></div>
+  <aside class="notes">
+    <p>看个对比，这个对比特别能说明问题。</p>
+    <p>同一个需求——做 PPT。左边<strong>只说「帮我写个 PPT」</strong>，模型能干嘛？它只能瞎猜：什么主题？给谁看？几页？什么风格？全是问号，最后只能给你一个通用的、可能完全不沾边的东西。</p>
+    <p>右边<strong>说清楚</strong>：「给大学生的、AI 入门主题、8 页、轻松风格」。你看，每个关键信息都给到了，模型有据可依，做出来的东西八九不离十。</p>
+    <p><strong>同一个模型，给清楚和给模糊，结果天差地别</strong>。所以问题往往不在 AI，在于你怎么给它信息。</p>
+  </aside>
+</section>
+
+<!-- 19. 结论 -->
+<section class="slide" data-title="给的不够">
+  <p class="kicker">第五课</p>
+  <h2 class="h2">回答得不好，很多时候是「你给的不够」</h2>
+  <p class="lede">当然模型本身也会犯错（见前面「幻觉」），但先把输入给足，是你能掌控的部分</p>
+  <div class="visual">
+    <div style="text-align:center">
+      <div style="font-size:56px;margin-bottom:16px">🎯</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 40px;display:inline-block;max-width:620px">
+        <div style="font-size:20px;color:#3a1f33;line-height:1.7">想得到好答案？<br><strong style="color:var(--accent)">先把信息给足</strong>，再谈别的</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>先把信息给足</span><span class="slide-number" data-current="19" data-total="38"></span></div>
+  <aside class="notes">
+    <p>所以这一节的结论是：<strong>回答得不好，很多时候不是模型的问题，而是你给的信息不够</strong>。</p>
+    <p>当然，模型本身也会幻觉、会犯错，那是你控制不了的。但<strong>把输入给足，是你能掌控的部分</strong>。</p>
+    <p>那到底怎么才算「给足」？有哪些方向可以补信息？<strong>下一节，我就给你七个具体动作</strong>，照着做，你和 AI 的对话质量会明显提升。</p>
+  </aside>
+</section>
+
+<!-- 20. 总原则 -->
+<section class="slide" data-title="总原则">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">总原则：给足它「这次需要知道的一切」</h2>
+  <p class="lede">具体有七个动作，下面逐个讲</p>
+  <div class="visual">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:900px">
+      <span class="tag tag-pink">① 角色</span>
+      <span class="tag tag-blue">② 背景</span>
+      <span class="tag tag-yellow">③ 标准</span>
+      <span class="tag tag-pink">④ 例子</span>
+      <span class="tag tag-blue">⑤ 格式</span>
+      <span class="tag tag-yellow">⑥ 拆步骤</span>
+      <span class="tag tag-pink">⑦ 迭代</span>
+    </div>
+  </div>
+  <div class="deck-footer"><span>给足 = 角色+背景+标准+例子+格式+拆步骤+迭代</span><span class="slide-number" data-current="20" data-total="38"></span></div>
+  <aside class="notes">
+    <p>这一节是今天的核心干货：<strong>七个让 AI 听懂你的动作</strong>。</p>
+    <p>总原则就一句话——<strong>给足它「这次需要知道的一切」</strong>。不是每次都要全用上，但知道这七个方向，你就知道往哪儿补信息。</p>
+    <p>它们分别是：给角色、给背景、给成功标准、给例子、定格式、拆步骤、迭代追问。下面我一页一个，逐个讲清楚。</p>
+  </aside>
+</section>
+
+<!-- 21. 给角色 -->
+<section class="slide" data-title="给角色">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">① 给角色：告诉它「你是谁」</h2>
+  <p class="lede">限定它接龙的角度。让「编辑」接和让「小学生」接，结果完全不同</p>
+  <div class="visual">
+    <div class="terminal" style="max-width:680px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>你给 AI 的话</span></div>
+      <pre><span class="code-cmt"># 先给它一个身份</span>
+你是一位 <span class="highlight-pink">资深编辑</span>，擅长把复杂内容讲简单……</pre>
+    </div>
+  </div>
+  <div class="deck-footer"><span>角色 = 给接龙一个方向</span><span class="slide-number" data-current="21" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第一个动作：<strong>给它一个角色</strong>。就是先告诉它「你是谁」。</p>
+    <p>比如你让它写一段话，你先说「<strong>你是一位资深编辑</strong>」，它就从编辑的角度来接。你如果说「你是一个小学生」，它就从小学的角度来写。</p>
+    <p><strong>同一个题目，给不同的角色，结果完全不一样</strong>。角色其实就是给它接龙限定了一个方向，让它知道该用哪种语气、什么水平来回答你。</p>
+  </aside>
+</section>
+
+<!-- 22. 给背景 -->
+<section class="slide" data-title="给背景">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">② 给背景：给它一个不跑偏的底</h2>
+  <p class="lede">你的情况、限制、目标，都告诉它，它才不会乱猜</p>
+  <div class="visual">
+    <div class="terminal" style="max-width:680px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>你给 AI 的话</span></div>
+      <pre><span class="code-cmt"># 告诉它你的处境</span>
+我的情况是：<span class="highlight-blue">完全不懂电脑</span>
+我的限制是：<span class="highlight-blue">不超过 300 字</span>
+我的目标是：<span class="highlight-blue">能看懂大模型是什么</span></pre>
+    </div>
+  </div>
+  <div class="deck-footer"><span>背景 = 让它知道你的处境</span><span class="slide-number" data-current="22" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第二个动作：<strong>给背景</strong>。就是把你的处境告诉它。</p>
+    <p>具体说三样：<strong>你的情况是什么、有什么限制、目标是什么</strong>。比如「我完全不懂电脑」「不要超过 300 字」「我想看懂大模型是什么」。</p>
+    <p>它知道了你的处境，<strong>就不会往歪了猜</strong>。否则它只能假设一个「标准用户」，结果可能根本不是你要的。背景就是给它一个不会跑偏的底。</p>
+  </aside>
+</section>
+
+<!-- 23. 给成功标准 -->
+<section class="slide" data-title="给成功标准">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">③ 给成功标准：做成什么样算好</h2>
+  <p class="lede">比如「要让完全不懂的人看懂」「不要超过 300 字」「要表格不要段落」</p>
+  <div class="visual">
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:860px">
+      <div class="card card-accent" style="min-width:200px"><div style="font-size:28px">👀</div><h3>看得懂</h3><div style="font-size:14px;color:#6b4d62">让完全不懂的人也能看懂</div></div>
+      <div class="card card-accent-2" style="min-width:200px"><div style="font-size:28px">📏</div><h3>有节制</h3><div style="font-size:14px;color:#6b4d62">不超过 300 字</div></div>
+      <div class="card card-accent-3" style="min-width:200px"><div style="font-size:28px">📊</div><h3>要形式</h3><div style="font-size:14px;color:#6b4d62">要表格，不要段落</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>标准 = 让它知道「好」长什么样</span><span class="slide-number" data-current="23" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第三个动作：<strong>告诉它做成什么样算好</strong>。</p>
+    <p>比如「要让完全不懂的人也能看懂」「不要超过 300 字」「要表格不要段落」。<strong>有标准，它才知道往哪个方向使劲</strong>。</p>
+    <p>很多时候 AI 给的东西你不满意，不是它不会，是<strong>你没告诉它「好」的标准是什么</strong>。把标准说清楚，它就有奔头了。</p>
+  </aside>
+</section>
+
+<!-- 24. 给例子 -->
+<section class="slide" data-title="给例子">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">④ 给例子：最管用的一招</h2>
+  <p class="lede">给一两个「你要的样子」的例子，它看例子就懂你要的格式和风格</p>
+  <div class="visual">
+    <div class="terminal" style="max-width:720px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>你给 AI 的话</span></div>
+      <pre><span class="code-cmt"># 给它看一个你要的样子</span>
+比如这样：
+<span class="highlight-pink">输入：</span>苹果   → <span class="highlight-blue">输出：</span>一种水果
+<span class="highlight-pink">输入：</span>北京   → <span class="highlight-blue">输出：</span>一座城市
+现在请你按这个格式，处理「量子」。</pre>
+    </div>
+  </div>
+  <div class="deck-footer"><span>例子 = 最快让 AI 懂你要什么</span><span class="slide-number" data-current="24" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第四个，也是<strong>最管用的一招：给例子</strong>。</p>
+    <p>你光跟它说「我要表格」，它可能理解成各种表格。但<strong>你直接给它看一个你要的表格的样子</strong>，它立刻就懂了。</p>
+    <p>给一两个例子，是让 AI 懂你要什么的最快方式。<strong>例子比描述更精确</strong>——你描述半天，不如直接给它看一个。所以这个动作，建议多用。</p>
+  </aside>
+</section>
+
+<!-- 25. 定格式和约束 -->
+<section class="slide" data-title="定格式和约束">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">⑤ 定格式：要表格、要几条、不要什么</h2>
+  <p class="lede">明确告诉它输出的形式和边界</p>
+  <div class="visual">
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:860px">
+      <div class="card"><div style="font-size:28px">📋</div><h3>要什么形式</h3><div style="font-size:14px;color:#6b4d62">表格 / 列表 / 分点</div></div>
+      <div class="card card-accent"><div style="font-size:28px">🔢</div><h3>要几条</h3><div style="font-size:14px;color:#6b4d62">3 条 / 5 条</div></div>
+      <div class="card card-accent-2"><div style="font-size:28px">🚫</div><h3>不要什么</h3><div style="font-size:14px;color:#6b4d62">不要长篇大论</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>格式 = 输出的形状</span><span class="slide-number" data-current="25" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第五个：<strong>定格式</strong>。就是你想要它输出成什么样子，直接说。</p>
+    <p>要表格还是要列表？要几条？不要什么？<strong>这些都明确告诉它</strong>。比如「给我一个三列的表格」「列 5 条，不要超过」「不要开头那些客套话」。</p>
+    <p>格式说清楚，省得它给你一大段你还得自己整理。这一步很快，但效果很明显。</p>
+  </aside>
+</section>
+
+<!-- 26. 拆步骤 -->
+<section class="slide" data-title="拆步骤">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">⑥ 拆步骤：一次别让它干太多</h2>
+  <p class="lede">一次让它做太多，要么超出上下文容量（第 12 页）要么它更容易猜错（第 14 页）</p>
+  <div class="visual">
+    <div class="arrow-illustration" style="flex-wrap:wrap">
+      <div class="box" style="min-width:120px;border-color:#ef9a9a"><div style="font-size:24px">❌</div><div>一口气全交</div></div>
+      <div style="font-size:24px;color:#a28a99">vs</div>
+      <div class="box" style="min-width:100px;border-color:#9dd9a3"><div style="font-size:24px">1️⃣</div></div>
+      <div class="arrow" style="font-size:20px">→</div>
+      <div class="box" style="min-width:100px;border-color:#9dd9a3"><div style="font-size:24px">2️⃣</div></div>
+      <div class="arrow" style="font-size:20px">→</div>
+      <div class="box" style="min-width:100px;border-color:#9dd9a3"><div style="font-size:24px">3️⃣</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>拆步骤 = 避开容量和猜错的坑</span><span class="slide-number" data-current="26" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第六个：<strong>拆步骤</strong>。一次让它干太多，容易出问题。</p>
+    <p>为什么呢？回想前面讲的——一次塞太多，<strong>要么超出上下文容量，它会忘</strong>（第 12 页讲过）；<strong>要么它更容易猜错</strong>（第 14 页讲过）。</p>
+    <p>所以复杂任务，<strong>别一口气全交给它，拆成几步，一步一步来</strong>。第一步做完了，确认没问题，再给第二步。这样每一步它都专注，质量也高。</p>
+  </aside>
+</section>
+
+<!-- 27. 迭代追问 -->
+<section class="slide" data-title="迭代追问">
+  <p class="kicker">第六课 · 怎样好好说话</p>
+  <h2 class="h2">⑦ 迭代追问：一次说不清是常态</h2>
+  <p class="lede">对话是「一起把它聊清楚」的过程，不满意就追问、修正</p>
+  <div class="visual">
+    <div style="text-align:center">
+      <div style="font-size:56px;margin-bottom:16px">🔄</div>
+      <div style="font-size:18px;color:#6b4d62;max-width:560px;margin:0 auto;line-height:1.7">第一次不满意？<strong>追问</strong><br>还是不对？<strong>换个说法再来</strong><br>对话本来就是<strong>一起把它聊清楚</strong>的过程</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>迭代 = 一起聊清楚</span><span class="slide-number" data-current="27" data-total="38"></span></div>
+  <aside class="notes">
+    <p>第七个：<strong>迭代</strong>。这也是个特别重要的心态。</p>
+    <p><strong>一次说不清楚，是常态</strong>，别指望一句话就完美。第一次不满意，就追问；还是不对，就换个说法再来。</p>
+    <p>对话本来就是<strong>「一起把它聊清楚」的过程</strong>。AI 不嫌烦，你可以反复跟它来。很多人用一次觉得不好用就放弃了，其实多追问两轮，往往就能得到想要的结果。</p>
+  </aside>
+</section>
+
+<!-- 28. 它忘了怎么办 -->
+<section class="slide" data-title="它忘了怎么办">
+  <p class="kicker">第七课 · 避坑</p>
+  <h2 class="h2">它忘了怎么办？三个动作</h2>
+  <div class="visual">
+    <div class="three-col" style="max-width:960px">
+      <div class="card card-accent"><div style="font-size:32px">⬆️</div><h3>① 放开头</h3><div style="font-size:14px;color:#6b4d62">关键信息放开头，因为最早的最容易被丢</div></div>
+      <div class="card card-accent-2"><div style="font-size:32px">🔁</div><h3>② 重复</h3><div style="font-size:14px;color:#6b4d62">必要时，重复一遍重要的事</div></div>
+      <div class="card card-accent-3"><div style="font-size:32px">📌</div><h3>③ 放设定层</h3><div style="font-size:14px;color:#6b4d62">放进每次都带的「设定」里（第 11 页提过的那层）</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>放前面 · 重复 · 放设定层</span><span class="slide-number" data-current="28" data-total="38"></span></div>
+  <aside class="notes">
+    <p>前面讲了它会忘，那<strong>它忘了怎么办？三个动作</strong>。</p>
+    <p>第一，<strong>关键信息放开头</strong>。因为最早聊的最容易被丢，但你<strong>把重要的放最前面</strong>，反而……不对，应该说，重要的信息要在对话里反复出现，不容易被挤掉。</p>
+    <p>第二，<strong>必要时重复一遍</strong>。隔几句就把关键要求再强调一次。</p>
+    <p>第三，<strong>放进每次都带的「设定」里</strong>——还记得第 11 页说的吗？输入分两层，有一层是每次都固定带上的「设定」。把最重要的东西放进那层，它每次都会带上，就不容易忘。</p>
+  </aside>
+</section>
+
+<!-- 29. 小心它迎合你 -->
+<section class="slide" data-title="小心它迎合你">
+  <p class="kicker">第七课 · 避坑</p>
+  <h2 class="h2">怎么提问才不「诱导」它</h2>
+  <p class="lede">你的语气和预设会变成它的输入（第 15 页讲过）。想听真话，就别用求认同的问法</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:880px">
+      <div class="card" style="border-top:4px solid #ef9a9a">
+        <div style="font-size:24px">🙁</div>
+        <h3>求认同的问</h3>
+        <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:15px;margin-top:8px">「这个方案<strong>没问题吧</strong>？」</div>
+        <div style="font-size:13px;color:#c55;margin-top:6px">→ 它大概率说「没问题」</div>
+      </div>
+      <div class="card" style="border-top:4px solid #9dd9a3">
+        <div style="font-size:24px">😀</div>
+        <h3>开放的问</h3>
+        <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:15px;margin-top:8px">「你<strong>觉得怎么样</strong>？」</div>
+        <div style="font-size:13px;color:#5a9e60;margin-top:6px">→ 它更容易说真话</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>开放式提问 → 减少迎合</span><span class="slide-number" data-current="29" data-total="38"></span></div>
+  <aside class="notes">
+    <p>前面讲过它会顺着你。那<strong>怎么提问才不会被它「带歪」</strong>？</p>
+    <p>关键就是：<strong>别用求认同的问法</strong>。你看左边，「这个方案没问题吧？」——你话里已经预设了「没问题」，它就会顺着说「没问题」。哪怕有问题，它也不告诉你。</p>
+    <p>换成右边，<strong>开放式地问：「你觉得怎么样？」</strong>。你没有给倾向，它就更容易客观地说出真实看法。</p>
+    <p>所以<strong>想听真话，就让问题保持开放</strong>，别把自己的答案塞进问题里。</p>
+  </aside>
+</section>
+
+<!-- 30. 什么时候别用大模型 -->
+<section class="slide" data-title="什么时候别用大模型">
+  <p class="kicker">第七课 · 避坑</p>
+  <h2 class="h2">有些事，别交给大模型</h2>
+  <p class="lede">算数、查准确事实、要 100% 确定——这些别交给会「猜」的大模型</p>
+  <div class="visual">
+    <div class="three-col" style="max-width:960px">
+      <div class="card"><div style="font-size:40px;text-align:center">🧮</div><h3 style="text-align:center">算数</h3><div style="font-size:14px;color:#6b4d62;text-align:center">用计算器<br>不会猜错</div></div>
+      <div class="card"><div style="font-size:40px;text-align:center">🔍</div><h3 style="text-align:center">查准确事实</h3><div style="font-size:14px;color:#6b4d62;text-align:center">用搜索<br>查到的是真的</div></div>
+      <div class="card"><div style="font-size:40px;text-align:center">⚙️</div><h3 style="text-align:center">要 100% 确定</h3><div style="font-size:14px;color:#6b4d62;text-align:center">用固定步骤的程序<br>结果一定对</div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>要确定 → 别用会猜的大模型</span><span class="slide-number" data-current="30" data-total="38"></span></div>
+  <aside class="notes">
+    <p>大模型很强，但<strong>不是万能的</strong>。有些事，真不该交给它。</p>
+    <p>算数——交给<strong>计算器</strong>，因为大模型会猜，算数不能猜。</p>
+    <p>查准确事实——交给<strong>搜索</strong>，因为大模型可能幻觉，给你一个编的答案。</p>
+    <p>要 100% 确定的结果——交给<strong>固定步骤的程序</strong>，那种按死步骤走的，结果一定对。</p>
+    <p>一句话：<strong>会「猜」的大模型，不适合做「不能猜」的事</strong>。该用专门的工具，就用专门的工具。</p>
+  </aside>
+</section>
+
+<!-- 31. 隐私风险 -->
+<section class="slide" data-title="隐私风险">
+  <p class="kicker">第七课 · 避坑</p>
+  <h2 class="h2">别把敏感信息喂给在线模型</h2>
+  <p class="lede">有些模型能装在自己电脑上（不联网，更安全）；这里说的风险主要是联网的在线模型</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:900px">
+      <div class="card" style="border-top:4px solid #ef9a9a">
+        <div style="font-size:32px">🚫</div>
+        <h3>别喂这些</h3>
+        <div style="font-size:15px;color:#6b4d62">身份证号 · 密码<br>病历 · 公司机密<br>客户信息</div>
+      </div>
+      <div class="card" style="border-top:4px solid #9dd9a3">
+        <div style="font-size:32px">💻</div>
+        <h3>更安全的做法</h3>
+        <div style="font-size:15px;color:#6b4d62">有些模型能<strong>装在自己电脑上</strong>，不联网，数据不出门</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>敏感信息 → 别喂在线模型</span><span class="slide-number" data-current="31" data-total="38"></span></div>
+  <aside class="notes">
+    <p>最后提一个重要的坑：<strong>隐私</strong>。</p>
+    <p>你用联网的在线模型时，你发的内容是会传到网上的。<strong>身份证号、密码、病历、公司机密、客户信息——这些千万别喂进去</strong>。</p>
+    <p>好消息是，<strong>有些模型能装在自己电脑上，不联网运行</strong>，那样数据就不出门，更安全。后面我也会演示一个装在电脑上的工具。</p>
+    <p>但如果用在线的，<strong>敏感信息一定要忍住别说</strong>。这一条请大家务必记住。</p>
+  </aside>
+</section>
+
+<!-- 32. 你手机里的豆包 -->
+<section class="slide" data-title="你手机里的豆包">
+  <p class="kicker">第八课 · 认识这些工具</p>
+  <h2 class="h2">你手机里的「豆包」，是什么？</h2>
+  <p class="lede">手机应用商店就能下载的 AI 助手。打字聊天就能用——问答、写作、翻译，什么都行</p>
+  <div class="visual">
+    <div style="text-align:center">
+      <div style="display:inline-block;background:#3a1f33;border-radius:36px;padding:24px 18px;width:220px;position:relative">
+        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:70px;height:6px;background:#1a0f17;border-radius:3px"></div>
+        <div style="margin-top:18px;background:white;border-radius:20px;padding:16px 14px;text-align:left">
+          <div style="background:#f49bb8;color:white;border-radius:14px 14px 4px 14px;padding:8px 12px;font-size:13px;margin-bottom:8px;display:inline-block">什么是大模型？</div>
+          <div style="background:#f0f0f0;color:#333;border-radius:14px 14px 14px 4px;padding:8px 12px;font-size:13px;display:inline-block">大模型是一种 AI……</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:16px;color:#6b4d62">📱 手机应用商店搜「豆包」即可下载</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>豆包 = 手机里的通用 AI 助手</span><span class="slide-number" data-current="32" data-total="38"></span></div>
+  <aside class="notes">
+    <p>讲了这么多原理和技巧，现在<strong>认识几个真实的产品</strong>。先说你最可能用过的。</p>
+    <p><strong>豆包</strong>，手机应用商店搜一下就能下载。打开就是一个聊天界面，你打字问它什么都行——写东西、翻译、问知识。它就是一个<strong>通用的 AI 助手</strong>。</p>
+    <p>很多人可能已经在用了。它就是你手机里的那个「会聊天的 AI」。但是，<strong>它和接下来要讲的工具，有本质的区别</strong>。下一页我就告诉你，区别在哪。</p>
+  </aside>
+</section>
+
+<!-- 33. 豆包 vs ZCode -->
+<section class="slide" data-title="豆包vsZCode">
+  <p class="kicker">第八课</p>
+  <h2 class="h2">豆包和 ZCode，有什么不同？</h2>
+  <p class="lede">豆包是「什么都能聊」的助手；ZCode 是「专门帮你做东西、能直接动手」的 AI 编程助手（类似的还有 Claude Code 等，今天我们只看 ZCode）</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:1000px;align-items:stretch">
+      <div class="card" style="border-color:#f49bb8">
+        <div style="text-align:center;font-size:40px">📱</div>
+        <h3 style="text-align:center">豆包</h3>
+        <div style="font-size:14px;color:#6b4d62;line-height:1.9">
+          <div><strong>住哪：</strong>手机 app / 网页</div>
+          <div><strong>怎么用：</strong>打字聊天，一问一答</div>
+          <div><strong>能碰文件吗：</strong>不能</div>
+          <div><strong>给谁用：</strong>所有人</div>
+        </div>
+      </div>
+      <div class="card" style="border-color:#b5d5f0">
+        <div style="text-align:center;font-size:40px">💻</div>
+        <h3 style="text-align:center">ZCode</h3>
+        <div style="font-size:14px;color:#6b4d62;line-height:1.9">
+          <div><strong>住哪：</strong>电脑（双击打开的桌面应用）</div>
+          <div><strong>怎么用：</strong>委托任务，让它自己干<br><span style="font-size:12px;color:#a28a99">如「整理成表格」，它自己读、写、改</span></div>
+          <div><strong>能碰文件吗：</strong>能（读写文件、跑命令）</div>
+          <div><strong>给谁用：</strong>想让 AI 真正做出东西的人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>豆包=聊天助手 · ZCode=能动手的编程助手</span><span class="slide-number" data-current="33" data-total="38"></span></div>
+  <aside class="notes">
+    <p>豆包和 ZCode 有什么不同？这个区别很关键。</p>
+    <p><strong>豆包在手机上</strong>，你打字它回答，但它<strong>碰不到你的文件</strong>，不能帮你真正做出一个东西。</p>
+    <p><strong>ZCode 在电脑上</strong>，你把任务交给它，比如「帮我把这堆文件整理成表格」，<strong>它会自己读文件、自己写、自己改</strong>，不用你一步步指挥。它能直接读写你的文件、跑命令——真正帮你做出东西。</p>
+    <p>豆包适合所有人，ZCode 适合想让 AI <strong>真正动手做事</strong>的人。类似的工具还有 Claude Code 等，不过<strong>今天我们只看 ZCode</strong>。下一页告诉你，为什么选它。</p>
+  </aside>
+</section>
+
+<!-- 34. 为什么选ZCode -->
+<section class="slide" data-title="为什么选ZCode">
+  <p class="kicker">第八课</p>
+  <h2 class="h2">为什么我们用 ZCode？</h2>
+  <p class="lede">ZCode 是桌面应用，像普通软件一样双击打开就行——不用记命令、不用懂代码</p>
+  <div class="visual">
+    <div class="two-col" style="max-width:1000px;align-items:stretch">
+      <div class="card card-accent" style="flex:2">
+        <div style="text-align:center;font-size:48px">🪟</div>
+        <h3 style="text-align:center">ZCode（我们用的）</h3>
+        <div style="font-size:15px;color:#6b4d62;line-height:2;text-align:center">
+          <div>✅ 双击就能打开</div>
+          <div>✅ 像普通软件一样用</div>
+          <div>✅ 对新手友好</div>
+        </div>
+      </div>
+      <div class="card" style="flex:1;background:var(--surface-2)">
+        <div style="text-align:center;font-size:32px;opacity:0.6">⬛</div>
+        <h3 style="text-align:center;font-size:18px;color:#a28a99">类似的还有</h3>
+        <div style="font-size:13px;color:#a28a99;text-align:center;line-height:1.7">
+          <div>Claude Code</div>
+          <div style="font-size:12px">命令行工具<br>黑底白字敲命令<br>对新手门槛高</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:10px 16px;margin-top:14px;font-size:13px;color:#6b4d62;max-width:820px">（很多人把 Claude Code 听成「CloCode」，正确拼写是 Claude Code。但今天我们只看 ZCode，因为它最容易上手。）</div>
+  <div class="deck-footer"><span>ZCode = 对新手友好的编程助手</span><span class="slide-number" data-current="34" data-total="38"></span></div>
+  <aside class="notes">
+    <p>为什么我们选 ZCode 来演示？<strong>因为它对新手最友好</strong>。</p>
+    <p>它是桌面应用，<strong>双击就能打开</strong>，像用普通软件一样，不用记命令、不用懂代码。门槛非常低。</p>
+    <p>其实这类编程助手不止一个，比如<strong> Claude Code 也很有名</strong>，不过它是命令行工具，要敲命令，对新手门槛高。顺便说一下，很多人会把 Claude Code 听成 CloCode，正确的拼写是 Claude Code。</p>
+    <p>但今天<strong>我们只看 ZCode</strong>，因为它最容易上手。接下来我先讲一个关键概念——「技能」，然后现场给你演示。</p>
+  </aside>
+</section>
+
+<!-- 35. 什么是技能 -->
+<section class="slide" data-title="什么是技能">
+  <p class="kicker">第八课</p>
+  <h2 class="h2">什么是「技能」？</h2>
+  <p class="lede">大模型本身还是只会接龙。但可以给它配一个「外部程序」：模型还是一个字一个字地接，但接出的字连起来有时恰好是一串像指令的话，这时外部程序就认出来，替它去做</p>
+  <div class="visual">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;max-width:1000px">
+      <div class="card" style="min-width:130px;text-align:center"><div style="font-size:28px">🤖</div><div style="font-size:14px;font-weight:600">① 接字</div></div>
+      <span style="font-size:20px;color:var(--accent)">→</span>
+      <div class="card card-accent" style="min-width:130px;text-align:center"><div style="font-size:28px">💬</div><div style="font-size:13px;font-weight:600">② 连起来像<br>「去查天气」</div></div>
+      <span style="font-size:20px;color:var(--accent)">→</span>
+      <div class="card card-accent-2" style="min-width:130px;text-align:center"><div style="font-size:28px">🔍</div><div style="font-size:14px;font-weight:600">③ 程序认出<br>这是指令</div></div>
+      <span style="font-size:20px;color:var(--accent)">→</span>
+      <div class="card card-accent-3" style="min-width:130px;text-align:center"><div style="font-size:28px">✅</div><div style="font-size:13px;font-weight:600">④ 替它查好<br>塞回输入</div></div>
+      <span style="font-size:20px;color:var(--accent)">→</span>
+      <div class="card" style="min-width:110px;text-align:center;border-color:#9dd9a3"><div style="font-size:28px">🤖</div><div style="font-size:14px;font-weight:600">⑤ 接着接</div></div>
+    </div>
+  </div>
+  <div style="background:rgba(157,217,163,.2);border-left:4px solid #9dd9a3;border-radius:8px;padding:14px 20px;margin-top:18px;font-size:16px;color:#3a1f33;max-width:860px">✅ 所以「技能」<strong>没有打破接龙</strong>——它是在接龙外面套了一层帮手</div>
+  <div class="deck-footer"><span>技能 = 接龙外面的帮手程序</span><span class="slide-number" data-current="35" data-total="38"></span></div>
+  <aside class="notes">
+    <p>最后讲一个关键概念：<strong>技能</strong>。你可能会问：前面不是说大模型只会接龙吗？那它怎么能查天气、做 PPT？这不是矛盾吗？</p>
+    <p>答案是：<strong>大模型本身确实只会接龙</strong>。但我们可以给它配一个外部程序。模型还是一个字一个字地接，但<strong>接出的字连起来，有时恰好是一串像指令的话</strong>，比如「去查天气」。这时，那个外部程序就认出来，替它去查，再把结果塞回输入，让模型接着接下去。</p>
+    <p>（这里我停一下，让大家看清楚这个流程：接字，连起来像指令，程序认出来，替它做，塞回来，接着接。）</p>
+    <p>所以<strong>技能没有打破接龙</strong>，它只是在接龙外面套了一层帮手。下一页，我现场演示给你看，一看就懂。</p>
+  </aside>
+</section>
+
+<!-- 36. 现场演示 -->
+<section class="slide" data-title="现场演示">
+  <p class="kicker">现场演示</p>
+  <h2 class="h2">现在，我现场装一个技能给你看</h2>
+  <p class="lede">我们装一个叫 html-ppt 的开源技能（代码公开、免费）。装完后，ZCode 就学会了「做 PPT」这件事</p>
+  <div class="visual">
+    <div class="three-col" style="max-width:1000px">
+      <div class="card card-accent"><div style="font-size:32px;text-align:center">🪟</div><h3 style="text-align:center;font-size:18px">① 打开 ZCode</h3></div>
+      <div class="card card-accent-2"><div style="font-size:32px;text-align:center">⌨️</div><h3 style="text-align:center;font-size:18px">② 输入命令</h3><div class="terminal" style="margin-top:8px;font-size:11px"><pre style="padding:8px 10px">npx skills add<br>...lewislulu/html-ppt-skill</pre></div><div style="font-size:11px;color:#9dd9a3;margin-top:4px">开源、免费</div></div>
+      <div class="card card-accent-3"><div style="font-size:32px;text-align:center">✨</div><h3 style="text-align:center;font-size:18px">③ 说「做PPT」</h3><div style="font-size:13px;color:#6b4d62;margin-top:4px">看它调用技能生成</div></div>
+    </div>
+  </div>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:10px 16px;margin-top:14px;font-size:13px;color:#6b4d62;max-width:860px">💡 这条命令看不懂没关系，它只是给电脑的一句指令，等下我现场敲给大家看。「开源」意思是：代码公开，谁都能免费用</div>
+  <div style="background:rgba(247,208,138,.3);border:2px solid #f7d08a;border-radius:var(--radius-sm);padding:14px 20px;margin-top:12px;text-align:center;font-size:18px;color:#3a1f33;font-weight:600">👉 接下来切到 ZCode 现场演示</div>
+  <div class="deck-footer"><span>一条命令，让 AI 学会新本事</span><span class="slide-number" data-current="36" data-total="38"></span></div>
+  <aside class="notes">
+    <p>说了这么多，不如看真的。<strong>我现在切到 ZCode，现场装一个技能给大家看</strong>。</p>
+    <p>这个技能叫 html-ppt，开源免费，一条命令就能装。装这条命令大家可能看不懂，没关系，<strong>它只是给电脑的一句指令，等下我现场敲给大家看</strong>。「开源」的意思是：代码公开，谁都能免费用。</p>
+    <p>装完之后，我让它「做一份 PPT」，<strong>你们看它怎么调用这个技能，真的做出一份能在浏览器里放的幻灯片</strong>——其实大家现在看的这份 PPT，就是这么来的。</p>
+    <p>好，我们切过去。</p>
+  </aside>
+</section>
+
+<!-- 37. 四概念 + 自检清单 -->
+<section class="slide" data-title="四个概念+自检清单">
+  <p class="kicker">收尾</p>
+  <h2 class="h2">四个概念 + 一张自检清单</h2>
+  <div class="visual" style="flex-direction:column;gap:20px">
+    <div class="two-col" style="max-width:1000px">
+      <div class="card card-accent" style="padding:16px 20px"><h3 style="font-size:18px">💬 提示词</h3><p class="dim" style="font-size:13px">你给 AI 的话（就是我们前面一直说的「输入」）</p></div>
+      <div class="card card-accent-2" style="padding:16px 20px"><h3 style="font-size:18px">📜 上下文</h3><p class="dim" style="font-size:13px">这次对话里它能看到的全部</p></div>
+      <div class="card card-accent-3" style="padding:16px 20px"><h3 style="font-size:18px">🧠 记忆</h3><p class="dim" style="font-size:13px">也是外加的帮手，把重要信息存下来下次用，<strong>没违反「会忘」</strong></p></div>
+      <div class="memory-box" style="padding:16px 20px"><h3 style="font-size:18px">🛠️ 技能</h3><p class="dim" style="font-size:13px">接龙外面的帮手程序</p></div>
+    </div>
+    <div style="background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius);padding:18px 24px;max-width:760px;margin:0 auto">
+      <div style="font-size:16px;font-weight:700;color:#3a1f33;margin-bottom:10px;text-align:center">📋 下次对话前，对照检查</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;font-size:14px;color:#6b4d62">
+        <div>☐ 给角色了吗？</div><div>☐ 给例子了吗？</div>
+        <div>☐ 给背景了吗？</div><div>☐ 格式说了吗？</div>
+        <div>☐ 给成功标准了吗？</div><div>☐ 拆步骤了吗？</div>
+        <div style="grid-column:span 2">☐ 不满意，追问了吗？</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer"><span>提示词 · 上下文 · 记忆 · 技能</span><span class="slide-number" data-current="37" data-total="38"></span></div>
+  <aside class="notes">
+    <p>把今天讲的<strong>四个概念串起来</strong>。</p>
+    <p><strong>提示词</strong>，就是你给 AI 的话——就是我们前面一直说的「输入」，现在你知道它的正式名字了。</p>
+    <p><strong>上下文</strong>，是这次对话里它能看到的全部。</p>
+    <p><strong>记忆</strong>，要注意——它和技能一样是外面加的帮手，帮大模型把重要信息存下来，下次对话开始时塞回输入。所以它<strong>没有违反「大模型本身会忘」那一点</strong>，是帮手帮它记的。</p>
+    <p><strong>技能</strong>，就是接龙外面的帮手程序。</p>
+    <p>下面这张<strong>自检清单</strong>，下次和 AI 对话前对照看一下，保证你把信息给足了。养成这个习惯，你的 AI 使用体验会好很多。</p>
+  </aside>
+</section>
+
+<!-- 38. 总结 + Q&A -->
+<section class="slide cover-center" data-title="总结">
+  <div class="big-emoji mb-m" style="font-size:64px">🎯</div>
+  <h2 class="h2">一根线，串起电脑、程序、AI</h2>
+  <p class="lede" style="margin:14px auto;max-width:680px">输入 → 处理 → 输出，是贯穿始终的主线（电脑、程序、大模型都适用）</p>
+  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:14px 22px;margin:18px auto;max-width:680px;font-size:15px;color:#3a1f33">而工具（技能）和记忆，是建立在这条主线上的<strong>进阶能力</strong>——它们没有打破输入输出，只是在上面加了帮手</div>
   <div class="row mt-l" style="justify-content:center">
     <span class="tag tag-pink">输入</span>
     <span class="tag tag-blue">输出</span>
-    <span class="tag tag-yellow">上下文</span>
+    <span class="tag tag-yellow">好好说话</span>
   </div>
-  <div class="deck-footer"><span>谢谢</span><span class="slide-number" data-current="17" data-total="17"></span></div>
-  <div class="notes">
-    <p>总结今天的核心：电脑是盒子，程序是规则，AI 也是程序。它们都有输入和输出。大模型能连续对话，靠的不是它自己记得，而是程序把历史一次次塞进去。上下文有限，所以重要信息要靠技能调用和记忆存储。谢谢大家。</p>
-  </div>
+  <div style="font-size:28px;font-weight:700;color:#3a1f33;margin-top:24px">有问题吗？</div>
+  <div class="deck-footer"><span>谢谢</span><span class="slide-number" data-current="38" data-total="38"></span></div>
+  <aside class="notes">
+    <p>最后总结一下。今天，<strong>一根线串起了所有</strong>：输入、处理、输出。</p>
+    <p>电脑是盒子，程序是清单，大模型也是一种输入输出，只不过它靠续字。而技能和记忆，是建立在这条主线上的<strong>进阶能力</strong>——它们没有打破输入输出，只是在外面加了帮手。</p>
+    <p>记住三个词就够了：<strong>输入、输出、好好说话</strong>。把信息给足，AI 就能帮上大忙。</p>
+    <p>谢谢大家，有问题吗？</p>
+  </aside>
 </section>
 
 </div>

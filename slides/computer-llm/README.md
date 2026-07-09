@@ -1,8 +1,39 @@
-# tech-sharing · 技术分享
+# 小白也能懂：电脑、大模型与 AI 编程助手
 
-8-slide engineering talk deck: cover (topic + speaker), agenda, context, two deep-dive slides, a code example, takeaways, Q&A.
+一份给完全不懂电脑和大模型的小白，讲透「怎么和大模型对话」的科普 PPT。
 
-Dark GitHub-ish palette (`#0d1117`) with JetBrains Mono accents and syntax-highlighted terminal blocks. Built to be screenshotted and shared on an internal wiki or Twitter.
+从「输入输出」两个最基础的概念出发，一层层带你看懂电脑、程序、大模型的原理，最终落到：**为什么不能随便和 AI 说话，怎样才是好的对话方式，背后的原理是什么**。并认识豆包（手机端通用助手）和 ZCode（电脑端 AI 编程助手）的区别。
 
-**Use when:** tech-sharing Fridays, brown-bag talks, lunch & learns, conference submissions.
-**Feel:** GitHub README meets a good conference talk — dark, monospaced, dense but readable.
+## 在线访问
+
+打开网页直接用，方向键翻页：
+
+- 👉 `https://ssx86.github.io/slides/computer-llm/`
+
+## 使用方法
+
+| 操作 | 效果 |
+|---|---|
+| `←` `→` / Space | 翻页 |
+| `F` | 全屏 |
+| `S` | 演讲者模式（弹出窗口，含当前页/下一页预览 + 逐字稿 + 计时器） |
+| `O` | 总览所有页面 |
+| `#/N`（URL） | 直接跳到第 N 页 |
+
+## 内容结构（38 页 · 8 段）
+
+- **A 地基**（P1-6）：输入输出盒子模型 → 程序是清单 → 代码是菜谱/运行是炒菜
+- **B 大模型原理**（P7-12）：故事接龙（预测下一个字）→ 语言直觉 → 多轮对话真相 → 上下文有限
+- **C 能力边界**（P13-15）：训练 → 规律≠事实会幻觉 → 会顺着你
+- **D 核心：为什么不能随便说**（P16-19）：输入是唯一依据 → 没给的只能猜 → 随便说vs说清楚对比
+- **E 怎样好好说话**（P20-27）：给角色/背景/标准/例子/格式/拆步骤/迭代 七个动作
+- **F 避坑**（P28-31）：它忘了怎么办 → 怎么提问不被带歪 → 什么时候别用 → 隐私
+- **G 认识工具**（P32-35）：豆包是什么 → 豆包vsZCode → 为什么选ZCode → 技能是什么
+- **H 演示收尾**（P36-38）：现场装技能演示 → 四概念+自检清单 → 总结
+
+## 制作说明
+
+- 用 [html-ppt](https://github.com/lewislulu/html-ppt-skill) 技能制作
+- 大纲详见 `OUTLINE.md`，经 `beginner-brain-audit` 技能三轮认知模拟审核达标
+- 审核记录见 `AUDIT.md`（三轮）和 `brain.md`（大脑逐页演化）
+- 柔粉/淡蓝马卡龙配色，纯静态 HTML/CSS/JS，仅依赖 CDN 字体
