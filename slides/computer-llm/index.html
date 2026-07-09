@@ -263,19 +263,19 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
   <p class="lede">第二轮的输入，是把「前面所有对话 + 你的新问题」拼起来，重新喂给它一次</p>
   <div class="visual">
     <div class="context-box">
-      <div class="line">🧑 第一轮：你好</div>
-      <div class="line">🤖 第一轮：你好！有什么可以帮你？</div>
-      <div class="line">🧑 第二轮：<span class="highlight-pink">（前面说过的话）</span> + 今天北京天气</div>
-      <div class="line">🤖 第二轮：北京今天晴天。</div>
+      <div class="line">🧑 第一轮：我叫小明</div>
+      <div class="line">🤖 第一轮：你好，小明！</div>
+      <div class="line">🧑 第二轮：<span class="highlight-pink">（前面说过的话）</span> + 我叫什么名字？</div>
+      <div class="line">🤖 第二轮：你叫小明。</div>
     </div>
   </div>
   <div style="background:var(--surface-2);border:1px dashed var(--border-strong);border-radius:var(--radius-sm);padding:12px 18px;margin-top:18px;font-size:14px;color:#6b4d62;max-width:820px">💡 这一整段拼起来的输入，我们叫它「<strong>上下文</strong>」。补充：输入其实通常分两层——一层是你这次说的话，一层是每次都固定带上的「设定」。后面讲对话技巧时会用到。</div>
   <div class="deck-footer"><span>上下文 = 历史对话 + 新问题</span><span class="slide-number" data-current="11" data-total="38"></span></div>
   <aside class="notes">
     <p>你以为它记得前面聊过什么？<strong>其实不是</strong>。</p>
-    <p>每次你发一条新消息，程序都会<strong>把「前面所有的对话」加上「你这次的新问题」，拼成一整段</strong>，重新喂给大模型。它看了这一整段，再续出回复。</p>
-    <p>这一整段拼起来的输入，有个名字，叫「<strong>上下文</strong>」。记住这个词，后面经常用。</p>
-    <p>顺便说一个细节，后面会用到：<strong>输入其实分两层</strong>——一层是你这次说的话，一层是每次都固定带上的「设定」。这个先记着，讲到对话技巧时我就不绕了。</p>
+    <p>比如第一轮你说「我叫小明」，第二轮你问「我叫什么名字？」。它为什么能答出「小明」？<strong>不是它自己记得</strong>，而是程序把「前面所有对话 + 你这次的新问题」拼成一整段，重新喂给它。它看了这一整段，才答得出来。</p>
+    <p>要是把第一轮那段历史丢掉，只给它「我叫什么名字？」——它根本答不出来。这就说明了<strong>历史必须带上</strong>。</p>
+    <p>这一整段拼起来的输入，有个名字，叫「<strong>上下文</strong>」。顺便说一个细节，后面会用到：<strong>输入其实分两层</strong>——一层是你这次说的话，一层是每次都固定带上的「设定」。这个先记着。</p>
   </aside>
 </section>
 
@@ -346,7 +346,7 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
       <div class="card" style="border-top:4px solid #ef9a9a">
         <div style="font-size:32px">❌</div>
         <h3>冷知识它没见过</h3>
-        <div style="font-size:15px;color:#6b4d62">也照「最顺口的接法」<br>填一个看起来像答案的假东西<span style="color:#c55;font-weight:600">（错）</span></div>
+        <div style="font-size:14px;color:#6b4d62">问「苏轼的妹妹叫什么？」<br>→ 它言之凿凿编出「苏小妹，嫁给了秦观……」<br><span style="color:#c55;font-weight:600">（历史上根本没有苏小妹）</span></div>
       </div>
     </div>
   </div>
@@ -355,8 +355,8 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
   <aside class="notes">
     <p>既然它只记规律、不记事实，那就会出问题。<strong>它每次给的，都是「最可能的下一个字」，不是「事实真相」</strong>。</p>
     <p>看个对比。左边：它知道「故宫在」后面常跟「北京」，所以填「北京」——这是<strong>对的</strong>，因为这条规律它见过太多次。</p>
-    <p>右边：但如果你问它一个<strong>它没见过的冷知识</strong>，它也不会说「我不知道」，它照样按「最顺口的接法」，给你填一个看起来像答案的东西——结果就是<strong>错的，假的</strong>。</p>
-    <p>AI 圈管这种一本正经胡说叫「<strong>幻觉</strong>」。特别说明一下，跟人生病的幻觉不是一回事，只是借了这个词。所以你用 AI，<strong>不能它说什么就信什么，重要的事一定要核实</strong>。</p>
+    <p>右边：但如果你问它一个<strong>它没见过的冷知识</strong>，比如「苏轼的妹妹叫什么」，它也不会说「我不知道」，它照样按「最顺口的接法」，给你编出「苏小妹，嫁给了秦观」——<strong>历史上根本没有苏小妹这个人</strong>，但它说得言之凿凿。</p>
+    <p>AI 圈管这种一本正经胡说叫「<strong>幻觉</strong>」。跟人生病的幻觉不是一回事，只是借了这个词。所以你用 AI，<strong>不能它说什么就信什么，重要的事一定要核实</strong>。</p>
   </aside>
 </section>
 
@@ -653,16 +653,16 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
   <h2 class="h2">它忘了怎么办？三个动作</h2>
   <div class="visual">
     <div class="three-col" style="max-width:960px">
-      <div class="card card-accent"><div style="font-size:32px">⬆️</div><h3>① 放开头</h3><div style="font-size:14px;color:#6b4d62">关键信息放开头，因为最早的最容易被丢</div></div>
+      <div class="card card-accent"><div style="font-size:32px">🔁</div><h3>① 需要时再提</h3><div style="font-size:14px;color:#6b4d62">重要的事，需要时再说一遍（别指望它记得前面说过）</div></div>
       <div class="card card-accent-2"><div style="font-size:32px">🔁</div><h3>② 重复</h3><div style="font-size:14px;color:#6b4d62">必要时，重复一遍重要的事</div></div>
       <div class="card card-accent-3"><div style="font-size:32px">📌</div><h3>③ 放设定层</h3><div style="font-size:14px;color:#6b4d62">放进每次都带的「设定」里（第 11 页提过的那层）</div></div>
     </div>
   </div>
-  <div class="deck-footer"><span>放前面 · 重复 · 放设定层</span><span class="slide-number" data-current="28" data-total="38"></span></div>
+  <div class="deck-footer"><span>需要时再提 · 重复 · 放设定层</span><span class="slide-number" data-current="28" data-total="38"></span></div>
   <aside class="notes">
     <p>前面讲了它会忘，那<strong>它忘了怎么办？三个动作</strong>。</p>
-    <p>第一，<strong>关键信息放开头</strong>。因为最早聊的最容易被丢，但你<strong>把重要的放最前面</strong>，反而……不对，应该说，重要的信息要在对话里反复出现，不容易被挤掉。</p>
-    <p>第二，<strong>必要时重复一遍</strong>。隔几句就把关键要求再强调一次。</p>
+    <p>第一，<strong>重要的事，需要时再说一遍</strong>。前面讲过，聊久了最早的内容会被丢掉，所以<strong>别指望它记得很久以前说过的话</strong>。关键信息到了相关的地方，再提一次。</p>
+    <p>第二，<strong>必要时整段重复</strong>。隔几句就把关键要求再强调一次，确保它还在上下文里。</p>
     <p>第三，<strong>放进每次都带的「设定」里</strong>——还记得第 11 页说的吗？输入分两层，有一层是每次都固定带上的「设定」。把最重要的东西放进那层，它每次都会带上，就不容易忘。</p>
   </aside>
 </section>
@@ -850,27 +850,27 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
 <section class="slide" data-title="什么是技能">
   <p class="kicker">第八课</p>
   <h2 class="h2">什么是「技能」？</h2>
-  <p class="lede">大模型本身还是只会接龙。但可以给它配一个「外部程序」：模型还是一个字一个字地接，但接出的字连起来有时恰好是一串像指令的话，这时外部程序就认出来，替它去做</p>
+  <p class="lede">大模型本身还是只会接龙。但可以给它配一份「说明书」：当你聊到相关的事，运行时就会悄悄把这份说明书塞进大模型的输入里。模型读了说明书，就知道自己多了个本事</p>
   <div class="visual">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;max-width:1000px">
-      <div class="card" style="min-width:130px;text-align:center"><div style="font-size:28px">🤖</div><div style="font-size:14px;font-weight:600">① 接字</div></div>
+      <div class="card" style="min-width:140px;text-align:center"><div style="font-size:28px">📄</div><div style="font-size:13px;font-weight:600">① 一份说明书<br>存在电脑上</div></div>
       <span style="font-size:20px;color:var(--accent)">→</span>
-      <div class="card card-accent" style="min-width:130px;text-align:center"><div style="font-size:28px">💬</div><div style="font-size:13px;font-weight:600">② 连起来像<br>「去查天气」</div></div>
+      <div class="card card-accent" style="min-width:120px;text-align:center"><div style="font-size:28px">💬</div><div style="font-size:13px;font-weight:600">② 你聊到<br>相关的事</div></div>
       <span style="font-size:20px;color:var(--accent)">→</span>
-      <div class="card card-accent-2" style="min-width:130px;text-align:center"><div style="font-size:28px">🔍</div><div style="font-size:14px;font-weight:600">③ 程序认出<br>这是指令</div></div>
+      <div class="card card-accent-2" style="min-width:130px;text-align:center"><div style="font-size:28px">📥</div><div style="font-size:13px;font-weight:600">③ 说明书悄悄<br>塞进输入里</div></div>
       <span style="font-size:20px;color:var(--accent)">→</span>
-      <div class="card card-accent-3" style="min-width:130px;text-align:center"><div style="font-size:28px">✅</div><div style="font-size:13px;font-weight:600">④ 替它查好<br>塞回输入</div></div>
+      <div class="card card-accent-3" style="min-width:130px;text-align:center"><div style="font-size:28px">🧠</div><div style="font-size:13px;font-weight:600">④ 模型读了<br>知道自己有这本事</div></div>
       <span style="font-size:20px;color:var(--accent)">→</span>
-      <div class="card" style="min-width:110px;text-align:center;border-color:#9dd9a3"><div style="font-size:28px">🤖</div><div style="font-size:14px;font-weight:600">⑤ 接着接</div></div>
+      <div class="card" style="min-width:110px;text-align:center;border-color:#9dd9a3"><div style="font-size:28px">✨</div><div style="font-size:13px;font-weight:600">⑤ 照着去做</div></div>
     </div>
   </div>
-  <div style="background:rgba(157,217,163,.2);border-left:4px solid #9dd9a3;border-radius:8px;padding:14px 20px;margin-top:18px;font-size:16px;color:#3a1f33;max-width:860px">✅ 所以「技能」<strong>没有打破接龙</strong>——它是在接龙外面套了一层帮手</div>
-  <div class="deck-footer"><span>技能 = 接龙外面的帮手程序</span><span class="slide-number" data-current="35" data-total="38"></span></div>
+  <div style="background:rgba(157,217,163,.2);border-left:4px solid #9dd9a3;border-radius:8px;padding:14px 20px;margin-top:18px;font-size:16px;color:#3a1f33;max-width:860px">✅ 所以「技能」<strong>没有打破接龙</strong>——它是在大模型的输入里，悄悄多塞了一份说明书，让模型知道自己多了个本事</div>
+  <div class="deck-footer"><span>技能 = 塞进输入的说明书</span><span class="slide-number" data-current="35" data-total="38"></span></div>
   <aside class="notes">
-    <p>最后讲一个关键概念：<strong>技能</strong>。你可能会问：前面不是说大模型只会接龙吗？那它怎么能查天气、做 PPT？这不是矛盾吗？</p>
-    <p>答案是：<strong>大模型本身确实只会接龙</strong>。但我们可以给它配一个外部程序。模型还是一个字一个字地接，但<strong>接出的字连起来，有时恰好是一串像指令的话</strong>，比如「去查天气」。这时，那个外部程序就认出来，替它去查，再把结果塞回输入，让模型接着接下去。</p>
-    <p>（这里我停一下，让大家看清楚这个流程：接字，连起来像指令，程序认出来，替它做，塞回来，接着接。）</p>
-    <p>所以<strong>技能没有打破接龙</strong>，它只是在接龙外面套了一层帮手。下一页，我现场演示给你看，一看就懂。</p>
+    <p>最后讲一个概念：<strong>技能</strong>。你可能会问，前面说大模型只会接龙，那它怎么能做 PPT、查东西？</p>
+    <p>答案是：<strong>大模型本身确实只会接龙</strong>。但我们可以给它配一份「<strong>说明书</strong>」——写清楚"你能做什么、什么时候做、怎么做"。这份说明书平时不在对话里，存在电脑上。</p>
+    <p>当你聊到相关的事，<strong>运行时就会悄悄把这份说明书塞进大模型的输入里</strong>。模型读了说明书，就知道"哦，我有这个本事，现在该用它了"，然后照着去做。</p>
+    <p>所以<strong>技能没有打破接龙</strong>，它只是在输入里悄悄多塞了一份说明书，让模型知道自己多了个本事。下一页我现场演示，你们看装一个技能，其实就是装一份说明书。</p>
   </aside>
 </section>
 
@@ -883,7 +883,7 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
     <div class="three-col" style="max-width:1000px">
       <div class="card card-accent"><div style="font-size:32px;text-align:center">🪟</div><h3 style="text-align:center;font-size:18px">① 打开 ZCode</h3></div>
       <div class="card card-accent-2"><div style="font-size:32px;text-align:center">⌨️</div><h3 style="text-align:center;font-size:18px">② 输入命令</h3><div class="terminal" style="margin-top:8px;font-size:11px"><pre style="padding:8px 10px">npx skills add<br>...lewislulu/html-ppt-skill</pre></div><div style="font-size:11px;color:#9dd9a3;margin-top:4px">开源、免费</div></div>
-      <div class="card card-accent-3"><div style="font-size:32px;text-align:center">✨</div><h3 style="text-align:center;font-size:18px">③ 说「做PPT」</h3><div style="font-size:13px;color:#6b4d62;margin-top:4px">看它调用技能生成</div></div>
+      <div class="card card-accent-3"><div style="font-size:32px;text-align:center">✨</div><h3 style="text-align:center;font-size:18px">③ 说「做PPT」</h3><div style="font-size:13px;color:#6b4d62;margin-top:4px">看它用上技能生成</div></div>
     </div>
   </div>
   <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:10px 16px;margin-top:14px;font-size:13px;color:#6b4d62;max-width:860px">💡 这条命令看不懂没关系，它只是给电脑的一句指令，等下我现场敲给大家看。「开源」意思是：代码公开，谁都能免费用</div>
@@ -906,7 +906,7 @@ now = time.strftime(<span class="code-str">"%H:%M:%S"</span>)
       <div class="card card-accent" style="padding:16px 20px"><h3 style="font-size:18px">💬 提示词</h3><p class="dim" style="font-size:13px">你给 AI 的话（就是我们前面一直说的「输入」）</p></div>
       <div class="card card-accent-2" style="padding:16px 20px"><h3 style="font-size:18px">📜 上下文</h3><p class="dim" style="font-size:13px">这次对话里它能看到的全部</p></div>
       <div class="card card-accent-3" style="padding:16px 20px"><h3 style="font-size:18px">🧠 记忆</h3><p class="dim" style="font-size:13px">也是外加的帮手，把重要信息存下来下次用，<strong>没违反「会忘」</strong></p></div>
-      <div class="memory-box" style="padding:16px 20px"><h3 style="font-size:18px">🛠️ 技能</h3><p class="dim" style="font-size:13px">接龙外面的帮手程序</p></div>
+      <div class="memory-box" style="padding:16px 20px"><h3 style="font-size:18px">🛠️ 技能</h3><p class="dim" style="font-size:13px">塞进输入的说明书（让模型多一个本事）</p></div>
     </div>
     <div style="background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius);padding:18px 24px;max-width:760px;margin:0 auto">
       <div style="font-size:16px;font-weight:700;color:#3a1f33;margin-bottom:10px;text-align:center">📋 下次对话前，对照检查</div>
