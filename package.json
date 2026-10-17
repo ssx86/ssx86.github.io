@@ -1,0 +1,10 @@
+{
+  "name": "ssx86.github.io",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "build": "astro build",
+    "deploy": "npm run build && gh-pages -d dist -b deploy --dotfiles"
+  }
+}
